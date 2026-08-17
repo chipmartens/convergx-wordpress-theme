@@ -41,8 +41,11 @@ $n=0; $imgs=0;
 foreach ( $say as $slug => $d ) {
     $p = get_page_by_path( 'industries/'.$slug );
     if ( ! $p ) { continue; }
-    if ( $d['say'] )      { update_field( 'say', $d['say'], $p->ID ); }
-    if ( $d['say_body'] ) { update_field( 'say_body', $d['say_body'], $p->ID ); }
+    // Unconditional, so clearing a value in cx-say.json also clears it on a
+    // seeded install. The band paragraphs live in the sections; say_body only
+    // carries copy the sections do not.
+    update_field( 'say', $d['say'], $p->ID );
+    update_field( 'say_body', $d['say_body'], $p->ID );
 
     if ( $d['hero'] && ! convergx_field('hero_image',$p->ID) ) {
         $src = $dir.$d['hero'];

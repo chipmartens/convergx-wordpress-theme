@@ -158,9 +158,14 @@ function convergx_speakers() {
 		}
 
 		$row = array(
-			'name'    => $name,
-			'role'    => (string) convergx_field( 'role', $post->ID ),
-			'billing' => (string) convergx_field( 'billing', $post->ID ),
+			'name'     => $name,
+			'role'     => (string) convergx_field( 'role', $post->ID ),
+			// The overlay's own role line, which can state more fully what the
+			// card abbreviates. Deliberately NO fallback to the card role:
+			// empty means the overlay renders no role line, because some
+			// speakers publish no title and omitted is the honest state.
+			'bio_role' => (string) convergx_field( 'bio_role', $post->ID ),
+			'billing'  => (string) convergx_field( 'billing', $post->ID ),
 			'feature' => (bool) convergx_field( 'feature', $post->ID ),
 			'photo'   => get_post_thumbnail_id( $post->ID ),
 			'bio'     => trim( (string) apply_filters( 'the_content', $post->post_content ) ),

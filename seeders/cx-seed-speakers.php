@@ -36,6 +36,10 @@ foreach ( $rows as $r ) {
 
     update_post_meta( $id, '_cx_seed_slug', $r['slug'] );
     update_field( 'role', $r['role'], $id );
+    // A row without a bio_role key shows the card role on the overlay too.
+    // An explicit "" means the overlay renders no role line (Tracy LaTourette:
+    // ConvergX publishes no title for her, so the static overlay omits it).
+    update_field( 'bio_role', array_key_exists( 'bio_role', $r ) ? $r['bio_role'] : $r['role'], $id );
     update_field( 'billing', $r['billing'], $id );
     update_field( 'feature', $r['feature'] ? 1 : 0, $id );
 

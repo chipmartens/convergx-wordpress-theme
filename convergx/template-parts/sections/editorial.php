@@ -106,7 +106,15 @@ if ( $convergx_band ) :
 							<p class="label label--lo"><?php echo esc_html( $ev['meta'] ); ?></p>
 						<?php endif; ?>
 						<?php if ( ! empty( $ev['desc'] ) ) : ?>
-							<p class="store-desc"><?php echo wp_kses_post( $ev['desc'] ); ?></p>
+							<?php
+							// A description can run to more than one paragraph
+							// (the static store items do). Paragraphs are split
+							// on a blank line; a single-paragraph desc renders
+							// exactly as before.
+							foreach ( preg_split( '/\R\s*\R/', (string) $ev['desc'], -1, PREG_SPLIT_NO_EMPTY ) as $convergx_desc_para ) :
+								?>
+								<p class="store-desc"><?php echo wp_kses_post( trim( $convergx_desc_para ) ); ?></p>
+							<?php endforeach; ?>
 						<?php endif; ?>
 						<?php if ( ! empty( $ev['url'] ) ) : ?>
 							<p class="store-act">

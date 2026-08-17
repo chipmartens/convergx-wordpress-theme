@@ -4,12 +4,12 @@
  *
  * Port of the static /congress/register/ page.
  *
- * ORDER IS THE WHOLE POINT, and it is what stops this page becoming a ticket
- * page. Hero, then who the room is for and the fact that attendees are vetted,
- * and only THEN the prices. Never reorder so a price appears above the
- * admission standard. This is enforced in markup here rather than left to a
- * drag-and-drop field, because a Flexible Content field would make the one
- * forbidden edit the easiest edit in the interface.
+ * ORDER MATCHES THE STATIC PAGE'S 2026-08-14 REBUILD: hero, then pricing, then
+ * who the three days are for. The admission standard moved INTO the who-for
+ * copy as its own vetting line, so nothing about standing is lost by the
+ * pricing coming first. The order is enforced in markup here rather than left
+ * to a drag-and-drop field, because a Flexible Content field would make a
+ * reorder the easiest edit in the interface.
  *
  * THE HONESTY CONDITION. Payment is taken by WooCommerce, and this page never
  * implies otherwise. There is no cart, no quantity selector, no total-to-pay
@@ -45,25 +45,6 @@ while ( have_posts() ) :
 	</section>
 
 	<hr class="rule-double">
-
-	<?php
-	// ------------------------------------------------------------------
-	// WHO THE ROOM IS FOR. Sits ABOVE the prices. See the note at the top.
-	// ------------------------------------------------------------------
-	if ( get_the_content() ) :
-		?>
-		<section>
-			<div class="wrap">
-				<div class="sec-head">
-					<h2><?php esc_html_e( 'Who the three days are for', 'convergx' ); ?></h2>
-					<span class="label label--lo label--edge"><?php esc_html_e( 'Who is here', 'convergx' ); ?></span>
-				</div>
-				<div class="editorial">
-					<div class="body"><?php the_content(); ?></div>
-				</div>
-			</div>
-		</section>
-	<?php endif; ?>
 
 	<?php if ( $passes ) : ?>
 		<section>
@@ -127,23 +108,17 @@ while ( have_posts() ) :
 							 * changes and nothing announces it. Requiring the
 							 * date means an unverified total cannot render at
 							 * all: whoever clears the date clears the number.
-							 * A reader who meets a different figure at checkout
-							 * needs to know when ours was taken.
+							 * The date itself is field metadata rather than page
+							 * copy: the static page prints no check date, so
+							 * neither does this one.
+							 *
+							 * The field may carry a <strong> around its opening
+							 * "Total at checkout" sentence, matching the static
+							 * markup; nothing else passes.
 							 */
 							if ( $total && $verified ) :
 								?>
-								<p class="store-total">
-									<strong><?php echo esc_html( $total ); ?></strong>
-									<span class="store-asof">
-										<?php
-										printf(
-											/* translators: %s: ISO date the total was measured. */
-											esc_html__( 'Checked %s.', 'convergx' ),
-											esc_html( $verified )
-										);
-										?>
-									</span>
-								</p>
+								<p class="store-total"><?php echo wp_kses( $total, array( 'strong' => array() ) ); ?></p>
 							<?php endif; ?>
 
 							<?php if ( $includes ) : ?>
@@ -183,6 +158,26 @@ while ( have_posts() ) :
 						</li>
 					<?php endforeach; ?>
 				</ul>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php
+	// ------------------------------------------------------------------
+	// WHO THE ROOM IS FOR. Sits BELOW the prices, matching the static
+	// page's 2026-08-14 rebuild. See the note at the top.
+	// ------------------------------------------------------------------
+	if ( get_the_content() ) :
+		?>
+		<section>
+			<div class="wrap">
+				<div class="sec-head">
+					<h2><?php esc_html_e( 'Who the three days are for', 'convergx' ); ?></h2>
+					<span class="label label--lo label--edge"><?php esc_html_e( 'Who is here', 'convergx' ); ?></span>
+				</div>
+				<div class="editorial">
+					<div class="body"><?php the_content(); ?></div>
+				</div>
 			</div>
 		</section>
 	<?php endif; ?>

@@ -71,10 +71,30 @@ function convergx_team_card( $p ) {
 }
 ?>
 
+<?php
+/*
+ * TWO SECTIONS, NOT ONE, and that is what the layout depends on.
+ *
+ * The heading sits in #leadership with an EMPTY .editorial beside it, and the
+ * cards live in their own following section. The empty editorial is not a
+ * leftover: it holds the grid rail open so the heading occupies the same column
+ * as every other section head on the site.
+ *
+ * Collapsing the two into one wrap, with .team-list as a sibling of .sec-head,
+ * is what pushed the cards into the heading's own column: the photographs lost
+ * their track, the first two members rendered as text with a blank rail beside
+ * them, and the portraits reflowed below out of order.
+ */
+?>
 <section id="leadership">
 	<div class="wrap">
 		<?php convergx_section_head( __( 'Our team', 'convergx' ), __( 'Leadership', 'convergx' ) ); ?>
+		<div class="editorial"></div>
+	</div>
+</section>
 
+<section>
+	<div class="wrap">
 		<?php if ( $convergx_team['feature'] ) : ?>
 			<div class="team-list">
 				<?php foreach ( $convergx_team['feature'] as $p ) : ?>
@@ -124,8 +144,11 @@ foreach ( $convergx_team['all'] as $p ) :
 					<div class="bio-text">
 						<h2 class="bio-name" id="bio-<?php echo esc_attr( $p['slug'] ); ?>-name"><?php echo esc_html( $p['name'] ); ?></h2>
 						<?php if ( $p['role'] || $p['org'] ) : ?>
+							<?php // Role over organisation on two lines, exactly as the static overlays set them. ?>
 							<p class="bio-role">
-								<?php echo esc_html( trim( $p['role'] . ( $p['role'] && $p['org'] ? ', ' : '' ) . $p['org'] ) ); ?>
+								<?php echo esc_html( $p['role'] ); ?>
+								<?php if ( $p['role'] && $p['org'] ) : ?><br><?php endif; ?>
+								<?php echo esc_html( $p['org'] ); ?>
 							</p>
 						<?php endif; ?>
 						<div class="bio-prose"><?php echo wp_kses_post( $p['bio'] ); ?></div>

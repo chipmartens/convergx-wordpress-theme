@@ -129,8 +129,8 @@ foreach ( $convergx_sp['all'] as $s ) :
 					?>
 					<div class="bio-text">
 						<h2 class="bio-name" id="bio-<?php echo esc_attr( $s['slug'] ); ?>-name"><?php echo esc_html( $s['name'] ); ?></h2>
-						<?php if ( ! empty( $s['role'] ) ) : ?>
-							<p class="bio-role"><?php echo esc_html( $s['role'] ); ?></p>
+						<?php if ( ! empty( $s['bio_role'] ) ) : ?>
+							<p class="bio-role"><?php echo esc_html( $s['bio_role'] ); ?></p>
 						<?php endif; ?>
 						<div class="bio-prose"><?php echo wp_kses_post( $s['bio'] ); ?></div>
 					</div>

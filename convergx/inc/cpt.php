@@ -142,6 +142,13 @@ function convergx_register_people_fields() {
 					'instructions' => 'Title and organisation, or the talk title for a keynote. Shown under the name on the card.',
 				),
 				array(
+					'key'          => 'field_convergx_sp_bio_role',
+					'label'        => 'Role on the bio overlay',
+					'name'         => 'bio_role',
+					'type'         => 'text',
+					'instructions' => 'Exactly what the overlay shows under the name, which can state a role more fully than the card abbreviates it. Empty renders no role line at all: some speakers publish no title, and omitted is the honest state.',
+				),
+				array(
 					'key'          => 'field_convergx_sp_billing',
 					'label'        => 'Billing',
 					'name'         => 'billing',

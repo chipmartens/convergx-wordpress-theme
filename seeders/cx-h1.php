@@ -1,6 +1,6 @@
 <?php
 /** Set each page's headline scale from the static site's own h1 class. */
-$map = json_decode( file_get_contents('/tmp/cx-h1.json'), true );
+$map = json_decode( file_get_contents( __DIR__ . '/data/cx-h1.json' ), true );
 $n=0;
 foreach ( $map as $path => $cls ) {
     $path = trim((string)$path,'/');

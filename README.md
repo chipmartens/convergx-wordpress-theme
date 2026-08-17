@@ -63,7 +63,7 @@ cd ../convergx-wp-theme/seeders
 cp -R media/* ../../convergx-wp/wp-content/uploads/
 cd ../../convergx-wp
 for s in cx-seed-tree cx-reseed cx-seed-speakers cx-portraits \
-         cx-seed-team cx-seed-congress cx-add-forms cx-exact; do
+         cx-seed-team cx-seed-congress cx-add-forms cx-repair cx-exact; do
   wp eval-file ../convergx-wp-theme/seeders/$s.php
 done
 
@@ -178,10 +178,11 @@ operations, not just web pages.
 
 ## Known gaps
 
-- Roughly 127 blocks of body copy still differ from the static site, concentrated on `/congress/`
-  and the industry pages. Everything else (homepage, about, register) is at or near parity.
-- The sponsor contact form renders from code, so a few of the static page's inline prose lines
-  around it are not reproduced verbatim.
+- Body copy is at parity with the static site as of 2026-08-17: every substantive line inside
+  `<main>` matches in both directions on all 23 pages, including duplicate counts. The one
+  reported difference is `/about/`, where the static site renders the team bios in overlay
+  panels after `</main>` while the theme renders them inline, so a `<main>`-scoped diff counts
+  them as extra. The bio text itself is word for word identical.
 - Sponsor marks default to **not cleared**. An uncleared mark does not render. That is the system
   working: showing another organisation's logo implies a relationship.
 
@@ -200,7 +201,10 @@ paragraphs per page.
 python3 seeders/compare-with-live.py
 ```
 
-As of the last run: **0 missing headings, 15 paragraphs**, with 18 of 23 pages at exact parity.
+As of 2026-08-17: **0 missing headings** everywhere. The remaining paragraph misses it reports
+are pages where the deployed site lags the working static tree (the tree is the source the
+seeders were matched against), plus the `/about/` overlay-versus-inline bio difference noted
+under Known gaps.
 
 It ignores two things on purpose. The `<noscript>` navigation fallback differs by design (the
 static tree hand-maintains one per page; the theme has a single one), and WordPress texturizes

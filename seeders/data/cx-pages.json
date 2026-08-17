@@ -111,7 +111,7 @@
    {
     "heading": "Nothing was sent",
     "eyebrow": "State",
-    "lede": "This form is staged. It records nothing and delivers nothing, and this state exists so it can be reviewed before the site is frozen.",
+    "lede": "",
     "body": ""
    }
   ]
@@ -130,7 +130,7 @@
    {
     "heading": "Six questions",
     "eyebrow": "The form",
-    "lede": "This form is staged. It records nothing and delivers nothing, and this state exists so it can be reviewed before the site is frozen.",
+    "lede": "",
     "body": ""
    },
    {
@@ -239,7 +239,9 @@
   "title": "The Congress app",
   "h1": "Your agenda lives in the app",
   "desc": "Your agenda, the people in the room and the meetings ConvergX brokers, on your phone. Push reaches Android only.",
-  "ledes": [],
+  "ledes": [
+   "Sessions, the people in the room and the meetings ConvergX brokers sit alongside it, and each one updates as the programme changes."
+  ],
   "sections": [
    {
     "heading": "Where the app stops",
@@ -673,9 +675,7 @@
   "h1": "ConvergX Xpand",
   "desc": "Xpand is ConvergX's consulting practice. A client brings one problem, and ConvergX asks across industries for what already answers it.",
   "ledes": [
-   "ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry. Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities.",
-   "From clearly defining the need, to achieving scalable adoption, businesses partner with ConvergX Xpand to find answers to problems in previously unidentified solutions.",
-   "Commercialization is the process of taking proven innovations and making them market-ready products or services that deliver measurable value."
+   "ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry. Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities."
   ],
   "sections": [
    {
@@ -687,7 +687,7 @@
    {
     "heading": "Our process",
     "eyebrow": "Consulting",
-    "lede": "At ConvergX Xpand, we realized that organizations don\u2019t just need introductions, they need help crossing the last mile.",
+    "lede": "At ConvergX Xpand, we realized that organizations don’t just need introductions, they need help crossing the last mile.",
     "body": "<p>ConvergX Xpand offers high-TRL commercialization support through access to proven solutions, cross-sector scouting, access to testing and validation for new markets or applications, and deployment and procurement support.</p><p>We partner with clients looking for new solutions to their most pressing problems. Our team helps redefine the problem, then opens up access to solutions and technology scouting across sectors, and partnered industries to source proven solutions, ready to be commercialized.</p><p>Our commercialization-focused solution scouting helps organizations identify and deploy proven solutions in their specific industry. This is done by clearly defining the challenge, operational requirements and constraints before searching across industries for technologies that may already solve similar problems.</p><p>Leveraging our global network of industry leaders, technology providers, researchers and innovators, we uncover solutions that traditional procurement and technology searches often miss. Where no single technology fully addresses the need, we combine complementary expertise and capabilities to develop tailored, best-fit solutions.</p>"
    },
    {

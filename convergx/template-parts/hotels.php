@@ -18,7 +18,14 @@ if ( ! $hotels ) {
 ?>
 <section id="accommodations" class="section--dense">
 	<div class="wrap">
-		<?php convergx_section_head( __( 'Accommodations', 'convergx' ), __( 'Where to stay', 'convergx' ) ); ?>
+		<?php // No edge label here: the static page heads this section with the h2 alone. ?>
+		<?php convergx_section_head( __( 'Accommodations', 'convergx' ) ); ?>
+
+		<div class="editorial push-end-l">
+			<div class="lede">
+				<p><?php esc_html_e( 'Where to stay in Calgary during the Congress.', 'convergx' ); ?></p>
+			</div>
+		</div>
 
 		<div class="mod-faq-list">
 			<?php foreach ( $hotels as $h ) : ?>
