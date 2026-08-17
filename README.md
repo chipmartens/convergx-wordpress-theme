@@ -57,13 +57,17 @@ wp theme activate convergx
 wp rewrite structure '/%postname%/' && wp rewrite flush
 wp option update woocommerce_coming_soon 'no'
 wp option update woocommerce_store_pages_only 'no'
+# Figure first, currency word after ("2,000 USD"), on classic pages AND the
+# cart/checkout blocks: the blocks read this option, not the price-format filter.
+wp option update woocommerce_currency_pos 'right_space'
 
 # 7. Content
 cd ../convergx-wp-theme/seeders
 cp -R media/* ../../convergx-wp/wp-content/uploads/
 cd ../../convergx-wp
 for s in cx-seed-tree cx-seed-speakers cx-portraits \
-         cx-seed-team cx-seed-congress cx-exact-rows; do
+         cx-seed-team cx-seed-congress cx-exact-rows \
+         cx-products cx-cart-page; do
   wp eval-file ../convergx-wp-theme/seeders/$s.php
 done
 

@@ -575,3 +575,74 @@
     padding: var(--space-m);
   }
 }
+
+/* ---------------------------------------------------------------
+   14. THE .alt BUTTON VARIANT. Woo paints its primary actions (the
+   single product's Add to cart above all) through `.button.alt`
+   selectors at (0,3,1), which outranks the (0,2,1) brand rules in
+   section 4 no matter the file order. That is where the stock
+   purple came from. Same shape, one class deeper, wins on merit.
+   --------------------------------------------------------------- */
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce-page a.button.alt,
+.woocommerce-page button.button.alt,
+.woocommerce-page input.button.alt {
+  color: var(--accent-ink);
+  background: var(--accent);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: var(--track-1);
+}
+
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover,
+.woocommerce-page a.button.alt:hover,
+.woocommerce-page button.button.alt:hover,
+.woocommerce-page input.button.alt:hover {
+  background: var(--accent-text);
+  color: var(--accent-ink);
+}
+
+/* ---------------------------------------------------------------
+   15. A PASS HAS NO PHOTOGRAPH. The three registrations are the
+   only products, and none carries an image, so Woo's two-column
+   product layout reserved half the page for a hidden placeholder.
+   When the gallery holds no real image, the summary takes the full
+   measure and reads as the page rather than as a sidebar to a
+   missing picture.
+   --------------------------------------------------------------- */
+.woocommerce-page div.product:not(:has(.woocommerce-product-gallery img)) div.summary {
+  float: none;
+  width: 100%;
+  max-width: 44rem;
+}
+
+.woocommerce-page div.product .woocommerce-product-gallery:not(:has(img)) {
+  display: none;
+}
+
+/* ---------------------------------------------------------------
+   16. PRICES INSIDE THE CART AND CHECKOUT BLOCKS stay at body
+   scale. Section 3's display treatment is for the surfaces where a
+   price is the subject (the product summary, the register cards).
+   In a line item it is a table figure, and at display size the
+   item price collided with the row total beside it.
+   --------------------------------------------------------------- */
+.wp-block-woocommerce-cart .wc-block-components-product-price,
+.wp-block-woocommerce-checkout .wc-block-components-product-price,
+.wp-block-woocommerce-cart .price,
+.wp-block-woocommerce-checkout .price {
+  font-family: var(--font-body);
+  font-size: inherit;
+  letter-spacing: normal;
+}
+
+/* A pass has no photograph in the cart either: Woo's grey stand-in
+ * icon reads as a broken image, not as art direction. */
+.wc-block-cart-item__image img[src*="woocommerce-placeholder"],
+.wc-block-components-order-summary-item__image img[src*="woocommerce-placeholder"] {
+  display: none;
+}

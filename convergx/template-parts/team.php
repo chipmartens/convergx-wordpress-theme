@@ -91,19 +91,28 @@ function convergx_team_card( $p ) {
 
 <section>
 	<div class="wrap">
-		<?php if ( $convergx_team['feature'] ) : ?>
+		<?php
+		/*
+		 * THE GRID LIVES INSIDE .team-list, as a sibling of the feature
+		 * cards. The static stylesheet spaces it with
+		 * `.team-list > * + .team-grid { margin-block-start: var(--space-3xl) }`,
+		 * a direct-child rule: rendered as a sibling OF .team-list the rule
+		 * never fires and the grid sat flush under Jessilyn's card.
+		 */
+		?>
+		<?php if ( $convergx_team['feature'] || $convergx_team['grid'] ) : ?>
 			<div class="team-list">
 				<?php foreach ( $convergx_team['feature'] as $p ) : ?>
 					<?php convergx_team_card( $p ); ?>
 				<?php endforeach; ?>
-			</div>
-		<?php endif; ?>
 
-		<?php if ( $convergx_team['grid'] ) : ?>
-			<div class="team-grid">
-				<?php foreach ( $convergx_team['grid'] as $p ) : ?>
-					<?php convergx_team_card( $p ); ?>
-				<?php endforeach; ?>
+				<?php if ( $convergx_team['grid'] ) : ?>
+					<div class="team-grid">
+						<?php foreach ( $convergx_team['grid'] as $p ) : ?>
+							<?php convergx_team_card( $p ); ?>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 	</div>

@@ -157,10 +157,13 @@
   --accent-text: var(--navy);  /* small text and links on light. 13.57:1 paper */
   --accent-lift: var(--ice);   /* small text and links on DARK. 11.67:1 on ground */
 
-  /* ---- focus. Deliberately NOT the brand colour (GOV.UK pattern):
-   * one colour cannot do brand, status and focus at once. ---- */
-  --focus:     #FFDD00;   /* 14.70:1 on ground */
-  --focus-bar: #0A0A0A;   /* carries the indicator on light surfaces */
+  /* ---- focus. Was the GOV.UK yellow (#FFDD00 + black bar); changed on
+   * Chip's direction 2026-08-17 to a subtle blue glow. The blue is the
+   * site's one accent, and the ring gets a soft halo (styles.css 18)
+   * so it stays visible on the navy fills where a bare blue outline
+   * would sink. ---- */
+  --focus:     #146EF5;
+  --focus-halo: rgba(20, 110, 245, 0.35);   /* the glow around the ring */
 
   /* ---- rules. The line system, derived from the logo's own
    * hairline-and-inline construction. ---- */

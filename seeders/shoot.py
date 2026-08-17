@@ -32,14 +32,25 @@ def trim_tail(im):
 def shoot(url, out, width=1440, tall=18000, budget=14000):
     prof = tempfile.mkdtemp(prefix="cxprof-")
     raw = out + ".raw.png"
+    # Popen + process group, NOT subprocess.run(capture_output=...): Chrome's
+    # helper processes inherit the pipes, so after a timeout kills the main
+    # process communicate() still blocks on the helpers and the harness hangs
+    # forever. DEVNULL output and a group-wide SIGKILL make the timeout real.
+    proc = subprocess.Popen([CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
+        "--no-first-run", "--force-color-profile=srgb",
+        f"--user-data-dir={prof}", f"--window-size={width},{tall}",
+        f"--virtual-time-budget={budget}", f"--screenshot={raw}", url],
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        start_new_session=True)
     try:
-        subprocess.run([CHROME, "--headless", "--disable-gpu", "--hide-scrollbars",
-            "--no-first-run", "--force-color-profile=srgb",
-            f"--user-data-dir={prof}", f"--window-size={width},{tall}",
-            f"--virtual-time-budget={budget}", f"--screenshot={raw}", url],
-            capture_output=True, timeout=240)
+        proc.wait(timeout=240)
     except subprocess.TimeoutExpired:
-        pass
+        import signal
+        try:
+            os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+        except (ProcessLookupError, PermissionError):
+            pass
+        proc.wait()
     finally:
         shutil.rmtree(prof, ignore_errors=True)
     if not os.path.exists(raw):

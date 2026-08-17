@@ -1458,18 +1458,17 @@ section:has(.hero) { padding-block: 0; }
 .sec-head .label { white-space: nowrap; flex-shrink: 0; }
 
 /* ================= 18. FOCUS ================= */
-/* Deliberately not the brand colour (GOV.UK pattern). The bar is the only
- * permitted box-shadow in the project: it carries the indicator wherever
- * the yellow fails alone. Re-measured 2026-07-30 against the new accents
- * and the composite still holds on both, for opposite reasons: on the ICE
- * fill the yellow is 1.12:1 and invisible while the bar is 13.1:1; on the
- * ROYAL fill the yellow is 6.13:1 and the bar is only 2.4:1. Neither part
- * is redundant. Removing either one breaks focus on one of the two. */
+/* A blue ring with a soft halo, on Chip's direction 2026-08-17 (this
+ * replaces the GOV.UK yellow-and-bar composite the static site used).
+ * Two parts on purpose: on the ROYAL/navy fills a bare blue outline
+ * sinks into the ground, and the wider translucent halo is what keeps
+ * the focused element findable there. Keyboard users still get a ring
+ * on every surface; it is quieter, not weaker. */
 
 :focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 0;
-  box-shadow: 0 3px 0 var(--focus-bar);
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  box-shadow: 0 0 0 5px var(--focus-halo);
 }
 
 /* ================= 19. MOTION ================= */

@@ -241,3 +241,30 @@ function convergx_hide_superseded_products( $query ) {
 	$query->set( 'post__not_in', array_merge( (array) $query->get( 'post__not_in' ), $superseded ) );
 }
 add_action( 'pre_get_posts', 'convergx_hide_superseded_products' );
+
+/*
+ * NO REVIEWS ON A REGISTRATION. Every product this store will ever hold is a
+ * congress pass, and a pass with a star-rating box reads as a mistake, not a
+ * feature. Both halves are needed: closing comments kills the form, removing
+ * the tab kills the empty "Reviews (0)" heading it left behind.
+ */
+add_filter( 'comments_open', 'convergx_no_product_reviews', 10, 2 );
+function convergx_no_product_reviews( $open, $post_id ) {
+	return 'product' === get_post_type( $post_id ) ? false : $open;
+}
+
+add_filter( 'woocommerce_product_tabs', 'convergx_drop_reviews_tab', 98 );
+function convergx_drop_reviews_tab( $tabs ) {
+	unset( $tabs['reviews'] );
+	return $tabs;
+}
+
+/*
+ * No placeholder image either: paired with the :has() rules in
+ * woocommerce.css section 15, an imageless pass renders a full-measure
+ * summary instead of half a page reserved for a stock illustration.
+ */
+add_filter( 'woocommerce_single_product_image_thumbnail_html', 'convergx_no_placeholder_thumb', 10, 2 );
+function convergx_no_placeholder_thumb( $html, $attachment_id ) {
+	return $attachment_id ? $html : '';
+}
