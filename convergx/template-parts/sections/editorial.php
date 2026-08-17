@@ -20,11 +20,23 @@ defined( 'ABSPATH' ) || exit;
 
 $convergx_dense   = get_sub_field( 'dense' ) ? ' section--dense' : '';
 $convergx_surface = (string) get_sub_field( 'surface' );
-$convergx_surface = in_array( $convergx_surface, array( 'light', 'dark', 'muted' ), true ) ? $convergx_surface : '';
+$convergx_surface = in_array( $convergx_surface, array( 'light', 'dark', 'muted', 'navy' ), true ) ? $convergx_surface : '';
 
-if ( $convergx_surface ) :
+/*
+ * THE NAVY BAND IS A CLASS, NOT A SURFACE. The three surfaces are colour
+ * scopes that every token resolves against; .band--navy is the brand accent
+ * ground and carries its own ink. Emitting it as data-surface="navy" would
+ * resolve nothing, because no such scope exists, and the section would render
+ * with invalid colours rather than an obvious error.
+ */
+$convergx_band = ( 'navy' === $convergx_surface ) ? 'band--navy' : '';
+$convergx_scope = $convergx_band ? '' : $convergx_surface;
+
+if ( $convergx_band ) :
 	?>
-	<div data-surface="<?php echo esc_attr( $convergx_surface ); ?>">
+	<div class="<?php echo esc_attr( $convergx_band ); ?>">
+<?php elseif ( $convergx_scope ) : ?>
+	<div data-surface="<?php echo esc_attr( $convergx_scope ); ?>">
 <?php endif; ?>
 
 <section class="<?php echo esc_attr( trim( $convergx_dense ) ); ?>">
@@ -161,6 +173,6 @@ if ( $convergx_surface ) :
 	</div>
 </section>
 
-<?php if ( $convergx_surface ) : ?>
+<?php if ( $convergx_band || $convergx_scope ) : ?>
 	</div>
 <?php endif; ?>

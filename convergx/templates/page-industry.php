@@ -61,7 +61,7 @@ while ( have_posts() ) :
 				<?php if ( $eyebrow ) : ?>
 					<header><span class="label label--edge"><?php echo esc_html( $eyebrow ); ?></span></header>
 				<?php endif; ?>
-				<h1 class="display--hero"><?php echo esc_html( $hero_title ); ?></h1>
+				<h1 class="<?php echo esc_attr( convergx_h1_class() ); ?>"><?php echo esc_html( $hero_title ); ?></h1>
 				<?php
 				// Each line is its own .lede-text paragraph, matching the source
 				// pages. One field, split on blank lines, so an editor writes

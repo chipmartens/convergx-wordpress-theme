@@ -18,7 +18,7 @@ while ( have_posts() ) :
 	<section class="section--open">
 		<div class="wrap">
 			<div class="editorial">
-				<h1 class="display--hero"><?php echo esc_html( $hero_title ); ?></h1>
+				<h1 class="<?php echo esc_attr( convergx_h1_class() ); ?>"><?php echo esc_html( $hero_title ); ?></h1>
 				<?php if ( $hero_lede ) : ?>
 					<p class="lede-text"><?php echo esc_html( $hero_lede ); ?></p>
 				<?php endif; ?>

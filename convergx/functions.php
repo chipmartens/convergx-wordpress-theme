@@ -135,6 +135,31 @@ function convergx_hero() {
 }
 
 /**
+ * The class on a page's h1.
+ *
+ * NOT ALWAYS .display--hero, and this was a site-wide visual defect until it
+ * was measured. The static site sets a BARE <h1> on eight pages (access and its
+ * two doors, requirement, xpand, xplore, partnerships, thanks) and reserves
+ * .display--hero for the pages whose headline is meant to run at hero scale.
+ *
+ * Hardcoding display--hero everywhere made every one of those eight headlines
+ * render at roughly twice its intended size: on /access/ the h1 went from three
+ * lines to five and pushed the page 197px taller. Nothing errored, and a text
+ * diff cannot see it, which is why it survived several passes.
+ *
+ * Empty string is the correct default: a bare h1 is the common case.
+ *
+ * @return string
+ */
+function convergx_h1_class() {
+	$cls = (string) convergx_field( 'hero_class' );
+
+	$allowed = array( '', 'display--hero', 'display--hero hero-title' );
+
+	return in_array( $cls, $allowed, true ) ? $cls : '';
+}
+
+/**
  * Read an ACF field with a safe fallback when ACF is not active.
  *
  * The theme must not fatal on a site without ACF: it is not installed on

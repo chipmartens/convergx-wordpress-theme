@@ -37,8 +37,9 @@ while ( have_posts() ) :
 	// 1. THE GLOBE. Establishes the room before a single word of argument.
 	get_template_part( 'template-parts/home/hero-globe' );
 
-	// 2. THE PROOF BAR. Who is already in it.
-	get_template_part( 'template-parts/home/proofbar' );
+	// The proof bar is NOT rendered here: it is a nested child of the hero
+	// section above, exactly as the static page builds it. Rendering it again
+	// here is what put two sponsor rows on the homepage.
 
 	// 3. THE LAUNCHERS. The two ways in.
 	get_template_part( 'template-parts/home/launchers' );

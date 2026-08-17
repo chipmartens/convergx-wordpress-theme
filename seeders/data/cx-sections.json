@@ -29,7 +29,7 @@
    "eyebrow": "Sep 22 to 24, 2026 / Calgary",
    "lede": "",
    "say": "",
-   "body": "<p>The Global Congress is where decision-makers come to solve problems, build partnerships, and create opportunity.</p> <p>Bringing together leaders from across various industries, ConvergX enables organizations to learn from others facing similar challenges, uncover proven approaches, and connect directly with the people capable of moving ideas into action.</p> <p>This is not a traditional conference. It is a curated, decision-maker-only environment designed to accelerate the adoption of proven technologies, forge strategic partnerships, and create commercial opportunities across industries.</p> <p>Organizations don't attend simply to exchange ideas. They come to solve problems, identify partners, evaluate technologies, and move opportunities forward.</p>",
+   "body": "<p>Bringing together leaders from across various industries, ConvergX enables organizations to learn from others facing similar challenges, uncover proven approaches, and connect directly with the people capable of moving ideas into action.</p> <p>This is not a traditional conference. It is a curated, decision-maker-only environment designed to accelerate the adoption of proven technologies, forge strategic partnerships, and create commercial opportunities across industries.</p> <p>Organizations don't attend simply to exchange ideas. They come to solve problems, identify partners, evaluate technologies, and move opportunities forward.</p>",
    "dense": 0,
    "links": [
     {
@@ -90,20 +90,6 @@
   }
  ],
  "access": [
-  {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "ConvergX runs one door for requirements and one for capabilities <p>A person at ConvergX reads both and decides, one request at a time.</p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
   {
    "heading": "",
    "level": 2,
@@ -174,20 +160,6 @@
  ],
  "access/apply": [
   {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "ConvergX reads every application and declines some <p>A person at ConvergX reads each one and decides, which is what makes the room worth being admitted to.</p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
-  {
    "heading": "What ConvergX is reading for",
    "level": 2,
    "eyebrow": "The filter",
@@ -232,20 +204,6 @@
  ],
  "access/request": [
   {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "ConvergX reads every request and decides <p>This is the door for a requirement your supply base cannot fill. No timeline is promised, because none can be given honestly.</p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
-  {
    "heading": "Six questions",
    "level": 2,
    "eyebrow": "The form",
@@ -281,7 +239,7 @@
    "eyebrow": "",
    "lede": "The same is true of the search you would run and of the list you would check.",
    "say": "",
-   "body": "The people who can tell you who delivers know one industry <p>That is a property of the supply base rather than of the capability. A pump seal, an autonomy stack or a cold chain carries no record of which sector bought it first.</p> <p>ConvergX convenes them together, which is what makes it possible to ask one sector about another. A person reads the requirement and goes looking in the places your own people have no reason to know.</p>",
+   "body": "<p>That is a property of the supply base rather than of the capability. A pump seal, an autonomy stack or a cold chain carries no record of which sector bought it first.</p> <p>ConvergX convenes them together, which is what makes it possible to ask one sector about another. A person reads the requirement and goes looking in the places your own people have no reason to know.</p>",
    "dense": 0,
    "links": [],
    "twopath": [],
@@ -1197,7 +1155,7 @@
    "eyebrow": "",
    "lede": "ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry. Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities.",
    "say": "",
-   "body": "ConvergX Xpand <p>Often, organizations spend years developing solutions to challenges that have already been solved in other industries. ConvergX Xpand shortens that path by helping clients discover proven approaches, evaluate their applicability, and accelerate adoption.</p> <p><a href=\"#what-xpand-does\">Where we excel</a></p>",
+   "body": "<p>Often, organizations spend years developing solutions to challenges that have already been solved in other industries. ConvergX Xpand shortens that path by helping clients discover proven approaches, evaluate their applicability, and accelerate adoption.</p> <p><a href=\"#what-xpand-does\">Where we excel</a></p>",
    "dense": 0,
    "links": [],
    "twopath": [],
@@ -1334,20 +1292,6 @@
  ],
  "requirement": [
   {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "Tell ConvergX what you need before the Congress <p>The Congress runs Sep 22 to 24, 2026, in Calgary. Tell ConvergX what you are trying to solve, and it will work on who you should be sitting with before you arrive.</p> <p>Sending it earlier gives ConvergX more time to work on who you should meet.</p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
-  {
    "heading": "Where your words go",
    "level": 2,
    "eyebrow": "Confidentiality",
@@ -1397,7 +1341,7 @@
    "eyebrow": "",
    "lede": "A person reads every submission. Replies come from info@convergx.co, so an eye on that thread is the only follow-up needed.",
    "say": "",
-   "body": "<p>Received</p> Your message has reached ConvergX <p><a href=\"../\">Back to the site</a></p>",
+   "body": "<p>Received</p> <p><a href=\"../\">Back to the site</a></p>",
    "dense": 0,
    "links": [],
    "twopath": [],
@@ -1442,7 +1386,7 @@
    "eyebrow": "",
    "lede": "Bring ConvergX to your city and connect your regional businesses, innovators and industry leaders with commercialization pathways designed to accelerate growth, adoption, and cross-sector collaboration.",
    "say": "",
-   "body": "Regional Conferences <p>Everywhere else on this site the party asking is a company, carrying either a requirement or a capability.</p> <p>Here the region is the one asking. That is usually an economic development office or a municipality, or whoever is answerable for whether local companies find work outside the region.</p>",
+   "body": "<p>Everywhere else on this site the party asking is a company, carrying either a requirement or a capability.</p> <p>Here the region is the one asking. That is usually an economic development office or a municipality, or whoever is answerable for whether local companies find work outside the region.</p>",
    "dense": 0,
    "links": [],
    "twopath": [],
@@ -1514,7 +1458,7 @@
    "eyebrow": "Congress app / Sep 22 to 24",
    "lede": "",
    "say": "",
-   "body": "Congress app / Sep 22 to 24 Your agenda lives in the app <p>Sessions, the people in the room and the meetings ConvergX brokers sit alongside it, and each one updates as the programme changes.</p> <p>How to get in</p> <p>ConvergX sends confirmed delegates an invitation link before the doors open. Open it on the phone you will carry in Calgary.</p>",
+   "body": "<p>How to get in</p> <p>ConvergX sends confirmed delegates an invitation link before the doors open. Open it on the phone you will carry in Calgary.</p>",
    "dense": 0,
    "links": [],
    "twopath": [],
@@ -1575,20 +1519,6 @@
  ],
  "congress/register": [
   {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "Save your spot at the 2026 Global Congress <p>September 22 to 24, 2026, in Calgary.</p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
-  {
    "heading": "Pricing",
    "level": 2,
    "eyebrow": "Passes",
@@ -1624,7 +1554,7 @@
    "eyebrow": "",
    "lede": "Two year-round activations are published, one still ahead and one already past.",
    "say": "",
-   "body": "Xchange Partnerships <p>The host runs the show, and ConvergX composes a room inside it.</p> <p>Registration for a partner event is the host's own, and every link below goes to the host rather than to ConvergX.</p>",
+   "body": "<p>The host runs the show, and ConvergX composes a room inside it.</p> <p>Registration for a partner event is the host's own, and every link below goes to the host rather than to ConvergX.</p>",
    "dense": 0,
    "links": [],
    "twopath": [],
