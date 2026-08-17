@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700"
+     preserveAspectRatio="xMidYMid meet" role="img"
+     aria-label="Diagram: two separate systems of circles that do not touch. A single dot between them, labelled a person at ConvergX, is joined to each side by a short solid line. Nothing else crosses the gap.">
+  <!-- Fig. 5 in FIGURE-SYSTEM.md section 2. Geometry copied unit for unit.
+     * Solid bodies first, then dashed orbits, then the dot, then labels.
+     * Ink is inherited: currentColor only, no colour value anywhere. -->
+
+  <!-- the two systems. Solid body, one per side. They never touch. -->
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="400" cy="360" r="190"/>
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="1200" cy="360" r="190"/>
+
+  <!-- the only two things crossing the gap. A person, drawn as two short
+     * reaches. No arrowhead: direction and force are not claimed. -->
+  <line class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" x1="590" y1="360" x2="794" y2="360"/>
+  <line class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" x1="806" y1="360" x2="1010" y2="360"/>
+
+  <!-- orbits. Dashed, no pathLength: it would destroy the dash pattern. -->
+  <circle class="fig-dash" vector-effect="non-scaling-stroke" cx="400" cy="360" r="250"/>
+  <circle class="fig-dash" vector-effect="non-scaling-stroke" cx="1200" cy="360" r="250"/>
+
+  <!-- the broker. A person, at the node where both reaches end. -->
+  <circle class="fig-dot" cx="800" cy="360" r="6"/>
+
+  <!-- y 240, not 300: at 300 the label sat on the connecting line and crowded it. -->
+  <text class="fig-label" text-anchor="middle" x="800" y="240">A person at ConvergX</text>
+  <text class="fig-label" text-anchor="start" x="280" y="640">The side asking</text>
+  <text class="fig-label" text-anchor="start" x="1080" y="640">The side answering</text>
+</svg>

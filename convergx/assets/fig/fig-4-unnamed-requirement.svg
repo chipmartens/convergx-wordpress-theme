@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagram: a dashed path enters from the left and meets a pair of concentric circles at a single point marked by a small unlabelled dot. The path is labelled posted with no name on it. The circles are labelled read by a person at ConvergX.">
+  <!-- Fig. 4, The unnamed requirement. Geometry, labels and aria-label copied
+       character for character from _reference/FIGURE-SYSTEM.md section 2.
+       Monochrome: every stroke and the dot inherit currentColor, which
+       styles.css section 20 sets from the surface ink token on .fig svg.
+       No hex anywhere. -->
+
+  <!-- The concentric pair: the logo's double rule, drawn in two dimensions. -->
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="1120" cy="360" r="250"/>
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="1120" cy="360" r="170"/>
+
+  <!-- Outer orbit. -->
+  <circle class="fig-dash" vector-effect="non-scaling-stroke" cx="1120" cy="360" r="330"/>
+
+  <!-- The requirement's route in, cropped by the left frame edge, terminating
+       exactly on the outer solid circle's leftmost point (870, 360). -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 480 C 320 480, 620 430, 870 360"/>
+
+  <!-- The pinch node. This dot carries no label, and that is the figure. -->
+  <circle class="fig-dot" cx="870" cy="360" r="6"/>
+
+  <text class="fig-label" x="40" y="445">Posted with no name on it</text>
+  <text class="fig-label" text-anchor="end" x="1560" y="655">Read by a person at ConvergX</text>
+</svg>

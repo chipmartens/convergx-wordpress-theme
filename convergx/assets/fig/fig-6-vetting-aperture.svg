@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700"
+     preserveAspectRatio="xMidYMid meet" role="img"
+     aria-label="Diagram: a dashed path passes through a narrow gate between two vertical lines, with a dot at the point where the questions are asked. Past the gate the path either continues as a solid line off the edge of the frame, labelled introduced, or ends a short way in, labelled not taken forward.">
+  <!-- Reworked 2026-07-28 per POLISH-SPEC section 4. Geometry only: the gate moved from
+       x 820 to x 700, the entering path now starts at x 260 instead of the frame edge,
+       and the ending branch travels further before it stops. Nothing the figure says
+       changed. Labels, caption and aria-label stay FIGURE-SYSTEM section 2's, character
+       for character. -->
+  <!-- The gate. Two vertical segments, the aperture between them at y 300 to 420, unchanged. -->
+  <line class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" x1="700" y1="80" x2="700" y2="300"/>
+  <line class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" x1="700" y1="420" x2="700" y2="640"/>
+  <!-- Continuing branch. Solid because the meeting happened. Cropped by the right frame edge at y 320. -->
+  <path class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" d="M 708 360 C 950 350, 1250 330, 1600 320"/>
+  <!-- Entering path. Dashed: a proposal. Begins in frame at x 260, so the left half is
+       composition rather than empty plate. -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 260 380 C 400 380, 545 370, 692 360"/>
+  <!-- Ending branch. Travels to (1120, 540) and stops. No terminal mark: a decision not to
+       introduce, not a defect found. -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 708 368 C 850 412, 1000 470, 1120 540"/>
+  <!-- The asking happens here. -->
+  <circle class="fig-dot" cx="700" cy="360" r="6"/>
+  <text class="fig-label" text-anchor="start" x="740" y="120">The questions are asked here</text>
+  <text class="fig-label" text-anchor="start" x="1330" y="280">Introduced</text>
+  <text class="fig-label" text-anchor="start" x="1000" y="600">Not taken forward</text>
+</svg>

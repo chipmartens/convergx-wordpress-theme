@@ -1,0 +1,729 @@
+[
+ {
+  "path": "",
+  "surface": "dark",
+  "hero": "",
+  "title": "Cross-Sector Convening and Consultation",
+  "h1": "Where industry lines disappear",
+  "desc": "ConvergX convenes across industries. The Congress runs Sep 22 to 24, 2026, in Calgary.",
+  "ledes": [
+   "The answer usually exists already, but it sits outside the industry the requirement came from.",
+   "The Global Congress is where decision-makers come to solve problems, build partnerships, and create opportunity."
+  ],
+  "sections": [
+   {
+    "heading": "What ConvergX is",
+    "eyebrow": "",
+    "lede": "",
+    "body": "<p>Solution gathering is done without a name attached. Nothing is shared until ConvergX approves it and your identity is only released when an introduction is brokered.</p>"
+   },
+   {
+    "heading": "Celebrating 10 years of ConvergX",
+    "eyebrow": "Sep 22 to 24, 2026 / Calgary",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "ConvergX Xpand",
+    "eyebrow": "Consulting",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "about",
+  "surface": "light",
+  "hero": "",
+  "title": "About",
+  "h1": "Who we are",
+  "desc": "ConvergX convenes across aerospace and defence, energy, mining and agriculture, and does not manufacture, supply or bid in any of them. What the organisation runs, and who it names.",
+  "ledes": [],
+  "sections": [
+   {
+    "heading": "Our team",
+    "eyebrow": "Leadership",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "Get in touch",
+    "eyebrow": "Contact",
+    "lede": "For general inquiries, send a note and the right person at ConvergX will follow up.",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "access",
+  "surface": "muted",
+  "hero": "",
+  "title": "Access",
+  "h1": "ConvergX runs one door for requirements and one for capabilities",
+  "desc": "One door for the requirement, one door for the capability, and the point where ConvergX stops.",
+  "ledes": [
+   "A person at ConvergX reads both and decides, one request at a time."
+  ],
+  "sections": [
+   {
+    "heading": "How access gets decided",
+    "eyebrow": "The decision",
+    "lede": "",
+    "body": "<p>The doors carry separate names because the questions behind them are not the same. A problem holder is asked what the requirement is and where it is already sourced. A capability holder is asked what they have built and where it is already running.</p>"
+   },
+   {
+    "heading": "Where it stops",
+    "eyebrow": "The boundary",
+    "lede": "ConvergX does not handle invoicing, purchase orders, payment matching or contract management, and it never touches the transaction itself.",
+    "body": "<p>Your ERP, your supplier portal and your sourcing workflow stay where they are, and ConvergX works alongside them rather than in place of them.</p>"
+   },
+   {
+    "heading": "The door that matches you",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "access/apply",
+  "surface": "muted",
+  "hero": "",
+  "title": "Apply to join",
+  "h1": "ConvergX reads every application and declines some",
+  "desc": "The solution-provider door. ConvergX reads every application and declines some. Seven questions about what you have built and where it already runs.",
+  "ledes": [
+   "A person at ConvergX reads each one and decides, which is what makes the room worth being admitted to."
+  ],
+  "sections": [
+   {
+    "heading": "What ConvergX is reading for",
+    "eyebrow": "The filter",
+    "lede": "ConvergX is reading for capability that carries a load somewhere, built, deployed, in service and answerable today if it fails.",
+    "body": "<p>This is an application rather than a registration, so write it in your own words and keep it short.</p><p>The industry you built it for carries less weight here than whether it runs and where it runs.</p>"
+   },
+   {
+    "heading": "The application",
+    "eyebrow": "The form",
+    "lede": "There are seven questions, and a plain answer serves better than a polished one, however short.",
+    "body": ""
+   },
+   {
+    "heading": "Nothing was sent",
+    "eyebrow": "State",
+    "lede": "This form is staged. It records nothing and delivers nothing, and this state exists so it can be reviewed before the site is frozen.",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "access/request",
+  "surface": "muted",
+  "hero": "",
+  "title": "Request access",
+  "h1": "ConvergX reads every request and decides",
+  "desc": "The problem-holder door. ConvergX reads every request and decides. Six questions, no timeline promised, and nothing here asks for controlled technical data.",
+  "ledes": [
+   "This is the door for a requirement your supply base cannot fill. No timeline is promised, because none can be given honestly."
+  ],
+  "sections": [
+   {
+    "heading": "Six questions",
+    "eyebrow": "The form",
+    "lede": "This form is staged. It records nothing and delivers nothing, and this state exists so it can be reviewed before the site is frozen.",
+    "body": ""
+   },
+   {
+    "heading": "Nothing was sent",
+    "eyebrow": "State",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "congress",
+  "surface": "dark",
+  "hero": "photo",
+  "title": "The Congress",
+  "h1": "Where cross-sector Xchange becomes commercial action",
+  "desc": "Sep 22 to 24, 2026, Calgary. Two invite-only roundtables, a reception, then two days of sessions. The 10th Anniversary.",
+  "ledes": [],
+  "sections": [
+   {
+    "heading": "Congress overview",
+    "eyebrow": "",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "Who attends",
+    "eyebrow": "",
+    "lede": "A ConvergX brings together senior industry leaders to seek shared solutions to common problems. We accomplish that by holding a 2.5 day Congress, Summit or Executive Roundtable.",
+    "body": "<p>Each invitation-only ConvergX has specific requirements.</p><p>All attendees are individually vetted, VP level or higher decision makers. Proof of ability to directly influence business direction and lead partnerships and investment is required to be considered to join ConvergX.</p>"
+   },
+   {
+    "heading": "The speakers",
+    "eyebrow": "",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "The agenda",
+    "eyebrow": "",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "Accommodations",
+    "eyebrow": "",
+    "lede": "Where to stay in Calgary during the Congress.",
+    "body": ""
+   },
+   {
+    "heading": "Sponsors, supporters and partners",
+    "eyebrow": "",
+    "lede": "ConvergX thanks the sponsors, supporters and partners of the 2026 Global Congress.",
+    "body": "<p>The opening reception is sponsored by ATCO Frontec.</p>"
+   }
+  ]
+ },
+ {
+  "path": "congress/partnerships",
+  "surface": "light",
+  "hero": "",
+  "title": "Xchange Partnerships",
+  "h1": "Xchange Partnerships",
+  "desc": "ConvergX convenes inside events it does not run. CES is published for January 6 to 9, 2027. The most recent Farnborough edition ran July 20 to 24, 2026.",
+  "ledes": [
+   "Two year-round activations are published, one still ahead and one already past."
+  ],
+  "sections": [
+   {
+    "heading": "Where each one stands",
+    "eyebrow": "The two",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "congress/register",
+  "surface": "muted",
+  "hero": "",
+  "title": "Register",
+  "h1": "Save your spot at the 2026 Global Congress",
+  "desc": "Three passes for the ConvergX Global Congress, Sep 22 to 24, 2026 in Calgary, with prices, fees and totals, who attends, and the registration form.",
+  "ledes": [
+   "September 22 to 24, 2026, in Calgary."
+  ],
+  "sections": [
+   {
+    "heading": "Pricing",
+    "eyebrow": "Passes",
+    "lede": "Passes are for September 22 to 24, 2026, in Calgary. Each pass is admission for all three days.",
+    "body": ""
+   },
+   {
+    "heading": "Who the three days are for",
+    "eyebrow": "Who is here",
+    "lede": "ConvergX brings together senior industry leaders to seek shared solutions to common problems.",
+    "body": "<p>Attendees include executives, owners, operators, procurement leaders, government officials, military leadership, investors, innovators, and technology providers who influence strategy, purchasing, partnerships, and deployment.</p><p>All attendees are individually vetted, VP level or higher decision makers.</p>"
+   }
+  ]
+ },
+ {
+  "path": "congress/the-app",
+  "surface": "dark",
+  "hero": "",
+  "title": "The Congress app",
+  "h1": "Your agenda lives in the app",
+  "desc": "Your agenda, the people in the room and the meetings ConvergX brokers, on your phone. Push reaches Android only.",
+  "ledes": [],
+  "sections": [
+   {
+    "heading": "Where the app stops",
+    "eyebrow": "Push and offline",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "Before you arrive",
+    "eyebrow": "Next",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "congress/xplore",
+  "surface": "light",
+  "hero": "",
+  "title": "Regional Conferences",
+  "h1": "Regional Conferences",
+  "desc": "Regional Conferences. A region hosts one with ConvergX, in its own city, for its own companies. What it is, who asks for it, and what ConvergX has not published about it.",
+  "ledes": [
+   "Bring ConvergX to your city and connect your regional businesses, innovators and industry leaders with commercialization pathways designed to accelerate growth, adoption, and cross-sector collaboration."
+  ],
+  "sections": [
+   {
+    "heading": "ConvergX composes the room from one economy",
+    "eyebrow": "What it is",
+    "lede": "ConvergX runs its convening in the region that asked for it.",
+    "body": "<p>The Congress composes a room across every industry ConvergX convenes. A Regional Conference draws its room from a single region's businesses, innovators and industry leaders.</p><p>A Regional Conference can put your region on the map by enhancing your local economic development with a commitment to fostering sustainable economic growth, supporting innovation-driven businesses, and creating opportunities for companies looking to scale technologies, products, and solutions into broader Canadian and global markets.</p><p>The work ConvergX does inside the room is the same as anywhere else. It asks the companies, and it decides which two of them should meet. How we vet</p>"
+   },
+   {
+    "heading": "Case study: ConvergX Cranbrook",
+    "eyebrow": "Cranbrook",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "ConvergX also runs the format inside one organisation",
+    "eyebrow": "Internal",
+    "lede": "",
+    "body": "<p>Some companies want the convening internally rather than across a region, and ConvergX runs it for them inside the single organisation that asked.</p>"
+   }
+  ]
+ },
+ {
+  "path": "industries",
+  "surface": "light",
+  "hero": "",
+  "title": "Industries",
+  "h1": "The people who can tell you who delivers know one industry",
+  "desc": "The people who know which companies actually deliver know one industry, because that is the one they have worked in. Each industry written for both sides.",
+  "ledes": [
+   "The same is true of the search you would run and of the list you would check."
+  ],
+  "sections": [
+   {
+    "heading": "Both sides of every industry",
+    "eyebrow": "The industries",
+    "lede": "",
+    "body": "<p>The buyer's own supply base cannot fill the requirement, and the company that could fill it has never been asked.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/aerospace-defence",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Aerospace and defence",
+  "h1": "Qualifying a new source takes longer than the obligation allows",
+  "desc": "A new source clears AS9100D, an AS9102 first article, NADCAP-accredited special processes and export control, on schedules run by different people. The obligation attached to the award reports against a scored contractual schedule. ConvergX works the gap between the two.",
+  "ledes": [
+   "Qualifying a new source runs through AS9100D, first article and export control, while the obligation attached to the award reports on its own schedule."
+  ],
+  "sections": [
+   {
+    "heading": "Four gates run on schedules that do not line up",
+    "eyebrow": "The cost",
+    "lede": "A new source does not clear inside a sourcing cycle.",
+    "body": "<p>Qualification starts from zero while the clock has run since award, and that gap is what ConvergX works on.</p><p>AS9100D on the quality system.</p>"
+   },
+   {
+    "heading": "The obligation runs on its own calendar",
+    "eyebrow": "The clock",
+    "lede": "Qualification has no bearing on that calendar.",
+    "body": "<p>Both of these are public policy, and neither one is anything ConvergX built.</p><p>Under Canada's Industrial and Technological Benefits Policy, a major defence award carries a commitment to business activity in Canada, reported against a scored contractual schedule.</p>"
+   },
+   {
+    "heading": "ConvergX is not in your approval chain",
+    "eyebrow": "The boundary",
+    "lede": "ConvergX holds no accreditation and issues no certificate.",
+    "body": "<p>It does not qualify a supplier, and every gate above stays exactly where it is today, run by the people who run it now.</p><p>ConvergX has no official standing under any of it. An introduction is not credit against an obligation, and ConvergX takes no part in what gets reported.</p><p>ConvergX finds the company that can hold the requirement, asks whether it can hold yours on your timeline, and brokers the introduction.</p><p>The requirement goes out with no name on it. Your identity reaches the other side when ConvergX brokers the introduction and you have agreed to it, and not before.</p>"
+   }
+  ]
+ },
+ {
+  "path": "industries/agriculture",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Agriculture",
+  "h1": "Agriculture already solved several problems defence still faces",
+  "desc": "A harvest window with no second chance put autonomy, cold chain and lot-level traceability into production years ago. A remote programme has the same problems and none of the same suppliers, because nothing in defence sourcing holds a record of a company that sells through ag retail.",
+  "ledes": [
+   "A harvest window with no second chance forced autonomy, cold chain and traceability into production years ago."
+  ],
+  "sections": [
+   {
+    "heading": "The season is the engineering constraint here",
+    "eyebrow": "The deadline",
+    "lede": "A season is the unit of time here, and it sets everything else.",
+    "body": "<p>The season is set by weather rather than by agreement, and nobody in defence procurement recruits from agriculture, so the sector has gone unexamined.</p><p>Planting and harvest windows are short, and missing one costs the crop itself rather than a place in the schedule.</p><p>The design requirement became uptime inside that window, because a machine that averages well across a year can still lose the crop.</p><p>Working capital runs on the same clock, because the season sets the cash cycle.</p>"
+   },
+   {
+    "heading": "The same problems are filed under a different industry",
+    "eyebrow": "The same problems",
+    "lede": "A remote programme has the agriculture problem and none of the agriculture suppliers.",
+    "body": "<p>Move materiel over ground with no infrastructure and no operator on board.</p>"
+   },
+   {
+    "heading": "Food security is now in the national security conversation",
+    "eyebrow": "The policy ground",
+    "lede": "Canadian policy discussion in 2026 placed agri-food alongside national security, and dual-use agri-tech alongside the Defence Industrial Strategy.",
+    "body": "<p>That is a public policy fact, cited here as context and not as anything ConvergX did, and it puts critical food infrastructure, and the companies that build it, inside programmes they have never bid into.</p><p>Being in scope and being findable are different conditions, and the policy discussion changed only the first.</p>"
+   },
+   {
+    "heading": "This page publishes no example match",
+    "eyebrow": "Not on this page",
+    "lede": "There is no case study here and no illustrative story, because ConvergX has not published one.",
+    "body": "<p>A hypothetical written concretely tends to get read as a real one.</p><p>The industry a company filed itself under is not one of the things ConvergX asks about.</p><p>If you built it for a season and it is already deployed, the sector on your website is not what decides whether you get looked at.</p>"
+   }
+  ]
+ },
+ {
+  "path": "industries/construction",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Construction",
+  "h1": "A capable trade can still fail prequalification",
+  "desc": "Bonding capacity and safety prequalification are what clear a trade onto a bid list. Both are built from a relationship, with a surety and with a general contractor's roster, and neither is built from the work.",
+  "ledes": [
+   "Bonding capacity and safety history clear it, and both are built from a relationship rather than the work."
+  ],
+  "sections": [
+   {
+    "heading": "Two locks clear prequalification, and neither reads the work",
+    "eyebrow": "Two locks",
+    "lede": "A surety underwrites character, capacity and capital, and reads all three from a track record built with that surety.",
+    "body": "<p>A capable trade without a bonding relationship at the size of the bid is stopped before the work is ever assessed.</p><p>There is no history for the surety to underwrite, and a surety cannot manufacture one on demand.</p><p>The second lock is administratively separate, and general contractors and owners screen trades through third-party services that run on submitted EMR and TRIR data.</p><p>A trade new to your roster has filed neither number, and a service with no data scores nothing.</p>"
+   },
+   {
+    "heading": "Both systems stay with the people who run them",
+    "eyebrow": "The boundary",
+    "lede": "ConvergX does not bond anyone, does not prequalify, and holds no EMR or TRIR record.",
+    "body": "<p>Surety underwriting and safety prequalification are separate systems, run by separate people, and both still run.</p><p>ConvergX finds the company, asks it directly about the work, and brokers the introduction.</p><p>Your bonding and safety requirements do not move, and the company arriving at them is one your own search had no way to reach.</p>"
+   },
+   {
+    "heading": "The shortage does not open the gate",
+    "eyebrow": "The shortage",
+    "lede": "BuildForce Canada's 2026 to 2035 forecast projects a hiring requirement that expected recruitment does not close.",
+    "body": "<p>That is public market context, not anything ConvergX did.</p><p>It reads as pressure to bring in more capacity, and the gate does not move under it.</p><p>Liquidated damages flow down to the trade package, and holdback legislation leaves the general contractor carrying lien exposure it did not create.</p><p>A general contractor short of trades therefore returns to the trade it already knows.</p>"
+   },
+   {
+    "heading": "Nobody has asked whether you could take the work",
+    "eyebrow": "The other side",
+    "lede": "Your capacity can sit idle for want of a first larger contract.",
+    "body": "<p>ConvergX asks about the work itself, and asks the other side whether it wants to meet.</p>"
+   },
+   {
+    "heading": "Three ways ConvergX works, and each runs on a different clock",
+    "eyebrow": "Three horizons",
+    "lede": "A surety relationship and a safety record are both built over years, and neither can be produced on demand.",
+    "body": "<p>One requirement at a time is the shortest thing ConvergX runs.</p><p>The Congress is three days in a room. Construction is one of the sectors ConvergX names on its own published list of who attends.</p><p>Xpand is a consulting engagement rather than an introduction, and it runs on a longer clock than a single requirement, nearer the shape of a gap this size.</p><p>The Congress</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/energy",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Energy",
+  "h1": "One qualified vendor owns the schedule",
+  "desc": "Long-lead packages are committed during engineering. If one vendor clears qualification, the schedule and the sanction economics belong to that vendor, and the approved vendor list is built from who supplied the last project.",
+  "ledes": [
+   "Long-lead packages are committed during engineering, before construction drawings exist. If one vendor clears qualification, the schedule and the sanction economics both belong to that vendor."
+  ],
+  "sections": [
+   {
+    "heading": "The list is closed by construction",
+    "eyebrow": "The closed list",
+    "lede": "Vendor prequalification ranks the companies already on the list. A company that has never supplied a capital project never reaches the ranking.",
+    "body": "<p>An owner's engineer writes the scope of supply from what has been supplied before. The list grows one project at a time, from the same set.</p><p>So a single-source package stays single-source through FEED and into expediting, and by then a slip is no longer a sourcing decision. It is capital cost variance against the sanction estimate, reported under somebody's name.</p><p>New work makes it plainer, because a grid interconnection, or an electrification package on a brownfield site, has no last project to build the list from.</p><p>Prequalification establishes that a vendor is capable of the work, and what else that vendor has committed to for the same delivery window sits outside it.</p>"
+   },
+   {
+    "heading": "Both gates stay with the people who run them",
+    "eyebrow": "The boundary",
+    "lede": "",
+    "body": "<p>ConvergX finds the company, asks who it is and what it has actually delivered, and makes the introduction itself. Your gates then open exactly as they do now, on a company ConvergX has already vetted once.</p>"
+   },
+   {
+    "heading": "You have never bid into a capital project",
+    "eyebrow": "The way in",
+    "lede": "Your equipment runs, and it has run for years in a sector that is not this one.",
+    "body": "<p>The owner's engineer writing the scope of supply has no way to learn that. Nothing they consult reads outside their own supply history, and you have never been in it.</p><p>ConvergX asks what you have actually delivered and whether you could take on more of it, rather than where you delivered it, so the review rests on the work itself, in whatever sector it was done.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/manufacturing",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Manufacturing",
+  "h1": "Part approval belongs to the tooling rather than the shop",
+  "desc": "Part approval is bound to a part, a tool and a plant, and the tool is usually the buyer's property standing on the incumbent's floor. So a second source is never compared on merit alone. It is compared to the incumbent plus a capital event.",
+  "ledes": [
+   "Part approval covers this part, on this tooling, in this plant.",
+   "The tooling is your property, and it is bolted into somebody else's press."
+  ],
+  "sections": [
+   {
+    "heading": "Every part carries its own approval",
+    "eyebrow": "The tool",
+    "lede": "Part approval is a package of evidence for one part, made on one set of tooling, in one plant, by one process, closed by a warrant your customer signs.",
+    "body": "<p>A shop holding approval on forty parts holds forty separate approvals, and none of them travels.</p><p>The published submission requirements say what re-opens one.</p><p>New, additional or modified tooling.</p>"
+   },
+   {
+    "heading": "You own the asset and the incumbent holds it",
+    "eyebrow": "The arrangement",
+    "lede": "The automotive quality standard requires customer-owned tooling to be permanently marked, so ownership is visible on the tool itself.",
+    "body": "<p>The buyer owns an asset it does not hold, and the incumbent holds an asset it does not own while running the system that identifies, stores, retrieves and maintains it.</p><p>That is the arrangement itself, written into the standard both parties are audited against, rather than a description of lock-in.</p><p>One Tier 1 publishes what moving a tool costs: advance written approval before anything moves, an exit approval from the plant it leaves, a full submission approved before any production material ships from the new one, and a bank of finished parts built ahead of the move so the receiving line does not stop.</p><p>Somebody funds that bank, stores it and carries it, because the receiving line cannot stop.</p>"
+   },
+   {
+    "heading": "A second source is a capital event",
+    "eyebrow": "The arithmetic",
+    "lede": "An alternative is weighed against the incumbent plus a tool move, a bank of parts, a full re-approval, and the risk that the re-approval fails.",
+    "body": "<p>Once the tooling has been cut, an alternative rarely clears that arithmetic.</p><p>Three people carry it, and none of them is measured on having found a better supplier. The buyer is exposed by change, the person signing the warrant is exposed by approving it, and the plant manager is exposed by what change does to a Tuesday.</p><p>The alternative is therefore sourceable in one window, at sourcing, before tooling kickoff, while the tool is still a drawing.</p><p>That window opens once per part, often years apart. The shortlist that matters was written before anybody knew they had a problem.</p>"
+   },
+   {
+    "heading": "ConvergX is not in the approval chain",
+    "eyebrow": "The boundary",
+    "lede": "ConvergX approves no part, signs no warrant and holds no standing in your quality system.",
+    "body": "<p>The advance planning, the submission, the run at rate and the capability study all stay where they are, run by the people who run them now.</p><p>ConvergX finds a company that has run this class of work in another industry, and asks who it is, what it has actually run, at what rate, for whom. Then a person at ConvergX decides whether the two sides should meet, and brokers the introduction.</p><p>Your gates open on schedule, on a candidate somebody was willing to put their name beside.</p>"
+   },
+   {
+    "heading": "A cold approach cannot be timed to a tooling kickoff",
+    "eyebrow": "Timing",
+    "lede": "The window opens before anyone announces it, and a capability holder has no way to see it.",
+    "body": "<p>A sourcing organisation cannot run a market scan at every programme either, because the scan costs more than defaulting to the incumbent.</p><p>The Congress is three days in a room once a year, which does not depend on catching the window. ConvergX publishes that attendees are individually vetted, and that proof of ability to directly influence business direction is required to be considered.</p><p>One requirement at a time is the shortest thing ConvergX runs, and the question it answers is who could hold this part, at this rate, starting at the next kickoff, and is in a position to take it on.</p><p>Xpand runs on a longer clock than a single requirement, nearer the shape of a company entering a market it has never supplied.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/military",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Military",
+  "h1": "A serviceability gap has no date on it",
+  "desc": "A fleet already in service has two routes back to full serviceability: the contractor holding support for the whole platform, and a procurement system built for capital acquisition. Neither was designed to surface a company that has never held a defence contract.",
+  "ledes": [
+   "The fleet sits below its own published serviceability target.",
+   "Both routes back to service run through whoever already holds the contract."
+  ],
+  "sections": [
+   {
+    "heading": "The two routes back were built for other purposes",
+    "eyebrow": "The two routes",
+    "lede": "When a part on a fleet already in service becomes unsupportable, there are two ways back to full serviceability.",
+    "body": "<p>The contractor holding support for the whole platform, working the problem through the supplier base it already has.</p>"
+   },
+   {
+    "heading": "ConvergX has no standing in any of this",
+    "eyebrow": "The boundary",
+    "lede": "ConvergX holds no contract, no accreditation and no role in a departmental process.",
+    "body": "<p>It does not qualify a source, does not carry a sustainment scope, and does not sit anywhere in a contracting authority's file.</p><p>Every route above stays exactly where it is, run by the people who run it now.</p><p>ConvergX finds the company that has solved this class of problem somewhere else, asks whether it could hold your requirement, and brokers the introduction.</p><p>An introduction is not a procurement step and is not evidence for one.</p>"
+   },
+   {
+    "heading": "The same job is ordinary work somewhere else",
+    "eyebrow": "Another sector",
+    "lede": "Qualifying a source that did not make the original part, on a safety-critical item, at distance, is routine in mining and energy.",
+    "body": "<p>The replacement has to hold form, fit and function, and the company has to be judged before the part goes on rather than after.</p><p>The companies that do that work are not in the defence industrial base, and they have never answered a request for information.</p><p>A request for information built to reach defence suppliers does not extend to companies outside that base.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/mining-natural-resources",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Mining and natural resources",
+  "h1": "A second supplier has to be qualified before the first fails",
+  "desc": "One qualified supplier on a safety-critical item is a single point of failure, and an alternate source has to be qualified before the failure rather than during it. Participation commitments screen contractors out before technical evaluation. Both are the same qualification problem.",
+  "ledes": [
+   "A safety-critical component fails on a fly-in site, and the only company that makes it is on another continent."
+  ],
+  "sections": [
+   {
+    "heading": "Finding an alternate source and qualifying one differ",
+    "eyebrow": "Two different jobs",
+    "lede": "",
+    "body": "<p>Whether it can make it to the drawing, on a safety-critical item, is a different question answered by different people.</p><p>An OEM order is a purchase decision. An aftermarket source on a safety-critical component is an engineering one, and it has to be settled before the failure rather than during it.</p><p>A maintenance and repair contract covers the equipment it was written against. Qualifying a source outside it belongs to nobody's week until the unit is down.</p><p>Whether a shop can hold a safety-critical scope at that distance is a judgement about the shop itself, and no document the shop can send settles a judgement of that kind.</p>"
+   },
+   {
+    "heading": "Participation commitments get audited",
+    "eyebrow": "The commitment",
+    "lede": "",
+    "body": "<p>Procurement documents screen out contractors with no credible participation strategy well before technical evaluation.</p><p>Those obligations are set and enforced by others. ConvergX had no hand in writing them and claims none.</p><p>ConvergX does not certify Indigenous business status, does not administer a participation plan, and does not audit anyone's committed spend.</p><p>ConvergX works the part that stalls, finding an Indigenous business or a local contractor that can hold the scope and asking whether it can before the commitment comes up for report.</p>"
+   },
+   {
+    "heading": "The second source and the commitment are one job",
+    "eyebrow": "One job",
+    "lede": "A second source and a participation commitment are the same job: qualifying a company nobody on site has worked with.",
+    "body": "<p>Your site list is built from whoever supplied the last shutdown. A company that has never been on it leaves nothing behind for your systems to read.</p><p>Neither one belongs to anybody's week until the unit is down or the report is due, and by then the qualifying has not started.</p><p>ConvergX works it by hand, one requirement at a time. The questions are who the company is, what it has actually delivered, and whether it is in a position to deliver it again for you.</p><p>You state the scope, and your name is not on what anyone else reads. It reaches the other company when you agree to the introduction and not before.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "industries/technology",
+  "surface": "light",
+  "hero": "veil",
+  "title": "Technology",
+  "h1": "An authorization clears one buyer",
+  "desc": "A security authorization does not compound the way a quality accreditation does. It resets in full at every new buyer, because the authority to operate is one named official's risk acceptance, which is why an authorized vendor list stays short.",
+  "ledes": [
+   "A company that cleared a full security authorization for somebody else arrives at your gate holding nothing you can use."
+  ],
+  "sections": [
+   {
+    "heading": "Every authorization starts from zero",
+    "eyebrow": "No transfer",
+    "lede": "A quality accreditation travels between buyers, and a security authorization does not.",
+    "body": "<p>FedRAMP's own guidance says it plainly. An agency that wants an already authorized product requests the security package, reviews it independently, and issues its own authority to operate.</p><p>Canada's guidance is built the same way. The authority to operate is a named departmental official's decision, so a system authorized inside one department carries no weight at the next.</p><p>So the cycle runs again, in full, on a product that has not changed since the last time it passed.</p><p>That is why the authorized list is short. A programme lead who has committed to a live date inside the fiscal year cannot start a new authorization and still make it.</p>"
+   },
+   {
+    "heading": "ConvergX has no part in your authorization",
+    "eyebrow": "The boundary",
+    "lede": "",
+    "body": "<p>ConvergX asks a company who it is, what it has actually delivered and whether it can take on more, then decides whether to broker the introduction.</p><p>Your authorization runs after that, unchanged, on a company that has already had to answer for itself once.</p>"
+   },
+   {
+    "heading": "The obligation is reaching buyers who have never run one",
+    "eyebrow": "Both directions",
+    "lede": "Cybersecurity legislation before Parliament extends designated-operator duties beyond telecom, into energy and transport.",
+    "body": "<p>A utility or a mine then has to run a selection its people have never run, with no route to the companies that run it well.</p><p>It runs the other way too. Securing a live plant takes fluency in the process itself, a safety interlock, a turnaround sequence, and no amount of security hiring manufactures that.</p><p>If you have cleared an authorization once already, ConvergX asks about the work behind it, and whether you could hold the same scope for a buyer who has never heard of you.</p>"
+   },
+   {
+    "heading": "Where to start",
+    "eyebrow": "Two paths",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "requirement",
+  "surface": "muted",
+  "hero": "",
+  "title": "Tell ConvergX what you need",
+  "h1": "Tell ConvergX what you need before the Congress",
+  "desc": "Tell ConvergX the problem or the RFP you want answered at the Congress, Sep 22 to 24, 2026, so it can work on who you should be meeting before you arrive.",
+  "ledes": [
+   "The Congress runs Sep 22 to 24, 2026, in Calgary. Tell ConvergX what you are trying to solve, and it will work on who you should be sitting with before you arrive.",
+   "Sending it earlier gives ConvergX more time to work on who you should meet."
+  ],
+  "sections": [
+   {
+    "heading": "Where your words go",
+    "eyebrow": "Confidentiality",
+    "lede": "You can ask without your company's name on the question.",
+    "body": "<p>Your company is not named on the requirement other delegates read, and nothing reaches them at all until ConvergX approves it.</p><p>Your name, your company and your email go to ConvergX and nowhere else.</p><p>If ConvergX brokers an introduction, that is when your name goes to the other side, and not before.</p><p>A person at ConvergX makes each of those calls. None of it happens on its own, and sending this does not put a meeting in anyone's calendar.</p>"
+   },
+   {
+    "heading": "Eleven questions",
+    "eyebrow": "The form",
+    "lede": "",
+    "body": ""
+   }
+  ]
+ },
+ {
+  "path": "thanks",
+  "surface": "muted",
+  "hero": "",
+  "title": "Received",
+  "h1": "Your message has reached ConvergX",
+  "desc": "Your message has reached ConvergX. A person reads every submission, and replies come from info@convergx.co.",
+  "ledes": [
+   "A person reads every submission. Replies come from info@convergx.co, so an eye on that thread is the only follow-up needed."
+  ],
+  "sections": []
+ },
+ {
+  "path": "xpand",
+  "surface": "dark",
+  "hero": "",
+  "title": "Xpand",
+  "h1": "ConvergX Xpand",
+  "desc": "Xpand is ConvergX's consulting practice. A client brings one problem, and ConvergX asks across industries for what already answers it.",
+  "ledes": [
+   "ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry. Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities.",
+   "From clearly defining the need, to achieving scalable adoption, businesses partner with ConvergX Xpand to find answers to problems in previously unidentified solutions.",
+   "Commercialization is the process of taking proven innovations and making them market-ready products or services that deliver measurable value."
+  ],
+  "sections": [
+   {
+    "heading": "Our approach",
+    "eyebrow": "Who it is for",
+    "lede": "",
+    "body": "<p>We also partner with the solution provider themselves, to support them through late stage commercialization and into deals with customers that need their services and technology.</p><p>We work with established companies, governments, investors, and industry leaders to:</p><p>Identify complex operational, commercial, or strategic challenges.</p>"
+   },
+   {
+    "heading": "Our process",
+    "eyebrow": "Consulting",
+    "lede": "At ConvergX Xpand, we realized that organizations don\u2019t just need introductions, they need help crossing the last mile.",
+    "body": "<p>ConvergX Xpand offers high-TRL commercialization support through access to proven solutions, cross-sector scouting, access to testing and validation for new markets or applications, and deployment and procurement support.</p><p>We partner with clients looking for new solutions to their most pressing problems. Our team helps redefine the problem, then opens up access to solutions and technology scouting across sectors, and partnered industries to source proven solutions, ready to be commercialized.</p><p>Our commercialization-focused solution scouting helps organizations identify and deploy proven solutions in their specific industry. This is done by clearly defining the challenge, operational requirements and constraints before searching across industries for technologies that may already solve similar problems.</p><p>Leveraging our global network of industry leaders, technology providers, researchers and innovators, we uncover solutions that traditional procurement and technology searches often miss. Where no single technology fully addresses the need, we combine complementary expertise and capabilities to develop tailored, best-fit solutions.</p>"
+   },
+   {
+    "heading": "What is commercialization?",
+    "eyebrow": "The last mile",
+    "lede": "",
+    "body": "<p>It bridges research and adoption, helping technologies and solutions move from prototype to real-world deployment, with focus on known gaps such as procurement pathways, compliance and supplier qualification, and financing.</p>"
+   },
+   {
+    "heading": "Navigating the path from proven solution to market success",
+    "eyebrow": "What readiness means",
+    "lede": "",
+    "body": "<p>Starting at TRL 1, where concepts are explored and moved through research, validation, and prototyping, to system integration and eventually TRL 9, where technologies and innovations are tested and deployed in operational environments.</p><p>ConvergX Xpand works with mature technologies, TRL 7+, that have completed R&D, are often commercialized in one industry, and are ready to expand to new applications. We support solution providers as they advance their technologies and become operationally ready in a new industry, to solve a cross-sector problem in 12-18 months.</p>"
+   },
+   {
+    "heading": "Where we excel",
+    "eyebrow": "What Xpand does",
+    "lede": "",
+    "body": ""
+   },
+   {
+    "heading": "Getting a supplier ready",
+    "eyebrow": "Xpand Prep",
+    "lede": "",
+    "body": "<p>ConvergX Xpand Prep helps organizations prepare for new markets, applications, and operating environments. Gain expert guidance, build strategic connections, understand sector requirements, and develop actionable plans to become deployment ready.</p><p>We work with solution providers to understand new industry requirements, prepare for commercialization, navigate procurement processes, engage effectively with buyers and operators, and accelerate market adoption.</p><p>Email Carrie at carrie@convergx.co to get on the notification list for when Xpand Prep goes live.</p>"
+   }
+  ]
+ },
+ {
+  "path": "xpand/streams",
+  "surface": "light",
+  "hero": "",
+  "title": "Moved",
+  "h1": "",
+  "desc": "",
+  "ledes": [],
+  "sections": []
+ }
+]

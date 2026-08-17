@@ -1,0 +1,42 @@
+{
+ "agriculture": {
+  "say": "The engineering underneath is the same.",
+  "say_body": "The companies that built all of it sell through custom operators, ag retail and a dealer network. No defence sourcing system reads any of those channels, so none of them holds a record of the company.\n\nThat same company can tell you whether it has ever missed a window, and defence procurement has no established route for asking.",
+  "hero": "agriculture-hero.jpg"
+ },
+ "technology": {
+  "say": "There is a company that has already passed this review.",
+  "say_body": "That review was run for another department, which is why the company has never appeared in front of you.\n\nA quality accreditation travels between buyers, and a security authorization does not.",
+  "hero": "technology-hero.jpg"
+ },
+ "energy": {
+  "say": "There is a second source for that package.",
+  "say_body": "It has never been on your approved vendor list, because your approved vendor list is a record of who supplied the last project.\n\nVendor prequalification ranks the companies already on the list. A company that has never supplied a capital project never reaches the ranking.",
+  "hero": "energy-hero.jpg"
+ },
+ "aerospace-defence": {
+  "say": "",
+  "say_body": "",
+  "hero": "aerospace-defence-hero.jpg"
+ },
+ "military": {
+  "say": "A fleet under its target is a published number, and a number carries no date for closing the gap.",
+  "say_body": "The following year's results carry the same fleet again.\n\nWhen a part on a fleet already in service becomes unsupportable, there are two ways back to full serviceability.",
+  "hero": "military-hero.jpg"
+ },
+ "manufacturing": {
+  "say": "Better is weighed against the change.",
+  "say_body": "An alternative has to beat the incumbent by more than a tool move, a bank of finished parts built to cover the weeks nothing is made, and a full approval run again from the start.\n\nPart approval is a package of evidence for one part, made on one set of tooling, in one plant, by one process, closed by a warrant your customer signs.",
+  "hero": "manufacturing-hero.jpg"
+ },
+ "construction": {
+  "say": "There is a trade that can hold that package.",
+  "say_body": "It has never bid your work, because a surety has no history to underwrite and a prequalification service has no record to score.\n\nA surety underwrites character, capacity and capital, and reads all three from a track record built with that surety.",
+  "hero": "construction-hero.jpg"
+ },
+ "mining-natural-resources": {
+  "say": "",
+  "say_body": "",
+  "hero": "mining-natural-resources-hero.jpg"
+ }
+}

@@ -1,0 +1,26 @@
+/*
+Theme Name: ConvergX
+Theme URI: https://convergx.co/
+Author: mode40
+Author URI: https://mode40.com/
+Description: ConvergX design system as a classic WordPress theme. Ports the static ConvergX Connect site (tokens + styles + shell) to WordPress with ACF-driven content and WooCommerce support. Checkout, cart and my-account are deliberately left on WooCommerce defaults; see inc/woo.php for why.
+Version: 0.1.0
+Requires at least: 6.4
+Tested up to: 6.8
+Requires PHP: 8.0
+License: Proprietary
+Text Domain: convergx
+*/
+
+/* Intentionally empty.
+ *
+ * WordPress requires this file for the theme header above, and nothing else.
+ * The real stylesheet is assets/tokens.css + assets/styles.css, enqueued in
+ * inc/enqueue.php in that order. tokens.css must load first: styles.css
+ * resolves every colour, font and space value through the custom properties
+ * tokens.css declares.
+ *
+ * DO NOT ADD RULES HERE. tokens.css is the documented swap file for the brand
+ * (see its own header). A rule in this file would sit outside that system and
+ * would be the first thing to go stale when the brand book lands.
+ */

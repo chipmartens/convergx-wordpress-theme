@@ -1,0 +1,389 @@
+/* ConvergX. BRAND TOKENS.
+ *
+ * THIS IS THE SWAP FILE. Every colour, font, and spacing value on the site
+ * resolves through a variable declared here. When Lindsay Robertson's brand
+ * guidelines arrive, you change THIS FILE ONLY and the whole site re-skins.
+ * No page file may ever contain a raw hex value or a font name.
+ *
+ * STATUS 2026-07-30: the COLOURS are Webflow's, adopted as a stand-in that
+ * Chip chose. They are NOT ConvergX's approved brand: Lindsay Robertson's
+ * approved four (royal blue, light gray, ice blue, black) are still waiting
+ * on her hex codes. See the palette block below. Type, space, tracking and
+ * the dot matrix are all still the placeholder system and are unaffected.
+ * All contrast ratios are computed against WCAG 2.1 relative luminance and
+ * were re-verified 2026-07-30 for these values.
+ *
+ * TWO RETIRED PASSES, kept so neither gets re-proposed as new:
+ * 1. A red-led palette with a warm orange-red accent.
+ * 2. Royal/ice blue read off ConvergX's brand graphic. Chip: wrong blues.
+ *    That pass also forced a surface-scoped accent, which this one undoes.
+ * Still true: the logo CANNOT change (Kim's hard constraint), and it needs
+ * no change, because it has zero fill attributes and takes currentColor.
+ */
+
+/* ---- type faces. Self-hosted only. Never an external font request. ----
+ * Manrope: display AND body. System mono stack: micro-labels and figures. */
+/* ---------------------------------------------------------------
+   TYPEFACE: Manrope. Chosen by Chip 2026-07-27 from a six-way bakeoff
+   (_reference/font-bakeoff.html). Semi-geometric, which echoes the
+   logo's circular C and O rather than sitting neutral against them.
+   OFL, self-hosted, ONE 24KB variable file covering 400 to 700.
+   NEVER load from a CDN: external dependency, privacy exposure, and
+   it fails offline at the Congress. Micro-labels use the SYSTEM mono
+   stack, zero download.
+
+   The four Manrope-*.woff2 files are byte-identical (md5
+   101877a7a906c31436104fe33740ae44, 24,576 bytes each): one variable
+   font shipped four times. Four declarations meant four downloads of
+   the same bytes. Verified live before collapsing them: rendered
+   advances for "Handgloves 0123" at 100px are 774.10 / 788.60 /
+   803.10 / 817.60 at 400 / 500 / 600 / 700, a clean monotone ladder,
+   so the wght axis is real and the range declaration is honest.
+   If a browser ever refuses the range the fallback is four
+   declarations all pointing at this one file.
+   The other three files are now unreferenced and can be deleted.
+   --------------------------------------------------------------- */
+@font-face{font-family:Manrope;font-style:normal;font-weight:400 700;font-display:swap;
+  src:url("fonts/Manrope-400.woff2") format("woff2")}
+
+/* ===================================================================
+   PALETTE, 2026-07-30, SECOND PASS. Sourced from Webflow's own tokens.
+
+   Chip rejected the first pass (royal/ice blue read off ConvergX's brand
+   graphic): wrong blues. He asked for Webflow's blues, keeping the dark
+   grey ground with heavy blue in areas, and the old off-white replaced by
+   Webflow's light grey. That is what this is.
+
+   PULLED, NOT EYEBALLED. Values are lifted verbatim from Webflow's live
+   stylesheet (marketing-main.webflow...opt.min.css), from their own
+   --_color--- custom properties. Their ramp is adopted whole and the
+   100..900 numbering here is theirs, so a value can always be traced back.
+
+   SIMPLER THAN THE FIRST PASS, and this is the real win. The first pass
+   had to make --accent SURFACE-SCOPED, because neither approved blue could
+   be a fill on both grounds (ice on paper 1.51:1, royal on near-black
+   2.40:1). Webflow blue does both: 3.91:1 on the dark ground, 4.59:1 on
+   paper. So the accent is ONE VALUE again, the surface-scoped override is
+   gone, and the notification bar no longer needs pinning. If a future
+   palette breaks that property, the surface-scoped pattern is in git.
+
+   SUPERSEDED IN PART, 2026-08-07: the official brand colours arrived via
+   Cameron Bergen (screen grab, pixel-sampled: black #050708, battleship
+   #49515E, white, chrome #4B4C4E/#8A8B8B/#B3B4B5, navy #21295F, ice
+   #C4D2E2, alert red #A7253C). The ACCENTS below are now the brand pair
+   (navy/ice, surface-scoped; see the accent block). The NEUTRAL RAMP
+   above remains Webflow's: the brand chrome #8A8B8B is within 2 points
+   of --chrome #888b8d, and the ramp's measured contrast ladder is doing
+   load-bearing work, so it stays until Lindsay's full kit lands with its
+   own ramp. The "accent is ONE VALUE" claim two paragraphs up is retired.
+   =================================================================== */
+:root {
+  /* ---- ground and ink. Webflow's neutral ramp, their numbering. ---- */
+  --ground:   #171717;  /* gray-900. The dark GREY ground, not black */
+  --panel:    #222222;  /* gray-800. Elevation is a lightness step, never a shadow. 1.13:1 */
+  --ink:      #d8d8d8;  /* gray-200. body on dark.        12.58:1, clears AAA */
+  --ink-hi:   #f0f0f0;  /* gray-100. emphasis AND logo.   15.73:1. See logo note below */
+  --ink-lo:   #ababab;  /* gray-300. de-emphasis on dark.  7.81:1. NEVER body copy */
+
+  /* ---- the neutral ramp. Webflow's greys, their numbers, so any value
+   * here can be traced to their stylesheet. NOTE the split at 500/600:
+   * one token used to carry both the dark-surface load-bearing rule and
+   * the light-surface de-emphasis text. On the warm ramp one value did
+   * both. On this ramp it cannot: #5a5a5a is only 2.60:1 on the dark
+   * ground (fails the 3:1 non-text floor) and #757575 is only 4.04:1 as
+   * text on the muted ground (fails AA). They are two tokens now. ---- */
+  --cool-100: #f0f0f0;  /* gray-100. MUTED GROUND and panels on paper. Was the off-white */
+  --cool-300: #d8d8d8;  /* gray-200. decorative rules on light. 1.43:1 on paper */
+  --cool-400: #898989;  /* gray-400. load-bearing rules on LIGHT. 3.50:1 on paper */
+  --cool-500: #757575;  /* gray-500. load-bearing rules on DARK.  3.89:1 on ground */
+  --cool-600: #5a5a5a;  /* gray-600. de-emphasis TEXT on light. 6.90:1 paper, 6.05:1 muted */
+  --cool-700: #363636;  /* gray-700. BODY TEXT on light and muted (12.08:1 paper,
+                         * 11.08:1 muted) as of 2026-08-04, and decorative rules plus dot
+                         * fields on dark, where it is 1.48:1 and must never carry text. */
+  --paper:    #ffffff;  /* THE ONLY #ffffff IN THE PROJECT */
+  --ink-900:  #171717;  /* gray-900. text on light. 17.93:1 paper, 15.73:1 muted */
+
+  /* ---- accent. SURFACE-SCOPED since 2026-08-07: navy on light, ice on dark. ---- */
+  /* ---- CHROME AND WARM, added 2026-08-05 -------------------------------
+   * Chip: "we've got a bit too much blue on the website... blue is still good
+   * for the CTA buttons and the lines and nodes on the globe or in the
+   * graphics, but we should minimize the blue across the website in other
+   * areas, opting for a chrome grey... Maybe we could also throw in a light,
+   * warm grey as an additional accent?"
+   *
+   * SO BLUE IS NOW RATIONED TO TWO JOBS: an action a reader can take, and a
+   * line or node inside a graphic. Everything that was blue because blue was
+   * the only accent available is chrome now. See section 8b in styles.css for
+   * the component-by-component split.
+   *
+   * CHROME NEEDS THREE VALUES for the same reason the blue does: one ink
+   * cannot clear 4.5:1 on both a near-black ground and near-white paper. The
+   * fill is the swatch Chip sent.
+   * WARM IS A PANEL TINT, NOT AN INK. It is far too light to carry text and is
+   * never used for type. It exists to stop a grey-on-grey site going cold. */
+  --chrome:      #888b8d;  /* THE FILL. 5.23:1 with --ink-900 on it, so fills take DARK
+                            * type, not white. 3.43:1 against paper, clearing the 3:1
+                            * a UI boundary needs. Never put white text on this. */
+  --chrome-ink:  var(--ink-900);  /* type ON a chrome fill. 5.23:1 */
+  --chrome-text: #646a6f;  /* small text and eyebrows on LIGHT. 5.48:1 paper, 4.81:1 muted */
+  --chrome-lift: #a2aaad;  /* small text and eyebrows on DARK. 7.59:1 on ground */
+  --warm:        #e8e3db;  /* light warm grey. PANEL TINT ONLY, never type.
+                            * Body #363636 on it is 9.46:1 and --fg-hi is 14.04:1, so
+                            * anything set on it is safe. 1.28:1 against paper, which is
+                            * subtle on purpose: it should read as a warmer paper, not
+                            * as a second background colour. */
+
+  /* OFFICIAL BRAND ACCENTS as of 2026-08-07. Source: the brand-colour screen
+   * grab in Cameron Bergen's email of 2026-08-07, pixel-sampled (the kit is
+   * still being built, so these may be refined when the real kit lands, but
+   * they replace the Webflow-blue stand-in #146ef5 that held the accent slot
+   * while the approved palette waited on hex codes).
+   *
+   * THE PAIR FORCES A SURFACE SPLIT. Navy is 13.57:1 on paper and 1.32:1 on
+   * the ground; ice is 11.67:1 on the ground and 1.54:1 on paper. Neither
+   * value can work both grounds, so the "accent is ONE value" rule (which
+   * held only because Webflow blue happened to clear both) is retired: the
+   * surface blocks below override --accent/--accent-ink on dark. Components
+   * keep using the same four names and inherit the right value from their
+   * surface. */
+  --navy:      #21295F;   /* brand navy. 13.57:1 on paper, 12.37:1 on muted */
+  --ice:       #C4D2E2;   /* brand ice blue. 11.67:1 on ground */
+  --alert-red: #A7253C;   /* brand tertiary. RESERVED: no component uses it.
+                           * 7.06:1 paper, 2.54:1 ground. Status/alert only,
+                           * never decoration, and never on dark without a
+                           * measured pairing. */
+  --accent:      var(--navy);  /* FILL on light and muted. White type on it: 13.57:1 */
+  --accent-ink:  #ffffff;      /* type ON the navy fill */
+  --accent-text: var(--navy);  /* small text and links on light. 13.57:1 paper */
+  --accent-lift: var(--ice);   /* small text and links on DARK. 11.67:1 on ground */
+
+  /* ---- focus. Deliberately NOT the brand colour (GOV.UK pattern):
+   * one colour cannot do brand, status and focus at once. ---- */
+  --focus:     #FFDD00;   /* 14.70:1 on ground */
+  --focus-bar: #0A0A0A;   /* carries the indicator on light surfaces */
+
+  /* ---- rules. The line system, derived from the logo's own
+   * hairline-and-inline construction. ---- */
+  --rule-hair: 1px;
+  --rule-med:  2px;       /* a rule carrying hierarchy, not dividing two equals.
+                             Added 2026-07-29 for the emphasised doors column.
+                             NOT halved on hi-dpi below: the hairline is halved
+                             so it stays a hairline, and this one is meant to
+                             read as weight. */
+  --rule-gap:  4px;       /* the inline device: gap between the double rules */
+
+  /* ---- dot matrix. INTEGER tiles only, never 16 or 24 (moire and
+   * framework-default tells). Radius never below 1px. ---- */
+  --dot-fine: 7px;
+  --dot-mid:  13px;
+  --dot-open: 29px;
+  --dot-r:    1px;
+
+  /* ---- type. Three faces, three jobs. PLACEHOLDER pairing. ---- */
+  --font-display: Manrope, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body:    Manrope, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono:    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ---- tracking ladder. One value per step, tightening as the type
+   * grows, because optical letter-space is a function of size and a
+   * single --track-display could only be right at one size. Floor is
+   * -0.032em, inside the -0.04em craft limit. Body and lede take zero:
+   * negative tracking on running copy costs legibility for nothing. ---- */
+  --track-6: -0.032em;   /* hero, 101px */
+  --track-5: -0.028em;   /* h1, 76px */
+  --track-4: -0.024em;   /* pull and display statement, 57px */
+  --track-3: -0.018em;   /* h2, 43px */
+  --track-2: -0.012em;   /* the emphatic sentence, h3, index rows, 32px */
+  --track-1: -0.008em;   /* module title, 24px */
+  --track-label:    0.18em;   /* micro-labels at 11px */
+  --track-label-13: 0.15em;   /* labels at 13px */
+  /* DEPRECATED. Superseded by the ladder above. Retained only because
+   * _dev/_reference.html:28 still names it and this pass does not edit
+   * pages. Remap that line to --track-3 and delete this. */
+  --track-display: var(--track-3);
+
+  /* ---- leading. Stated as tokens because leading is a per-role
+   * decision, not a global ratio. --lh-heading puts a fixed 4px on the
+   * em box: more air at small sizes, less at large, which is what
+   * Manrope's 0.54em x-height wants across a 32-to-101px range. ---- */
+  --lh-heading: calc(1em + 0.25rem);
+  --lh-hero:    calc(1em + 0.1rem);
+  --lh-body:    1.55;    /* THE line unit. Never forked by surface */
+  --lh-label:   1.25;    /* was 1.0, which collides the moment a label wraps */
+  --lh-lede:    1.34;    /* light grounds. Dark overrides below */
+
+  /* ---- type scale. 1.2 at 320px to 1.333 at 1440px, base 16 to 18.
+   * Every preferred term carries a rem component (WCAG 1.4.4).
+   * Type stops growing at 1440px by design; layout absorbs width above. ---- */
+  --step--2: 0.6875rem;                                     /* 11px. Micro-labels are NOT fluid */
+  --step--1: clamp(0.833rem, 0.828rem + 0.02vw, 0.844rem);  /* captions, metadata */
+  --step-0:  clamp(1rem,     0.964rem + 0.18vw, 1.125rem);  /* body */
+  --step-1:  clamp(1.2rem,   1.114rem + 0.43vw, 1.5rem);    /* lede */
+  --step-2:  clamp(1.438rem, 1.277rem + 0.80vw, 2rem);      /* h3 */
+  --step-3:  clamp(1.725rem, 1.457rem + 1.34vw, 2.663rem);  /* h2 */
+  --step-4:  clamp(2.075rem, 1.654rem + 2.11vw, 3.55rem);   /* h1 */
+  --step-5:  clamp(2.487rem, 1.845rem + 3.21vw, 4.737rem);  /* display */
+  --step-6:  clamp(2.987rem, 2.037rem + 4.75vw, 6.312rem);  /* hero. ONCE per page */
+
+  /* ---- space scale, same 320 to 1440 range ---- */
+  --space-3xs: clamp(0.25rem, 0.232rem + 0.09vw, 0.313rem);
+  --space-2xs: clamp(0.5rem,  0.482rem + 0.09vw, 0.563rem);
+  --space-xs:  clamp(0.75rem, 0.732rem + 0.09vw, 0.813rem);
+  --space-s:   clamp(1rem,    0.964rem + 0.18vw, 1.125rem);
+  --space-m:   clamp(1.5rem,  1.446rem + 0.27vw, 1.688rem);
+  --space-l:   clamp(2rem,    1.929rem + 0.36vw, 2.25rem);
+  --space-xl:  clamp(3rem,    2.893rem + 0.54vw, 3.375rem);
+  --space-2xl: clamp(4rem,    3.857rem + 0.71vw, 4.5rem);
+  --space-3xl: clamp(6rem,    5.786rem + 1.07vw, 6.75rem);
+  --space-4xl: clamp(8rem,    7.714rem + 1.43vw, 9rem);
+
+  /* ---- layout ---- */
+  --page-max: 1180px;
+  --gutter:   var(--space-l);
+  --radius: 0;                /* structural. Do not change */
+
+  /* ---- measure. Stated in ch, READ in characters.
+   * Measured live in Manrope: the `0` is 8.235px where the average
+   * letter is 6.219px, so 1ch = 1.324 rendered characters. Every value
+   * below is the character count divided by 1.324. The old 68ch was
+   * ~90 characters, which is why the columns read as slabs. ---- */
+  --measure:         50ch;    /* body prose. ~66 characters */
+  --measure-lede:    34ch;    /* the lede. ~45 characters */
+  --measure-display: 22ch;    /* h1, pull, display statement. ~29 characters */
+  --measure-hero:    12ch;    /* hero headline only. ~16 characters */
+
+  /* ---- logo. Measured floors, enforced in styles.css. ----
+   * Below 200px the tagline stops being type; below 150px the inline
+   * strokes close up and the mark stops being the mark.
+   * Clear space: 12.5% of rendered width on every side. */
+  --logo-min-lockup: 200px;
+  --logo-min-mark:   150px;
+
+  /* ---- motion. The entire budget. ---- */
+  --t: 120ms;
+
+  /* ---- figures. See _reference/FIGURE-SYSTEM.md ---- */
+  --fig-dash:   4 9;      /* dash pattern, viewBox units */
+  --fig-t:      800ms;    /* draw-on duration */
+  --fig-t-fade: 300ms;    /* path, label and dot fade duration */
+  /* The hero globe's turn is driven by _system/globe.js, not by a transition,
+   * so its period lives there next to the loop that spends it. Nothing in CSS
+   * animates on that plate and the --t budget above is untouched. */
+}
+
+/* ---- the surface system. Three grounds, one family. ----
+ * A section declares its surface and everything inside inherits.
+ * Components only ever use --bg, --fg, --fg-hi, --fg-lo, --block,
+ * --rule-ink, --rule-ink-load, --link, --logo-ink, --dot-ink.
+ * A component that only works on one surface is a defect. */
+[data-surface="dark"] {
+  --bg:            var(--ground);
+  --fg:            var(--ink);
+  --fg-hi:         var(--ink-hi);
+  --fg-lo:         var(--ink-lo);      /* de-emphasis only, never body */
+  --block:         var(--panel);
+  --rule-ink:      var(--cool-700);    /* decorative */
+  --rule-ink-load: var(--cool-500);    /* any UI component boundary. 3.89:1, clears 1.4.11.
+                                        * NOT --cool-600: that is 2.60:1 here and fails. */
+  --link:          var(--accent-lift);  /* ice on dark, 11.67:1 */
+  /* BRAND SPLIT 2026-08-07: navy is 1.32:1 on this ground, so the accent
+   * flips to ice here. FILLS take DARK type on ice (11.67:1); white on ice
+   * is 1.54:1 and must never happen. Buttons on dark are therefore
+   * ice-filled with near-black labels, which is the brand's own secondary
+   * pairing, not an invention. */
+  --accent:        var(--ice);
+  --accent-ink:    var(--ink-900);
+  --label-ink:     var(--chrome-lift);  /* the eyebrows. CHROME as of 2026-08-05, 7.59:1 at 11px.
+                                        * --link stays an accent colour: a link is an action and
+                                        * colour is the one signal a reader does not have to learn. */
+  --logo-ink:      var(--ink-hi);      /* hairline mark needs MORE contrast than body */
+  --dot-ink:       var(--cool-700);
+  /* The light block, on the dark ground. */
+  --door-bg:       var(--paper);
+  --door-fg:       var(--cool-600);    /* 6.55:1 on paper */
+  --door-fg-hi:    var(--ink-900);     /* 18.69:1 */
+  /* Light type on a dark ground needs a touch more leading to hold its
+   * lines apart. The body line unit never forks (1.55 everywhere); the
+   * lede is where the compensation is affordable and visible. */
+  --lh-lede:       1.40;
+}
+[data-surface="light"] {
+  --bg:            var(--paper);
+  /* --fg AND --fg-hi WERE THE SAME INK until 2026-08-04, which meant the
+   * emphasis channel did not exist on this surface. `strong` resolves to
+   * --fg-hi, so every <strong>, every claim-row lead-in and every emphasised
+   * phrase on a light page differed from its body copy by a 500-vs-400 weight
+   * and nothing else. Chip: "some titles are bold-ish but not enough to be
+   * visually different than the text." This was the cause, and it was in the
+   * tokens rather than in any component.
+   * Body copy steps back to --cool-700 and --fg-hi keeps --ink-900, so the two
+   * are now 12.08:1 and 17.93:1 on paper, 11.08:1 and 16.44:1 on muted. Both
+   * clear 4.5:1 with room, and emphasis finally reads as emphasis.
+   * DO NOT re-point --fg at --ink-900 to make body copy "richer". That is the
+   * bug, and it looks like a preference. */
+  --fg:            var(--cool-700);    /* 12.08:1 on paper */
+  --fg-hi:         var(--ink-900);     /* 17.93:1 on paper. The emphasis ink */
+  --fg-lo:         var(--cool-600);    /* 6.55:1 on paper */
+  /* WARM as of 2026-08-05, was --cool-100. Chip asked for "a light, warm grey
+   * as an additional accent", and a panel on a white page is the one surface
+   * that appears often enough to register as an accent without becoming a
+   * second background. It also separates a panel from the MUTED ground, which
+   * is --cool-100: those two were the same value, so a panel sitting on a muted
+   * band was previously invisible.
+   * Safe for type: body #363636 on it is 9.46:1 and --fg-hi is 14.04:1. */
+  --block:         var(--warm);
+  --rule-ink:      var(--cool-300);
+  --rule-ink-load: var(--cool-400);
+  --link:          var(--accent-text);
+  --label-ink:     var(--chrome-text);  /* the eyebrows. CHROME as of 2026-08-05, 5.48:1 paper, 4.81:1 muted */
+  --logo-ink:      var(--ink-900);
+  --dot-ink:       var(--cool-300);
+  /* On the paper ground the light block goes the OTHER way, to the greige.
+     White on white is the same defect as black on black. */
+  --door-bg:       var(--cool-100);
+  --door-fg:       var(--cool-600);    /* 5.29:1 on warm-100 */
+  --door-fg-hi:    var(--ink-900);     /* 15.07:1 */
+}
+[data-surface="muted"] {
+  --bg:            var(--cool-100);
+  /* Same fix as the light surface above, same reason. See the note there. */
+  --fg:            var(--cool-700);    /* 11.08:1 on muted */
+  --fg-hi:         var(--ink-900);     /* 16.44:1 on muted. The emphasis ink */
+  --fg-lo:         var(--cool-600);    /* 5.29:1 on muted */
+  --block:         var(--paper);
+  --rule-ink:      var(--cool-300);
+  --rule-ink-load: var(--cool-400);
+  --link:          var(--accent-text);
+  --label-ink:     var(--chrome-text);  /* the eyebrows. CHROME as of 2026-08-05, 5.48:1 paper, 4.81:1 muted */
+  --logo-ink:      var(--ink-900);
+  --dot-ink:       var(--paper);       /* white dots on greige. Use deliberately */
+  /* Off-white ground, white block. */
+  --door-bg:       var(--paper);
+  --door-fg:       var(--cool-600);    /* 6.55:1 on paper */
+  --door-fg-hi:    var(--ink-900);     /* 18.69:1 */
+}
+
+/* ---- THE DOOR BLOCKS. Surface-relative, added 2026-07-29. ----
+ * A filled block sitting ON a surface cannot use a fixed ground: the panel
+ * takes the page's surface, so the near-black block rendered near-black on
+ * near-black on every dark page and vanished.
+ * The rule is CONTRAST WITHIN THE LIGHT END, revised 2026-07-29 after the
+ * first version put a near-black block on the light and muted grounds and
+ * Chip called it: the second door is always a LIGHT block, and the ground it
+ * takes is whichever light step is not the one underneath it. Off-white page
+ * gets white, white page gets off-white, dark page gets white.
+ * --block is the elevation step and cannot do this job: on dark it is #141210
+ * against #0A0A0A, 1.06:1, correct for a panel and useless for a card.
+ * The accent door is NOT in here. Webflow blue reads on all three grounds
+ * (3.91 ground / 4.59 paper / 4.02 muted) and its type is always
+ * --accent-ink, which is WHITE now, not near-black: the blue is dark. */
+
+/* No prefers-color-scheme anywhere: the surface is an authored decision
+ * per page, not a user preference. The site ships both grounds. */
+
+@media (min-width: 1920px) {
+  :root { --page-max: 1360px; }
+}
+@media (min-resolution: 2dppx) {
+  :root { --rule-hair: 0.5px; }
+}

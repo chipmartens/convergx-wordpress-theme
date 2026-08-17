@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700"
+     preserveAspectRatio="xMidYMid meet" role="img"
+     aria-label="Diagram: two dashed paths meet at a dot, separate again, and end a short way later. From the meeting point a single solid line continues to the edge of the frame, labelled the record.">
+  <!-- Fig. 8 in the site-wide append-only numbering. Reworked 2026-07-28 per POLISH-SPEC
+       section 4: the arriving paths enter at the frame's top and bottom corners and turn
+       up late, so the convergence has real angle instead of reading as four faint
+       scratches; the departing paths run to x 1150; "The introduction" moves below-left of
+       the dot, off the stroke it was colliding with. The solid record line and its label
+       are exactly as built. Every string is unchanged, character for character.
+       Solid first, then dashed, then dots, then labels. -->
+
+  <!-- The record. The only solid element: it outlasts every dashed path on the plate. -->
+  <line class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke"
+        x1="600" y1="350" x2="1600" y2="350"/>
+
+  <!-- The two parties arriving, both cropped by the left frame edge. They run long and
+       turn up late, so the pinch at the node is the figure's loudest moment and so the
+       lower path passes UNDER "The introduction" instead of through it. -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke"
+        d="M 0 80 C 340 100, 560 140, 600 350"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke"
+        d="M 0 640 C 340 620, 560 580, 600 350"/>
+
+  <!-- The two parties leaving. They end plainly. No terminal mark. -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke"
+        d="M 600 350 C 780 290, 960 220, 1150 140"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke"
+        d="M 600 350 C 780 410, 960 480, 1150 560"/>
+
+  <!-- The introduction. The one node where the four paths and the record share a point. -->
+  <circle class="fig-dot" cx="600" cy="350" r="6"/>
+
+  <text class="fig-label" x="560" y="430" text-anchor="end">The introduction</text>
+  <text class="fig-label" x="1190" y="120" text-anchor="start">The parties</text>
+  <text class="fig-label" x="1560" y="320" text-anchor="end">The record</text>
+</svg>

@@ -1,0 +1,525 @@
+/* ConvergX. WOOCOMMERCE SKIN.
+ *
+ * ============================================================================
+ * THIS FILE STYLES WOOCOMMERCE'S OWN MARKUP. IT DOES NOT REPLACE IT.
+ * ============================================================================
+ *
+ * Every rule here is additive over woocommerce.css / woocommerce-layout.css /
+ * wc-blocks.css, which stay enqueued. They carry the layout for notices, form
+ * rows, the gallery, quantity inputs and the whole block checkout grid, and
+ * this design system has no equivalent for any of them.
+ *
+ * WHY NOT TEMPLATE OVERRIDES FOR CART AND CHECKOUT. Both render as React
+ * blocks in Woo 11. There is no classic template to override, and hand-building
+ * a replacement drops the hook stack Stripe's Apple Pay / Google Pay buttons
+ * mount on, silently, with no error and no visible gap. So cart and checkout
+ * are styled, never re-authored. See inc/woo.php.
+ *
+ * EVERY VALUE RESOLVES THROUGH tokens.css. No raw hex, no font name, no
+ * hardcoded space value below. Woo pages force [data-surface="light"] in
+ * convergx_surface(), so the light ramp is what these rules resolve against.
+ */
+
+/* ---------------------------------------------------------------
+   1. THE SHELL. Woo pages get the same page rail as the rest of the
+   site, so a product does not sit at a different measure from a
+   page. .woocommerce is Woo's own outer wrapper on every store page.
+   --------------------------------------------------------------- */
+/* .woo-rail is emitted by convergx_woo_wrapper_open() in inc/woo.php, which
+ * replaces Woo's own #primary/.site-main wrapper. Targeting our own class means
+ * the rail does not depend on Woo's fallback markup, which is exactly the thing
+ * that changes between Woo versions. */
+.woocommerce-page .woo-rail,
+.woocommerce-page main > .wp-block-group,
+.woocommerce-page main .wc-block-components-main {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.woocommerce-page main {
+  padding-block: var(--space-2xl) var(--space-3xl);
+}
+
+/* ---------------------------------------------------------------
+   2. TYPE. Woo ships its own sizes; these hand them back to the
+   type scale so a product title and a page h1 agree.
+   --------------------------------------------------------------- */
+.woocommerce-page h1,
+.woocommerce-page .product_title {
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--track-display);
+  color: var(--fg-hi);
+  margin-block: 0 var(--space-m);
+}
+
+.woocommerce-page h2,
+.woocommerce-page .wc-block-components-title {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--track-2);
+  color: var(--fg-hi);
+}
+
+.woocommerce-page h3 { font-family: var(--font-display); font-size: var(--step-1); color: var(--fg-hi); }
+
+.woocommerce-page,
+.woocommerce-page p,
+.woocommerce-page li,
+.woocommerce-page td {
+  font-family: var(--font-body);
+  color: var(--fg);
+  line-height: var(--lh-body);
+}
+
+/* Woo's breadcrumb is a wayfinding micro-label, not body copy. */
+.woocommerce-breadcrumb {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--chrome-text);
+  margin-block-end: var(--space-l);
+}
+.woocommerce-breadcrumb a { color: var(--chrome-text); text-decoration: none; }
+.woocommerce-breadcrumb a:hover { color: var(--fg-hi); }
+
+/* ---------------------------------------------------------------
+   3. PRICES. Same treatment as .store-price on the register page, so
+   a price reads identically wherever it appears on the site.
+   --------------------------------------------------------------- */
+.woocommerce-page .price,
+.woocommerce-page .woocommerce-Price-amount,
+.wc-block-components-product-price {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  letter-spacing: var(--track-3);
+  color: var(--fg-hi);
+}
+
+.woocommerce-page .summary .price { font-size: var(--step-4); display: block; margin-block: var(--space-xs) var(--space-m); }
+
+/* The currency word, matched to .store-cur on the register page: smaller,
+ * lighter, riding beside the figure rather than competing with it. Woo wraps
+ * the symbol in this span on every price it renders, so styling it once covers
+ * the shop, the product page, cart and checkout. */
+.woocommerce-page .woocommerce-Price-currencySymbol,
+.wc-block-components-formatted-money-amount .wc-block-components-product-price__value > span {
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: var(--track-label);
+  color: var(--fg-lo);
+  vertical-align: baseline;
+}
+
+/* A struck-through price is a discount signal. Nothing on this store
+ * carries one and no rule here creates the appearance of one; this only
+ * makes Woo's own del legible if a product ever does. */
+.woocommerce-page del { color: var(--fg-lo); text-decoration-thickness: 1px; }
+.woocommerce-page ins { text-decoration: none; }
+
+/* ---------------------------------------------------------------
+   4. BUTTONS. Matched to .btn--solid so the store's calls to action
+   and the site's are the same object.
+   --------------------------------------------------------------- */
+/* SPECIFICITY NOTE. Woo's own rules are `.woocommerce #respond input#submit,
+ * .woocommerce a.button, .woocommerce button.button, .woocommerce input.button`
+ * which is (0,2,1) with the element. `.woocommerce-page .button` is only
+ * (0,2,0) and LOSES, which is why the first pass rendered grey Woo buttons on a
+ * navy-branded site. Matching their shape (body class + element + class) is
+ * what wins, and it wins on merit rather than on !important. */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce input#submit,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce-page input.button,
+.woocommerce-page input[type="submit"],
+.woocommerce ul.products li.product a.button,
+.wc-block-components-button {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: var(--track-1);
+  /* --accent-ink is the type colour ON the navy fill (white, 13.57:1).
+   * --accent-text is navy ITSELF, for links on a light ground: using it
+   * here painted navy on navy and the labels vanished. */
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 0;
+  border-radius: var(--radius);
+  padding: var(--space-s) var(--space-l);
+  min-height: 2.75rem;              /* pointer target floor */
+  cursor: pointer;
+  transition: background var(--t), color var(--t);
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce-page a.button:hover,
+.woocommerce-page button.button:hover,
+.woocommerce ul.products li.product a.button:hover,
+.wc-block-components-button:hover { background: var(--accent-text); color: var(--accent-ink); }
+
+/* Woo's "added to cart" tick link that appears beside a button after an
+ * add-to-cart. It is a link, not a second button, so it reads as one. */
+.woocommerce a.added_to_cart {
+  display: inline-block;
+  margin-inline-start: var(--space-xs);
+  font-size: var(--step--1);
+  color: var(--link);
+}
+
+/* Never remove the focus ring. Keyboard checkout is the case where losing
+ * it actually costs someone a purchase. */
+.woocommerce-page .button:focus-visible,
+.wc-block-components-button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Woo's secondary buttons (Continue shopping, Update cart). */
+.woocommerce-page .button.wc-backward,
+.wc-block-components-button.wc-block-components-button--outlined {
+  background: transparent;
+  color: var(--fg-hi);
+  box-shadow: inset 0 0 0 1px var(--rule-ink-load);
+}
+.woocommerce-page .button.wc-backward:hover { background: var(--cool-100); }
+
+/* ---------------------------------------------------------------
+   5. THE PRODUCT GRID. Rebuilt on grid rather than Woo's float
+   columns, which is what makes the archive look bespoke. Woo's
+   own .products ul is kept as the hook so plugins that append to
+   it still work.
+   --------------------------------------------------------------- */
+.woocommerce-page ul.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.woocommerce-page ul.products::before,
+.woocommerce-page ul.products::after { content: none; }   /* kill Woo's clearfix */
+
+.woocommerce-page ul.products li.product {
+  width: auto !important;           /* Woo sets inline percentage widths */
+  margin: 0 !important;
+  float: none !important;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-l);
+  background: var(--paper);
+  box-shadow: inset 0 0 0 1px var(--rule-ink);
+  border-radius: var(--radius);
+}
+
+.woocommerce-page ul.products li.product a img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-block-end: var(--space-s);
+}
+
+/* NO PLACEHOLDER IMAGES.
+ *
+ * The registration and sponsorship products carry no photography and are not
+ * going to: a pass is not a thing you look at. Woo fills the gap with its grey
+ * mountain-and-sun placeholder, which on a row of three reads as a store whose
+ * images failed to load rather than as a deliberate choice.
+ *
+ * The card is built to work without an image: title, price, action. If a
+ * product ever does get real photography it renders normally, because this only
+ * hides the placeholder Woo substitutes. */
+.woocommerce-page ul.products li.product img.woocommerce-placeholder,
+.woocommerce-page div.product img.woocommerce-placeholder { display: none; }
+
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  line-height: var(--lh-heading);
+  color: var(--fg-hi);
+  padding: 0;
+  margin: 0;
+}
+
+.woocommerce-page ul.products li.product a { text-decoration: none; }
+
+/* The action sits at the foot of every card regardless of title length,
+ * so a row of cards has one baseline for its buttons. */
+.woocommerce-page ul.products li.product .button { margin-block-start: auto; align-self: start; }
+
+/* NO SALE FLASH. Nothing on this store is discounted and a badge would
+ * manufacture urgency the register page's own rules forbid. */
+.woocommerce-page span.onsale { display: none; }
+
+/* ---------------------------------------------------------------
+   6. SINGLE PRODUCT.
+   --------------------------------------------------------------- */
+.woocommerce-page div.product {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+@media (max-width: 48rem) {
+  .woocommerce-page div.product { grid-template-columns: 1fr; gap: var(--space-l); }
+}
+
+.woocommerce-page div.product .woocommerce-product-gallery { width: auto !important; float: none !important; }
+.woocommerce-page div.product .summary { width: auto !important; float: none !important; margin: 0 !important; }
+
+.woocommerce-page div.product .woocommerce-product-gallery img { border-radius: var(--radius); }
+
+/* A product with no image should not leave a hole in the grid. */
+.woocommerce-page div.product .woocommerce-product-gallery--without-images { display: none; }
+.woocommerce-page div.product:has(.woocommerce-product-gallery--without-images) { grid-template-columns: minmax(0, 42rem); }
+
+.woocommerce-page div.product form.cart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s);
+  margin-block: var(--space-l) 0;
+  padding-block-start: var(--space-l);
+  border-block-start: 1px solid var(--rule-ink);
+}
+
+.woocommerce-page .quantity input.qty {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  color: var(--fg-hi);
+  background: var(--paper);
+  border: 1px solid var(--rule-ink-load);
+  border-radius: var(--radius);
+  padding: var(--space-2xs) var(--space-xs);
+  min-height: 2.75rem;
+  width: 5rem;
+  text-align: center;
+}
+
+/* Tabs. Flattened to a plain stack: a two-tab strip above a description
+ * is chrome, and the description is the only thing anyone reads. */
+.woocommerce-page .woocommerce-tabs { margin-block-start: var(--space-2xl); grid-column: 1 / -1; }
+.woocommerce-page .woocommerce-tabs ul.tabs {
+  display: flex;
+  gap: var(--space-m);
+  margin: 0 0 var(--space-l);
+  padding: 0 0 var(--space-xs);
+  list-style: none;
+  border-block-end: 1px solid var(--rule-ink);
+}
+.woocommerce-page .woocommerce-tabs ul.tabs::before { content: none; }
+.woocommerce-page .woocommerce-tabs ul.tabs li { margin: 0; padding: 0; background: none; border: 0; border-radius: 0; }
+.woocommerce-page .woocommerce-tabs ul.tabs li a {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--chrome-text);
+  text-decoration: none;
+  padding: 0;
+}
+.woocommerce-page .woocommerce-tabs ul.tabs li.active a { color: var(--fg-hi); }
+
+/* ---------------------------------------------------------------
+   7. NOTICES. Woo's default green/blue bars are the single most
+   off-brand thing on the store, and they appear at the exact moment
+   someone is buying.
+   --------------------------------------------------------------- */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error,
+.wc-block-components-notice-banner {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--fg-hi);
+  background: var(--cool-100);
+  border: 0;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: var(--radius);
+  padding: var(--space-s) var(--space-m);
+  margin-block-end: var(--space-l);
+}
+
+.woocommerce-message::before,
+.woocommerce-info::before { content: none; }
+
+/* An error is the one place a second colour earns its keep: a reader has
+ * to be able to tell "added to cart" from "your card was declined". */
+.woocommerce-error,
+.wc-block-components-notice-banner.is-error {
+  border-inline-start-color: var(--alert-red);
+}
+
+/* ---------------------------------------------------------------
+   8. FORMS. Cart, checkout and my-account share these.
+   --------------------------------------------------------------- */
+.woocommerce-page input[type="text"],
+.woocommerce-page input[type="email"],
+.woocommerce-page input[type="tel"],
+.woocommerce-page input[type="password"],
+.woocommerce-page input[type="number"],
+.woocommerce-page select,
+.woocommerce-page textarea,
+.wc-block-components-text-input input,
+.wc-blocks-components-select__select {
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  color: var(--fg-hi);
+  background: var(--paper);
+  border: 1px solid var(--rule-ink-load);
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-s);
+  min-height: 2.75rem;
+  width: 100%;
+}
+
+.woocommerce-page input:focus-visible,
+.woocommerce-page select:focus-visible,
+.woocommerce-page textarea:focus-visible,
+.wc-block-components-text-input input:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--accent);
+}
+
+.woocommerce-page label,
+.wc-block-components-text-input label {
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  color: var(--fg);
+}
+
+/* THE MEASURE RULE MUST NOT REACH FORM ROWS. styles.css caps p and li at
+ * ~50ch for reading. A checkout field row is not prose, and inheriting the
+ * cap squeezes the billing fields into half the column. */
+.woocommerce-page .form-row,
+.woocommerce-page .woocommerce-input-wrapper,
+.wc-block-components-address-form p,
+.wc-block-components-checkout-step p { max-width: none; }
+
+/* ---------------------------------------------------------------
+   9. TABLES. Cart and order-summary tables.
+   --------------------------------------------------------------- */
+.woocommerce-page table.shop_table,
+.woocommerce-page table.woocommerce-orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  border-radius: 0;
+}
+
+.woocommerce-page table.shop_table th {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--chrome-text);
+  text-align: start;
+  padding: var(--space-xs) var(--space-s);
+  border-block-end: 1px solid var(--rule-ink-load);
+}
+
+.woocommerce-page table.shop_table td {
+  padding: var(--space-s);
+  border-block-end: 1px solid var(--rule-ink);
+  vertical-align: middle;
+}
+
+.woocommerce-page table.shop_table img { width: 3.5rem; height: auto; border-radius: var(--radius); }
+
+/* ---------------------------------------------------------------
+   10. BLOCK CART AND CHECKOUT.
+   Markup-preserving only. Every selector here is a paint change:
+   colour, type, border, spacing. Nothing is moved, hidden or
+   restructured, because the express-payment area and the payment
+   method list are mounted by Stripe and by Woo's own scripts.
+   --------------------------------------------------------------- */
+.wc-block-components-sidebar-layout { gap: var(--space-2xl); }
+
+.wc-block-components-order-summary,
+.wc-block-cart__sidebar .wc-block-components-sidebar,
+.wc-block-checkout__sidebar .wc-block-components-sidebar {
+  background: var(--cool-100);
+  border-radius: var(--radius);
+  padding: var(--space-l);
+}
+
+.wc-block-components-totals-item__label { color: var(--fg); }
+.wc-block-components-totals-item__value { color: var(--fg-hi); font-weight: 600; }
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+}
+
+.wc-block-components-checkout-step__title {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--fg-hi);
+}
+
+.wc-block-components-checkout-step__description { color: var(--fg-lo); font-size: var(--step--1); }
+
+.wc-block-components-panel,
+.wc-block-components-radio-control__option {
+  border-color: var(--rule-ink);
+}
+
+/* The place-order button is the last thing anyone touches. Full width,
+ * unmissable, and it keeps its focus ring. */
+.wc-block-components-checkout-place-order-button {
+  width: 100%;
+  min-height: 3.25rem;
+  font-size: var(--step-0);
+}
+
+/* DO NOT HIDE THIS. The express-payment area is where Apple Pay and
+ * Google Pay mount. It looks empty in a desktop browser with no wallet
+ * configured, which is exactly the state in which someone "tidies it
+ * away" and silently removes a payment method on every phone. */
+.wc-block-components-express-payment { margin-block-end: var(--space-l); }
+.wc-block-components-express-payment__title { color: var(--chrome-text); }
+
+/* ---------------------------------------------------------------
+   11. MY ACCOUNT.
+   --------------------------------------------------------------- */
+.woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }
+.woocommerce-MyAccount-navigation li { border-block-end: 1px solid var(--rule-ink); }
+.woocommerce-MyAccount-navigation li a {
+  display: block;
+  padding: var(--space-xs) 0;
+  color: var(--fg);
+  text-decoration: none;
+  font-size: var(--step--1);
+}
+.woocommerce-MyAccount-navigation li.is-active a,
+.woocommerce-MyAccount-navigation li a:hover { color: var(--fg-hi); }
+
+/* ---------------------------------------------------------------
+   12. RELATED PRODUCTS + REVIEWS.
+   Reviews are off: nothing on this store is a reviewable consumer
+   product, and an empty "no reviews yet" under a $2,000 registration
+   reads as a dead storefront.
+   --------------------------------------------------------------- */
+.woocommerce-page #reviews,
+.woocommerce-page .woocommerce-noreviews,
+.woocommerce-page li.reviews_tab { display: none; }
+
+.woocommerce-page .related.products,
+.woocommerce-page .up-sells { grid-column: 1 / -1; margin-block-start: var(--space-3xl); }
+.woocommerce-page .related.products > h2 { margin-block-end: var(--space-l); }

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagram: seven dashed paths converge from the left into a rectangular frame divided into three columns, one for each day of the Congress, September 22 to 24. Three dots inside the frame mark meetings.">
+  <!-- Fig. 9, Three days. Geometry, label, caption and aria-label copied
+       character for character from _reference/FIGURE-SYSTEM.md section 2.
+       Monochrome: every stroke and every dot inherit currentColor, which
+       styles.css section 20 sets to the fg-hi token on .fig svg. No hex anywhere.
+       The window and its two dividers are drawn as path rather than rect and
+       line: identical geometry, and pathLength is honoured on a path in every
+       browser, which the draw-on depends on. See the notes file. -->
+
+  <!-- The window: three columns, three days. -->
+  <path class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" d="M 980 110 H 1440 V 590 H 980 Z"/>
+  <path class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" d="M 1133 110 V 590"/>
+  <path class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" d="M 1287 110 V 590"/>
+
+  <!-- Seven routes in, each cropped by the frame edge it enters from, every
+       one terminating on the window's left edge at x 980. -->
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 60 C 400 100, 700 180, 980 240"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 200 C 350 230, 680 260, 980 290"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 340 C 350 345, 680 348, 980 340"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 480 C 350 460, 680 420, 980 390"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 0 620 C 400 580, 700 500, 980 440"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 240 0 C 500 160, 760 220, 980 265"/>
+  <path class="fig-dash" vector-effect="non-scaling-stroke" d="M 240 700 C 500 560, 760 470, 980 415"/>
+
+  <!-- One meeting in each column. -->
+  <circle class="fig-dot" cx="1057" cy="300" r="6"/>
+  <circle class="fig-dot" cx="1210" cy="350" r="6"/>
+  <circle class="fig-dot" cx="1363" cy="400" r="6"/>
+
+  <text class="fig-label" x="980" y="80">Sep 22 to 24, Calgary</text>
+</svg>

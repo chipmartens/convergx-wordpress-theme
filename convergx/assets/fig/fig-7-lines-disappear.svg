@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700"
+     preserveAspectRatio="xMidYMid meet" role="img"
+     aria-label="Diagram: four circles, one for each industry, all touching at a single shared point marked by a dot. The labels read aerospace and defence, energy, mining and natural resources, and agriculture.">
+  <!-- Fig. 7. Where the lines meet. Geometry, labels and aria-label copied
+       character for character from _reference/FIGURE-SYSTEM.md section 2.
+
+       REBUILT 2026-07-27 by the integration agent. The batch-slot-4 agent
+       shipped a byte-near duplicate of fig-1 (the spec's Fig. 4) into this
+       filename and Fig. 7 was never drawn. It read the site-wide figure
+       number as its batch index. Nothing else in the batch is affected.
+
+       Four circles, one per industry, every one tangent to the same node at
+       (800, 390). Two solid, two dashed, so the plate keeps the two-weight
+       grammar. The top and bottom circles are cropped by the frame on
+       purpose: the system is larger than the frame.
+
+       Tangency, checkable: (540,390) r260 touches at its rightmost point;
+       (1060,390) r260 at its leftmost; (800,170) r220 at its bottom;
+       (800,650) r260 at its top. All four land on (800, 390). -->
+
+  <!-- solid: tangent from the left and from the right -->
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="540" cy="390" r="260"/>
+  <circle class="fig-solid" pathLength="1" vector-effect="non-scaling-stroke" cx="1060" cy="390" r="260"/>
+
+  <!-- dashed: tangent from above and from below, both cropped by the frame -->
+  <circle class="fig-dash" vector-effect="non-scaling-stroke" cx="800" cy="170" r="220"/>
+  <circle class="fig-dash" vector-effect="non-scaling-stroke" cx="800" cy="650" r="260"/>
+
+  <!-- the shared node. The only dot on the plate. -->
+  <circle class="fig-dot" cx="800" cy="390" r="6"/>
+
+  <text class="fig-label" text-anchor="start"  x="70"   y="380">Aerospace and defence</text>
+  <text class="fig-label" text-anchor="end"    x="1530" y="380">Energy</text>
+  <text class="fig-label" text-anchor="middle" x="800"  y="40">Mining and natural resources</text>
+  <text class="fig-label" text-anchor="middle" x="800"  y="685">Agriculture</text>
+</svg>

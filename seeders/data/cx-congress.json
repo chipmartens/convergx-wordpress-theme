@@ -1,0 +1,306 @@
+{
+ "days": [
+  {
+   "title": "Tuesday, September 22nd",
+   "caption": "Tuesday 22 September",
+   "rows": [
+    {
+     "time": "08:00 to 12:00",
+     "session": "Invite Only Executive Roundtable",
+     "detail": ""
+    },
+    {
+     "time": "14:00 to 16:00",
+     "session": "Invite Only Executive Roundtable",
+     "detail": ""
+    },
+    {
+     "time": "16:00 to 20:00",
+     "session": "Welcome Reception, Romero Distillery",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "title": "Wednesday, September 23rd",
+   "caption": "Wednesday 23 September",
+   "rows": [
+    {
+     "time": "07:30 to 08:00",
+     "session": "Breakfast",
+     "detail": ""
+    },
+    {
+     "time": "08:00 to 08:15",
+     "session": "Welcome and Opening Remarks",
+     "detail": "Kimberley Van Vliet, Founder and CEO, WaVv and ConvergX; Canadian Delegation, NATO Industrial Advisory Group (NIAG)."
+    },
+    {
+     "time": "08:15 to 08:45",
+     "session": "Welcome from the Province, and Opening Keynote",
+     "detail": "Tracy LaTourette, \"Building Resilience to Perform in the Storm\"."
+    },
+    {
+     "time": "08:45 to 10:00",
+     "session": "Session #1. ConvergX-U",
+     "detail": "Four State of the Union slots. Defence, Dr. David Perry, President, Canadian Global Affairs Institute. Energy, Gurpreet Lail, President, Enserva. Mining and Agriculture, speakers not named."
+    },
+    {
+     "time": "10:00 to 10:15",
+     "session": "Break",
+     "detail": ""
+    },
+    {
+     "time": "10:15 to 11:30",
+     "session": "Panel #2. The Convergence Reckoning: What Worked, What's Buying Now",
+     "detail": ""
+    },
+    {
+     "time": "11:30 to 12:00",
+     "session": "Pre-Lunch Reception & Networking",
+     "detail": ""
+    },
+    {
+     "time": "12:00 to 13:30",
+     "session": "Lunch and Keynote Speaker",
+     "detail": "Speaker not named."
+    },
+    {
+     "time": "13:30 to 14:45",
+     "session": "Panel #3. Industrial Sovereignty and the Commercialization Engine: Defence and Commercial Scale",
+     "detail": "Covers the sectors where defence and commercial buyers draw on the same factories, supply chains and workforces."
+    },
+    {
+     "time": "14:45 to 15:15",
+     "session": "Break",
+     "detail": ""
+    },
+    {
+     "time": "15:15 to 16:30",
+     "session": "Panel #4. Extreme Environments as Commercialization Accelerators",
+     "detail": ""
+    },
+    {
+     "time": "16:30 to 16:45",
+     "session": "Announcements and housekeeping",
+     "detail": "For Day 2 and the Evening Reception."
+    },
+    {
+     "time": "16:45 to 20:00",
+     "session": "Evening Networking Reception, Entertainment and Spirits Tasting",
+     "detail": ""
+    }
+   ]
+  },
+  {
+   "title": "Thursday, September 24th",
+   "caption": "Thursday 24 September",
+   "rows": [
+    {
+     "time": "07:30 to 08:00",
+     "session": "Breakfast",
+     "detail": ""
+    },
+    {
+     "time": "08:00 to 08:15",
+     "session": "Welcome and Opening Remarks",
+     "detail": "Kimberley Van Vliet, Founder and CEO, WaVv and ConvergX; Canadian Delegation, NATO Industrial Advisory Group (NIAG)."
+    },
+    {
+     "time": "08:15 to 08:45",
+     "session": "Keynote",
+     "detail": "Speaker to be announced."
+    },
+    {
+     "time": "08:45 to 10:00",
+     "session": "Panel #5. Integrated Resource Security and Commercial Resilience",
+     "detail": "Covers energy, food and public health systems, and the satellite, IoT, AI, biosensing and edge computing capabilities underneath them."
+    },
+    {
+     "time": "10:00 to 10:15",
+     "session": "Break",
+     "detail": ""
+    },
+    {
+     "time": "10:15 to 11:30",
+     "session": "Panel #6. AI, Autonomy, and Human Performance at the Edge",
+     "detail": ""
+    },
+    {
+     "time": "11:30 to 12:00",
+     "session": "Pre-Lunch Reception & Networking",
+     "detail": ""
+    },
+    {
+     "time": "12:00 to 13:30",
+     "session": "Lunch and Keynote Speaker",
+     "detail": "Speaker not named."
+    },
+    {
+     "time": "13:30 to 14:45",
+     "session": "Panel #7. Capital, Competition, and the Geopolitics of Convergence",
+     "detail": ""
+    },
+    {
+     "time": "14:45 to 15:15",
+     "session": "Break",
+     "detail": ""
+    },
+    {
+     "time": "15:15 to 16:30",
+     "session": "Panel #8. Convergence as Commercial Opportunity",
+     "detail": ""
+    },
+    {
+     "time": "16:30 to 17:45",
+     "session": "Closing Keynote & Wrap Up Reception",
+     "detail": ""
+    }
+   ]
+  }
+ ],
+ "hotels": [
+  {
+   "name": "Residence Inn by Marriott",
+   "photo": "residence-inn.jpg",
+   "alt": "A tall modern hotel tower on a downtown corner, seen from street level against a clear sky.",
+   "address": "610 10th Avenue SW, Calgary, AB T2R 1M3",
+   "phone": "587-855-2288",
+   "rate": "No rate code is published for this hotel.",
+   "steps": "",
+   "url": "https://www.marriott.com/event-reservations/reservation-link.mi?id=1628797601207&key=CORP&app=resvlink",
+   "cta": "Book the ConvergX rate"
+  },
+  {
+   "name": "Westin Hotel Downtown",
+   "photo": "westin.jpg",
+   "alt": "A downtown hotel frontage with its canopy over the entrance and office towers rising behind it.",
+   "address": "320 4th Avenue SW, Calgary, AB T2P 2S6",
+   "phone": "403-266-1611",
+   "rate": "Rate code S7156",
+   "steps": "Enter the dates you want to book, then select Lowest Regular Rate.\nUnder Corp/Promo Code, enter S7156.\nView your results and book direct online.",
+   "url": "https://www.marriott.com/yycwi",
+   "cta": "Book the Westin"
+  },
+  {
+   "name": "Dorian Autograph Collection and Courtyard Marriott",
+   "photo": "dorian-courtyard.jpg",
+   "alt": "A contemporary glass hotel tower on a downtown block, photographed from across the street.",
+   "address": "525 5th Avenue SW, Calgary, AB T2P 1P7",
+   "phone": "403-300-6650",
+   "rate": "Rate code S7156",
+   "steps": "Destination: enter the Dorian, Autograph Collection, or Courtyard Calgary Downtown.\nEnter your check-in and check-out dates, and update rooms and guests.\nUnder Special Rates, select Corporate / Promo / #SET and enter S7156.\nSelect Find Hotels, then book direct online.",
+   "url": "",
+   "cta": ""
+  },
+  {
+   "name": "Fairmont Palliser",
+   "photo": "fairmont-palliser.jpg",
+   "alt": "A historic stone hotel with a stepped roofline, seen from the street below.",
+   "address": "133 9th Avenue SW, Calgary, AB T2P 2M3",
+   "phone": "403-262-1234",
+   "rate": "No rate code is published for this hotel.",
+   "steps": "",
+   "url": "https://www.fairmont.com/palliser-calgary/",
+   "cta": "Book the Fairmont Palliser"
+  }
+ ],
+ "sponsors": [
+  {
+   "file": "2026-atco-frontec.png",
+   "ratio": 5.634,
+   "cap": 0.7,
+   "label": "ATCO Frontec"
+  },
+  {
+   "file": "wavv.png",
+   "ratio": 0.855,
+   "cap": 0.4,
+   "label": "WaVv"
+  },
+  {
+   "file": "prairiescan.png",
+   "ratio": 7.843,
+   "cap": 0.7,
+   "label": "Prairies Economic Development Canada"
+  },
+  {
+   "file": "gen2-tax.png",
+   "ratio": 2.545,
+   "cap": 0.55,
+   "label": "Gen2.Tax Law Office"
+  },
+  {
+   "file": "ces.png",
+   "ratio": 3.107,
+   "cap": 0.7,
+   "label": "CES, produced by the Consumer Technology Association"
+  },
+  {
+   "file": "lockheed-martin.png",
+   "ratio": 4.156,
+   "cap": 0.7,
+   "label": "Lockheed Martin"
+  },
+  {
+   "file": "halliburton.png",
+   "ratio": 13.913,
+   "cap": 0.9,
+   "label": "Halliburton"
+  },
+  {
+   "file": "dnd.png",
+   "ratio": 6.4,
+   "cap": 0.7,
+   "label": "Department of National Defence"
+  },
+  {
+   "file": "niag.png",
+   "ratio": 1.12,
+   "cap": 0.4,
+   "label": "NATO Industrial Advisory Group"
+  },
+  {
+   "file": "government-of-alberta.png",
+   "ratio": 3.555,
+   "cap": 0.7,
+   "label": "Government of Alberta"
+  },
+  {
+   "file": "government-of-canada.png",
+   "ratio": 4.158,
+   "cap": 0.7,
+   "label": "Government of Canada"
+  },
+  {
+   "file": "nato-act.png",
+   "ratio": 1.0,
+   "cap": 0.4,
+   "label": "NATO Allied Command Transformation"
+  },
+  {
+   "file": "ideas.png",
+   "ratio": 4.8,
+   "cap": 0.7,
+   "label": "IDEaS, Innovation for Defence Excellence and Security"
+  },
+  {
+   "file": "alberta-aviation-council.png",
+   "ratio": 4.598,
+   "cap": 0.7,
+   "label": "Alberta Aviation Council"
+  },
+  {
+   "file": "vuepointe-communications.png",
+   "ratio": 0.767,
+   "cap": 0.4,
+   "label": "Vuepointe Communications"
+  },
+  {
+   "file": "dentro-financial.png",
+   "ratio": 0.755,
+   "cap": 0.4,
+   "label": "Dentro Financial"
+  }
+ ]
+}
