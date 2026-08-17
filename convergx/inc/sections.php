@@ -25,15 +25,61 @@ function convergx_render_sections( $post_id = null ) {
 		return;
 	}
 
+	/*
+	 * BANDS SPAN CONSECUTIVE SECTIONS, they are not a per-section wrapper.
+	 *
+	 * On /xpand/ one .band--navy wraps FOUR sections, from "What is
+	 * commercialization?" through "What is the scale for commercialization?".
+	 * Wrapping each section in its own band drew four separate blocks with the
+	 * page colour showing between them, instead of one continuous ground.
+	 *
+	 * So the run is walked first and consecutive rows sharing a band are
+	 * emitted inside a single wrapper. The wrapper opens when the band changes
+	 * and closes when it changes back.
+	 */
+	$rows = array();
+	while ( have_rows( 'sections', $post_id ) ) {
+		the_row();
+		$rows[] = array(
+			'layout' => get_row_layout(),
+			'band'   => (string) get_sub_field( 'surface' ),
+		);
+	}
+
+	$open = '';
+	$i    = 0;
+
 	while ( have_rows( 'sections', $post_id ) ) {
 		the_row();
 
-		$layout = get_row_layout();
-		$file   = CONVERGX_DIR . '/template-parts/sections/' . sanitize_file_name( $layout ) . '.php';
+		$band = isset( $rows[ $i ]['band'] ) ? $rows[ $i ]['band'] : '';
+		$band = in_array( $band, array( 'light', 'dark', 'muted', 'navy' ), true ) ? $band : '';
 
+		if ( $band !== $open ) {
+			if ( '' !== $open ) {
+				echo '</div>';
+			}
+			if ( '' !== $band ) {
+				// .band--navy is a CLASS carrying its own ink; the other three
+				// are colour SCOPES every token resolves against. Emitting navy
+				// as data-surface would resolve nothing.
+				echo 'navy' === $band
+					? '<div class="band--navy">'
+					: '<div data-surface="' . esc_attr( $band ) . '">';
+			}
+			$open = $band;
+		}
+
+		$file = CONVERGX_DIR . '/template-parts/sections/' . sanitize_file_name( get_row_layout() ) . '.php';
 		if ( file_exists( $file ) ) {
 			include $file;
 		}
+
+		$i++;
+	}
+
+	if ( '' !== $open ) {
+		echo '</div>';
 	}
 }
 

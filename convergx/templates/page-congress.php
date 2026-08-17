@@ -86,6 +86,23 @@ while ( have_posts() ) :
 				<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_lede, -1, PREG_SPLIT_NO_EMPTY ) as $line ) : ?>
 					<p class="lede-text"><?php echo esc_html( trim( $line ) ); ?></p>
 				<?php endforeach; ?>
+
+				<?php
+				/*
+				 * THE HERO'S OWN ACTION. The Congress page's job is attendance,
+				 * so the hero carries the registration button rather than making
+				 * a reader scroll the whole page to find it.
+				 */
+				$hero_cta      = convergx_field( 'hero_cta', null, __( 'Attend the Congress', 'convergx' ) );
+				$hero_cta_url  = convergx_field( 'hero_cta_url' );
+				if ( $hero_cta ) :
+					?>
+					<p class="push-s">
+						<a class="btn btn--solid" href="<?php echo esc_url( $hero_cta_url ? convergx_local_url( $hero_cta_url ) : home_url( '/congress/register/' ) ); ?>">
+							<?php echo esc_html( $hero_cta ); ?>
+						</a>
+					</p>
+				<?php endif; ?>
 			</div>
 		</div>
 	</section>

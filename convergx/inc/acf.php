@@ -365,6 +365,20 @@ function convergx_register_industry_fields() {
 					'instructions'  => 'Sits behind the heading under a dark veil, so it is atmosphere rather than content: low key, one subject, dark surround. No clean-room white, no spark showers, no aerials, no stock gloss, no readable logos and no identifiable faces. It renders with an empty alt because the heading already carries the meaning.',
 				),
 				array(
+					'key'          => 'field_convergx_hero_cta',
+					'label'        => 'Hero button',
+					'name'         => 'hero_cta',
+					'type'         => 'text',
+					'instructions' => 'The one action the hero asks for. Clear it to remove the button entirely.',
+				),
+				array(
+					'key'          => 'field_convergx_hero_cta_url',
+					'label'        => 'Hero button link',
+					'name'         => 'hero_cta_url',
+					'type'         => 'text',
+					'instructions' => 'Defaults to the registration page.',
+				),
+				array(
 					'key'          => 'field_convergx_hero_subs',
 					'label'        => 'Hero paragraphs',
 					'name'         => 'hero_subs',

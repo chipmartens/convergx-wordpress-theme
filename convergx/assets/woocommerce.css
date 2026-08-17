@@ -523,3 +523,55 @@
 .woocommerce-page .related.products,
 .woocommerce-page .up-sells { grid-column: 1 / -1; margin-block-start: var(--space-3xl); }
 .woocommerce-page .related.products > h2 { margin-block-end: var(--space-l); }
+
+/* ---------------------------------------------------------------
+   13. CART AND CHECKOUT: A CARD, NOT A FULL-WIDTH SHEET.
+   Woo's block cart lays out edge to edge inside whatever container
+   it is given. At the site's page width that leaves the item on one
+   side of the screen and the totals on the other with a field of
+   empty white between them, which reads as a broken layout rather
+   than a considered one.
+   Constrained and boxed instead, so the money path reads as one
+   object the reader is working through. Paint only: no Woo markup
+   is moved, so the block's own hooks and the express-payment mount
+   points are untouched.
+   --------------------------------------------------------------- */
+.woocommerce-cart .wp-block-woocommerce-cart,
+.woocommerce-checkout .wp-block-woocommerce-checkout,
+.woocommerce-cart .woocommerce,
+.woocommerce-checkout .woocommerce {
+  max-width: 60rem;
+  margin-inline: auto;
+  background: var(--paper);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1px var(--rule-ink-load);
+  padding: var(--space-xl);
+}
+
+/* The two-column sidebar layout keeps its shape inside the card, but
+ * stops fighting for the full viewport. */
+.woocommerce-cart .wc-block-components-sidebar-layout,
+.woocommerce-checkout .wc-block-components-sidebar-layout {
+  gap: var(--space-l);
+}
+
+/* The order summary is already a panel; inside the card it needs no
+ * second fill or it reads as a box in a box. */
+.woocommerce-cart .wc-block-components-sidebar,
+.woocommerce-checkout .wc-block-components-sidebar {
+  background: transparent;
+  padding-inline: 0;
+}
+
+/* The page title sits above the card, on the page ground. */
+.woocommerce-cart main > .wrap,
+.woocommerce-checkout main > .wrap { max-width: 60rem; margin-inline: auto; }
+
+@media (max-width: 48rem) {
+  .woocommerce-cart .wp-block-woocommerce-cart,
+  .woocommerce-checkout .wp-block-woocommerce-checkout,
+  .woocommerce-cart .woocommerce,
+  .woocommerce-checkout .woocommerce {
+    padding: var(--space-m);
+  }
+}
