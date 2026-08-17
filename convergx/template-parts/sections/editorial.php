@@ -29,7 +29,7 @@ if ( $convergx_surface ) :
 
 <section class="<?php echo esc_attr( trim( $convergx_dense ) ); ?>">
 	<div class="wrap">
-		<?php convergx_section_head( get_sub_field( 'heading' ), get_sub_field( 'eyebrow' ) ); ?>
+		<?php convergx_section_head( get_sub_field( 'heading' ), get_sub_field( 'eyebrow' ), get_sub_field( 'level' ) ?: 2 ); ?>
 
 		<?php if ( get_sub_field( 'say' ) ) : ?>
 			<?php

@@ -73,7 +73,7 @@ function convergx_team_card( $p ) {
 
 <section id="leadership">
 	<div class="wrap">
-		<?php convergx_section_head( __( 'Leadership', 'convergx' ), __( 'Who we are', 'convergx' ) ); ?>
+		<?php convergx_section_head( __( 'Our team', 'convergx' ), __( 'Leadership', 'convergx' ) ); ?>
 
 		<?php if ( $convergx_team['feature'] ) : ?>
 			<div class="team-list">

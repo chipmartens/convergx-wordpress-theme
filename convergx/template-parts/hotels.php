@@ -18,7 +18,7 @@ if ( ! $hotels ) {
 ?>
 <section id="accommodations" class="section--dense">
 	<div class="wrap">
-		<?php convergx_section_head( __( 'Where to stay', 'convergx' ), __( 'Accommodation', 'convergx' ) ); ?>
+		<?php convergx_section_head( __( 'Accommodations', 'convergx' ), __( 'Where to stay', 'convergx' ) ); ?>
 
 		<div class="mod-faq-list">
 			<?php foreach ( $hotels as $h ) : ?>

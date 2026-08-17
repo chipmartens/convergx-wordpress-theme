@@ -44,7 +44,45 @@ while ( have_posts() ) :
 
 		<div class="wrap">
 			<div class="editorial">
-				<h1 class="display--hero"><?php echo esc_html( $hero_title ); ?></h1>
+				<?php
+				$eyebrow   = convergx_field( 'eyebrow' );
+				$hero_subs = convergx_field( 'hero_subs' );
+				?>
+
+				<?php if ( $eyebrow ) : ?>
+					<header>
+						<?php
+						// ONE ELEMENT, NOT THREE. The label is slash-separated
+						// spec metadata ("Global Congress 2026 / Sep 22 to 24,
+						// Calgary / 10th anniversary") and that is the
+						// established form for it. Splitting it into three
+						// spans would set three labels in a row where the page
+						// intends one line of metadata.
+						?>
+						<span class="label label--edge"><?php echo esc_html( $eyebrow ); ?></span>
+					</header>
+				<?php endif; ?>
+
+				<h1 class="display--hero hero-title"><?php echo esc_html( $hero_title ); ?></h1>
+
+				<?php if ( $hero_subs ) : ?>
+					<?php
+					/*
+					 * TWO COLUMNS, ONE SIZE. Neither paragraph is a lede: the
+					 * pair sit side by side at the same size and the same
+					 * measure, because stacked at two different sizes the hero
+					 * ran too tall. A first paragraph set larger than the one
+					 * beside it is a lede, and this deliberately is not one, so
+					 * do not reintroduce .lede-text here.
+					 */
+					?>
+					<div class="hero-subs">
+						<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_subs, -1, PREG_SPLIT_NO_EMPTY ) as $sub ) : ?>
+							<p class="hero-sub"><?php echo esc_html( trim( $sub ) ); ?></p>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
+
 				<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_lede, -1, PREG_SPLIT_NO_EMPTY ) as $line ) : ?>
 					<p class="lede-text"><?php echo esc_html( trim( $line ) ); ?></p>
 				<?php endforeach; ?>

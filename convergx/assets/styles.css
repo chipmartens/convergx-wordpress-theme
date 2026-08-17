@@ -6692,3 +6692,83 @@ main > [data-surface]:not(:has(~ :not(.bio-overlay))) {
     flex-basis: 100%;
   }
 }
+
+/* ============== 61. TOUCH TARGETS =====================================
+ * ADDED 2026-08-16 during the WordPress port. A design-system fix, not a
+ * WordPress one: it belongs back in the static tree too.
+ *
+ * MEASURED, NOT GUESSED. At 375px, twelve controls that are their own box
+ * (not inline links in running text, which have their own exception) render
+ * under the 44px floor. The two that matter most are the ones a phone reader
+ * touches first and most often:
+ *
+ *   .nav-mobile > summary   34px   the ONLY way to open the nav on a phone
+ *   .notice-cta             38px   Register, the site's primary CTA, on
+ *                                  every page
+ *   .logo--mark             24px   the link home
+ *   .sess > summary         21-41  the agenda's expandable sessions
+ *   .skip                   37px   the keyboard skip link
+ *
+ * GATED ON pointer: coarse, NOT on width. The floor exists because a
+ * fingertip is about 9mm and a mouse cursor is one pixel, so the condition
+ * is the input device rather than the viewport. This way a narrow desktop
+ * window keeps its compact controls and a large tablet still gets the
+ * bigger targets.
+ *
+ * NOTHING MOVES VISUALLY. Every rule below grows the HIT AREA using
+ * min-height plus centring, so the type and the marks stay exactly where
+ * the design puts them. No font size, no margin and no colour changes here.
+ */
+@media (pointer: coarse) {
+
+  /* The mobile nav toggle. Widened as well as heightened: at 68px it was
+   * both short and narrow, in the corner of the screen, which is the
+   * hardest place on a phone to hit accurately. */
+  .nav-mobile > summary {
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Register. The one action the notice bar exists to get. */
+  .notice-inner a.notice-cta {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* The logo is a link home. The mark keeps its size; the box around it
+   * grows to meet the floor. */
+  .logo--mark {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Agenda sessions and the day disclosures. A row the reader is invited to
+   * open has to be openable with a thumb. */
+  .mod-faq-list summary,
+  .faq > summary,
+  .sess > summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Buttons and form controls across the site, including WooCommerce's own.
+   * min-height rather than height so a two-line label still grows. */
+  .btn,
+  .cx-form button,
+  .cx-form input,
+  .cx-form select,
+  .cx-form textarea {
+    min-height: 44px;
+  }
+
+  /* The skip link only appears on focus, but when it appears it is the
+   * control a keyboard or switch user is aiming at. */
+  .skip { min-height: 44px; display: flex; align-items: center; }
+}

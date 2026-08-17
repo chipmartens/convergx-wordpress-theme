@@ -350,6 +350,14 @@ function convergx_register_industry_fields() {
 					'instructions'  => 'Sits behind the heading under a dark veil, so it is atmosphere rather than content: low key, one subject, dark surround. No clean-room white, no spark showers, no aerials, no stock gloss, no readable logos and no identifiable faces. It renders with an empty alt because the heading already carries the meaning.',
 				),
 				array(
+					'key'          => 'field_convergx_hero_subs',
+					'label'        => 'Hero paragraphs',
+					'name'         => 'hero_subs',
+					'type'         => 'textarea',
+					'rows'         => 5,
+					'instructions' => 'Congress hero only. Blank line between paragraphs; they render side by side in equal columns at the SAME size. Neither is a lede: setting the first one larger is what made the hero run too tall, so keep them close in length as well as size.',
+				),
+				array(
 					'key'          => 'field_convergx_ind_say',
 					'label'        => 'Opening statement',
 					'name'         => 'say',
@@ -415,6 +423,9 @@ function convergx_register_flexible_fields() {
 							'display'    => 'block',
 							'sub_fields' => array(
 								array( 'key' => 'field_cx_ed_heading', 'label' => 'Heading', 'name' => 'heading', 'type' => 'text', 'instructions' => 'A section heading is a LABEL: a noun phrase, not an instruction. The action belongs on buttons, which is where a reader looks for it.' ),
+								array( 'key' => 'field_cx_ed_level', 'label' => 'Heading level', 'name' => 'level', 'type' => 'select',
+									'choices' => array( 2 => 'Section (h2)', 3 => 'Subsection (h3)' ), 'default_value' => 2, 'return_format' => 'value',
+									'instructions' => 'Leave on Section unless this genuinely sits under the one above it. The level is what a screen reader navigates by, so it is structure rather than size.' ),
 								array( 'key' => 'field_cx_ed_eyebrow', 'label' => 'Edge label', 'name' => 'eyebrow', 'type' => 'text', 'instructions' => 'Eyebrows LABEL the section, they do not narrate it. Two or three words.' ),
 								array( 'key' => 'field_cx_ed_lede', 'label' => 'Standfirst', 'name' => 'lede', 'type' => 'textarea', 'rows' => 2 ),
 								array(

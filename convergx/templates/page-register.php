@@ -168,7 +168,18 @@ while ( have_posts() ) :
 								<?php endif; ?>
 							</p>
 
-							<p class="store-away"><?php esc_html_e( 'Checkout completes on the ConvergX shop.', 'convergx' ); ?></p>
+							<?php
+							/*
+							 * VERBATIM FROM CONVERGX'S OWN PAGE. It names the
+							 * domain rather than saying "the shop" because the
+							 * reader is being told they are leaving, and the
+							 * thing that tells them that is the domain name.
+							 * Filterable for the case where the shop and this
+							 * page end up on the same host.
+							 */
+							$away = apply_filters( 'convergx_checkout_away_text', __( 'Checkout completes on convergx.co.', 'convergx' ) );
+							?>
+							<p class="store-away"><?php echo esc_html( $away ); ?></p>
 						</li>
 					<?php endforeach; ?>
 				</ul>

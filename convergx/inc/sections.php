@@ -43,14 +43,20 @@ function convergx_render_sections( $post_id = null ) {
  * Every section that has a heading renders it the same way, so the markup lives
  * here once. Eyebrows LABEL a section, they never narrate it.
  */
-function convergx_section_head( $heading, $eyebrow = '' ) {
+function convergx_section_head( $heading, $eyebrow = '', $level = 2 ) {
 	if ( ! $heading && ! $eyebrow ) {
 		return;
 	}
+
+	// A few sections head with h3 rather than h2 in the source, and that is a
+	// deliberate subsection level. Flattening every heading to h2 would read the
+	// same but would give the page a wrong document outline, which is what a
+	// screen reader navigates by.
+	$tag = ( 3 === (int) $level ) ? 'h3' : 'h2';
 	?>
 	<div class="sec-head">
 		<?php if ( $heading ) : ?>
-			<h2><?php echo esc_html( $heading ); ?></h2>
+			<<?php echo esc_html( $tag ); ?>><?php echo esc_html( $heading ); ?></<?php echo esc_html( $tag ); ?>>
 		<?php endif; ?>
 		<?php if ( $eyebrow ) : ?>
 			<span class="label label--lo label--edge"><?php echo esc_html( $eyebrow ); ?></span>

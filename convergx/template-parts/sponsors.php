@@ -27,6 +27,7 @@ defined( 'ABSPATH' ) || exit;
 
 $sponsors = convergx_field( 'sponsors', null, array() );
 $lede     = convergx_field( 'sponsors_lede' );
+$body     = convergx_field( 'sponsors_body' );
 
 if ( ! $sponsors ) {
 	return;
@@ -75,6 +76,9 @@ if ( ! $marks ) {
 		<?php if ( $lede ) : ?>
 			<div class="editorial push-end-l">
 				<div class="lede"><p><?php echo esc_html( $lede ); ?></p></div>
+				<?php if ( $body ) : ?>
+					<div class="body"><p><?php echo esc_html( $body ); ?></p></div>
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 
