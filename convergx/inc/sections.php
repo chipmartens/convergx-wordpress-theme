@@ -94,3 +94,28 @@ function convergx_figure( $slug ) {
 
 	return (string) file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions
 }
+
+/**
+ * Resolve a link carried over from the static tree.
+ *
+ * Those hrefs are document-relative ("../access/request/"), which only resolved
+ * because the static pages sat at a known depth. Under WordPress the page URL
+ * says nothing about where anything else lives, so every one of them has to
+ * become a real site URL. External links and fragments are returned untouched.
+ *
+ * @param string $href Raw href.
+ * @return string
+ */
+function convergx_local_url( $href ) {
+	$href = (string) $href;
+
+	if ( '' === $href ) {
+		return '';
+	}
+
+	if ( preg_match( '#^(https?:|mailto:|tel:|\#|//)#i', $href ) ) {
+		return $href;
+	}
+
+	return home_url( '/' . ltrim( preg_replace( '#^(\.\./)+#', '', $href ), '/' ) );
+}

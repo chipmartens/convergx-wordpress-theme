@@ -1,6 +1,6 @@
 import re, subprocess, html, sys, json
 BASE="https://chipmartens.github.io/convergx-connect-launch"
-WP="http://localhost:8944"
+WP="http://localhost:8945"
 
 PAGES=[("","/"),("congress/","/congress/"),("congress/register/","/congress/register/"),
 ("congress/xplore/","/congress/xplore/"),("congress/the-app/","/congress/the-app/"),

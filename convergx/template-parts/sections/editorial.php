@@ -41,6 +41,11 @@ if ( $convergx_surface ) :
 			<p class="say"><?php echo esc_html( get_sub_field( 'say' ) ); ?></p>
 		<?php endif; ?>
 
+		<?php
+		$convergx_links   = get_sub_field( 'links' );
+		$convergx_twopath = get_sub_field( 'twopath' );
+		?>
+
 		<div class="editorial">
 			<?php if ( get_sub_field( 'lede' ) ) : ?>
 				<div class="lede"><p><?php echo esc_html( get_sub_field( 'lede' ) ); ?></p></div>
@@ -49,6 +54,44 @@ if ( $convergx_surface ) :
 				<div class="body"><?php echo wp_kses_post( get_sub_field( 'body' ) ); ?></div>
 			<?php endif; ?>
 		</div>
+		<?php if ( $convergx_links ) : ?>
+			<?php
+			/*
+			 * A LINK INDEX, NOT A BULLETED LIST. Each row is a destination with
+			 * a descriptor saying what the page is. Rendered as prose bullets it
+			 * reads as navigation dumped into the middle of an argument, which
+			 * is exactly what the first port did.
+			 */
+			?>
+			<ul class="link-index">
+				<?php foreach ( $convergx_links as $l ) : ?>
+					<?php if ( empty( $l['label'] ) ) { continue; } ?>
+					<li>
+						<a href="<?php echo esc_url( convergx_local_url( $l['href'] ) ); ?>"><?php echo esc_html( $l['label'] ); ?></a>
+						<?php if ( ! empty( $l['note'] ) ) : ?>
+							<span class="descriptor"><?php echo esc_html( $l['note'] ); ?></span>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
+		<?php if ( $convergx_twopath ) : ?>
+			<?php
+			// The chooser. Two doors, foot of the page, never a hero.
+			?>
+			<div class="two-path">
+				<?php foreach ( $convergx_twopath as $t ) : ?>
+					<?php if ( empty( $t['label'] ) ) { continue; } ?>
+					<a href="<?php echo esc_url( convergx_local_url( $t['href'] ) ); ?>">
+						<span class="label"><?php echo esc_html( $t['label'] ); ?></span>
+						<?php if ( ! empty( $t['cta'] ) ) : ?>
+							<span class="link-more"><?php echo esc_html( $t['cta'] ); ?></span>
+						<?php endif; ?>
+					</a>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 
