@@ -62,8 +62,8 @@ wp option update woocommerce_store_pages_only 'no'
 cd ../convergx-wp-theme/seeders
 cp -R media/* ../../convergx-wp/wp-content/uploads/
 cd ../../convergx-wp
-for s in cx-seed-tree cx-reseed cx-apply-surfaces cx-seed-speakers cx-portraits \
-         cx-seed-team cx-seed-congress cx-add-forms cx-home-sections cx-dedupe; do
+for s in cx-seed-tree cx-reseed cx-seed-speakers cx-portraits \
+         cx-seed-team cx-seed-congress cx-add-forms cx-exact; do
   wp eval-file ../convergx-wp-theme/seeders/$s.php
 done
 
@@ -189,3 +189,20 @@ operations, not just web pages.
 
 `http://localhost:8944/wp-admin` — `admin` / `admin` on a fresh local install. Change it if the
 install is ever reachable by anyone else.
+
+## Checking it against the live site
+
+`seeders/compare-with-live.py` diffs every page against
+<https://chipmartens.github.io/convergx-connect-launch/> and reports missing headings and
+paragraphs per page.
+
+```bash
+python3 seeders/compare-with-live.py
+```
+
+As of the last run: **0 missing headings, 15 paragraphs**, with 18 of 23 pages at exact parity.
+
+It ignores two things on purpose. The `<noscript>` navigation fallback differs by design (the
+static tree hand-maintains one per page; the theme has a single one), and WordPress texturizes
+straight quotes into curly ones, which is a typographic improvement rather than a content
+difference. Both were counted as ~75 false misses before they were excluded.

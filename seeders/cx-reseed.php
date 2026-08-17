@@ -1,54 +1,48 @@
 <?php
 /**
- * Re-seed every page's editorial run with the FULL section bodies.
+ * Re-seed editorial runs, now including HEADLESS sections.
  *
- * The first pass extracted only a heading, a standfirst and up to four
- * paragraphs per section, capped at eight sections. That silently dropped
- * lists and most body copy: /about/ shipped 2 text blocks against the live
- * site's 73. This replaces the run wholesale.
+ * The previous extractor required an <h2> and silently skipped every section
+ * without one. That is where the congress overview prose, the industry pull
+ * quotes and the NATO policy paragraph live, so they never reached WordPress.
  *
- * Colour bands are preserved: the surface already applied to a matching
- * heading is carried onto the new row rather than reset.
+ * Sections owned by a template part (hero, impact, flow band, agenda, hotels,
+ * sponsors, speakers, team) are excluded at extraction time, so re-running this
+ * cannot duplicate them.
  */
-$pages = json_decode( file_get_contents(__DIR__ . '/data/cx-full.json'), true );
-$surf  = json_decode( file_get_contents(__DIR__ . '/data/cx-surfaces.json'), true );
+$pages = json_decode( file_get_contents( __DIR__ . '/data/cx-sections.json' ), true );
+$surf  = json_decode( file_get_contents(__DIR__.'/data/cx-surfaces.json'), true );
+if ( ! $surf ) { $surf = json_decode( file_get_contents('/tmp/cx-surfaces.json'), true ) ?: array(); }
 
-// Headings owned by a dedicated template part, never editorial rows.
-$owned = array('the speakers','the agenda','accommodations','where to stay',
-               'sponsors, supporters and partners','who is in the room','who attends');
-
-$done=0; $rows_total=0;
+$pagesDone=0; $rowsDone=0;
 foreach ( $pages as $path => $secs ) {
     $path = trim((string)$path,'/');
     if ( '' === $path ) { $pid = (int) get_option('page_on_front'); }
     else { $p = get_page_by_path($path); $pid = $p ? $p->ID : 0; }
     if ( ! $pid ) { continue; }
 
-    // Preserve any surface already set, keyed by heading.
-    $existing = array();
+    // Keep the non-editorial blocks already placed on the page (team, form),
+    // and keep any surface already chosen per heading.
+    $keep=array(); $surfaces=array();
     foreach ( (array) get_field('sections',$pid) as $r ) {
-        if ( ! empty($r['heading']) ) { $existing[ $r['heading'] ] = $r['surface'] ?? ''; }
+        $lay = $r['acf_fc_layout'] ?? '';
+        if ( 'editorial' !== $lay ) { $keep[]=$r; }
+        elseif ( ! empty($r['heading']) ) { $surfaces[$r['heading']] = $r['surface'] ?? ''; }
     }
 
     $rows=array();
     foreach ( $secs as $s ) {
         $h = trim($s['heading']);
-        if ( ! $h ) { continue; }
-        if ( in_array( strtolower($h), $owned, true ) ) { continue; }
-
-        $surface = $existing[$h] ?? '';
-        if ( ! $surface && isset($surf[$path][$h]) ) { $surface = $surf[$path][$h]; }
-
+        if ( ! $h && ! trim($s['body']) ) { continue; }
+        $sf = $surfaces[$h] ?? ( $surf[$path][$h] ?? '' );
         $rows[] = array(
             'acf_fc_layout' => 'editorial',
-            'heading' => $h,
-            'eyebrow' => $s['eyebrow'],
-            'lede'    => $s['lede'],
-            'body'    => $s['body'],
-            'dense'   => (int) $s['dense'],
-            'surface' => $surface,
+            'heading' => $h, 'eyebrow' => $s['eyebrow'], 'lede' => $s['lede'],
+            'body' => $s['body'], 'say' => ($s['say'] ?? ''), 'level' => ($s['level'] ?? 2), 'links' => ($s['links'] ?? array()), 'twopath' => ($s['twopath'] ?? array()), 'claims' => ($s['claims'] ?? array()), 'whatis' => ($s['whatis'] ?? array()), 'store' => ($s['store'] ?? array()), 'dense' => (int)$s['dense'], 'surface' => $sf,
         );
     }
-    if ( $rows ) { update_field('sections',$rows,$pid); $done++; $rows_total += count($rows); }
+    // Editorial run first, then whatever else was on the page (team, forms).
+    update_field('sections', array_merge($rows,$keep), $pid);
+    $pagesDone++; $rowsDone+=count($rows);
 }
-WP_CLI::success("re-seeded {$done} pages, {$rows_total} sections");
+WP_CLI::success("re-seeded {$pagesDone} pages, {$rowsDone} editorial sections");
