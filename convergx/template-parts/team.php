@@ -53,11 +53,7 @@ function convergx_team_card( $p ) {
 				// static cards set them. A <br> rather than two paragraphs so
 				// the pair stays one block for spacing.
 				?>
-				<p class="bio-role">
-					<?php echo esc_html( $p['role'] ); ?>
-					<?php if ( $p['role'] && $p['org'] ) : ?><br><?php endif; ?>
-					<?php echo esc_html( $p['org'] ); ?>
-				</p>
+				<p class="bio-role"><?php echo esc_html( $p['role'] ); ?><?php if ( $p['role'] && $p['org'] ) : ?><br><?php endif; ?><?php echo esc_html( $p['org'] ); ?></p>
 			<?php endif; ?>
 
 			<?php if ( $p['bio'] ) : ?>
@@ -145,11 +141,7 @@ foreach ( $convergx_team['all'] as $p ) :
 						<h2 class="bio-name" id="bio-<?php echo esc_attr( $p['slug'] ); ?>-name"><?php echo esc_html( $p['name'] ); ?></h2>
 						<?php if ( $p['role'] || $p['org'] ) : ?>
 							<?php // Role over organisation on two lines, exactly as the static overlays set them. ?>
-							<p class="bio-role">
-								<?php echo esc_html( $p['role'] ); ?>
-								<?php if ( $p['role'] && $p['org'] ) : ?><br><?php endif; ?>
-								<?php echo esc_html( $p['org'] ); ?>
-							</p>
+							<p class="bio-role"><?php echo esc_html( $p['role'] ); ?><?php if ( $p['role'] && $p['org'] ) : ?><br><?php endif; ?><?php echo esc_html( $p['org'] ); ?></p>
 						<?php endif; ?>
 						<div class="bio-prose"><?php echo wp_kses_post( $p['bio'] ); ?></div>
 					</div>

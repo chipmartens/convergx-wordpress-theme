@@ -42,68 +42,55 @@ while ( have_posts() ) :
 			</div>
 		<?php endif; ?>
 
-		<div class="wrap">
-			<div class="editorial">
-				<?php
-				$eyebrow   = convergx_field( 'eyebrow' );
-				$hero_subs = convergx_field( 'hero_subs' );
-				?>
-
-				<?php if ( $eyebrow ) : ?>
-					<header>
-						<?php
-						// ONE ELEMENT, NOT THREE. The label is slash-separated
-						// spec metadata ("Global Congress 2026 / Sep 22 to 24,
-						// Calgary / 10th anniversary") and that is the
-						// established form for it. Splitting it into three
-						// spans would set three labels in a row where the page
-						// intends one line of metadata.
-						?>
-						<span class="label label--edge"><?php echo esc_html( $eyebrow ); ?></span>
-					</header>
-				<?php endif; ?>
-
-				<h1 class="<?php echo esc_attr( convergx_h1_class() ); ?>"><?php echo esc_html( $hero_title ); ?></h1>
-
-				<?php if ( $hero_subs ) : ?>
+		<?php
+		/*
+		 * THE STATIC HERO'S OWN MARKUP, element for element: the copy sits in
+		 * .editorial.hero (not a bare rail), the label in header.hero-head,
+		 * and the button in p.hero-cta. The stylesheet positions the hero by
+		 * those classes, so a plainer structure rendered the same words in
+		 * the wrong geometry. There is NO lede here: the static hero carries
+		 * only the two hero-subs and the button.
+		 */
+		$eyebrow   = convergx_field( 'eyebrow' );
+		$hero_subs = convergx_field( 'hero_subs' );
+		?>
+		<div class="editorial hero">
+			<?php if ( $eyebrow ) : ?>
+				<header class="hero-head">
 					<?php
-					/*
-					 * TWO COLUMNS, ONE SIZE. Neither paragraph is a lede: the
-					 * pair sit side by side at the same size and the same
-					 * measure, because stacked at two different sizes the hero
-					 * ran too tall. A first paragraph set larger than the one
-					 * beside it is a lede, and this deliberately is not one, so
-					 * do not reintroduce .lede-text here.
-					 */
+					// ONE ELEMENT, NOT THREE. The label is slash-separated
+					// spec metadata and that is the established form for it.
 					?>
-					<div class="hero-subs">
-						<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_subs, -1, PREG_SPLIT_NO_EMPTY ) as $sub ) : ?>
-							<p class="hero-sub"><?php echo esc_html( trim( $sub ) ); ?></p>
-						<?php endforeach; ?>
-					</div>
-				<?php endif; ?>
+					<span class="label label--edge"><?php echo esc_html( $eyebrow ); ?></span>
+				</header>
+			<?php endif; ?>
 
-				<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_lede, -1, PREG_SPLIT_NO_EMPTY ) as $line ) : ?>
-					<p class="lede-text"><?php echo esc_html( trim( $line ) ); ?></p>
-				<?php endforeach; ?>
+			<h1 class="<?php echo esc_attr( convergx_h1_class() ); ?>"><?php echo esc_html( $hero_title ); ?></h1>
 
+			<?php if ( $hero_subs ) : ?>
 				<?php
 				/*
-				 * THE HERO'S OWN ACTION. The Congress page's job is attendance,
-				 * so the hero carries the registration button rather than making
-				 * a reader scroll the whole page to find it.
+				 * TWO COLUMNS, ONE SIZE. Neither paragraph is a lede: the
+				 * pair sit side by side at the same size and the same
+				 * measure. Do not reintroduce .lede-text here.
 				 */
-				$hero_cta      = convergx_field( 'hero_cta', null, __( 'Attend the Congress', 'convergx' ) );
-				$hero_cta_url  = convergx_field( 'hero_cta_url' );
-				if ( $hero_cta ) :
-					?>
-					<p class="push-s">
-						<a class="btn btn--solid" href="<?php echo esc_url( $hero_cta_url ? convergx_local_url( $hero_cta_url ) : home_url( '/congress/register/' ) ); ?>">
-							<?php echo esc_html( $hero_cta ); ?>
-						</a>
-					</p>
-				<?php endif; ?>
-			</div>
+				?>
+				<div class="hero-subs">
+					<?php foreach ( preg_split( '/\R{2,}/', (string) $hero_subs, -1, PREG_SPLIT_NO_EMPTY ) as $sub ) : ?>
+						<p class="hero-sub"><?php echo esc_html( trim( $sub ) ); ?></p>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+
+			<?php
+			$hero_cta     = convergx_field( 'hero_cta', null, __( 'Attend the Congress', 'convergx' ) );
+			$hero_cta_url = convergx_field( 'hero_cta_url' );
+			if ( $hero_cta ) :
+				?>
+				<p class="hero-cta">
+					<a class="btn btn--solid" href="<?php echo esc_url( $hero_cta_url ? convergx_local_url( $hero_cta_url ) : home_url( '/congress/register/' ) ); ?>"><?php echo esc_html( $hero_cta ); ?></a>
+				</p>
+			<?php endif; ?>
 		</div>
 	</section>
 
@@ -118,25 +105,19 @@ while ( have_posts() ) :
 	 * registers ids that collide if it appears twice on a page.
 	 */
 	get_template_part( 'template-parts/congress/impact' );
-	get_template_part( 'template-parts/congress/who-attends' );
 	get_template_part( 'template-parts/congress/flow-band' );
 
-	// Editorial sections, from the flexible-content field.
+	/*
+	 * EVERYTHING BETWEEN THE FLOW BAND AND THE APP BAND IS THE SECTION RUN,
+	 * matching the static page's order exactly: the subnav, the overview and
+	 * who-attends sections, then the speakers/agenda/hotels/sponsors part
+	 * markers (each rendered from its own screen), then the sponsorship
+	 * contact section. Hardcoding those parts here put them in a fixed order
+	 * the static page does not have; the run carries the order now, including
+	 * the light band that spans from the overview through the sponsor wall.
+	 */
 	convergx_render_sections();
 
-	// The speakers grid and every bio overlay, from the Speakers post type.
-	get_template_part( 'template-parts/speakers' );
-
-	/*
-	 * ORDER: speakers, then agenda, then where to stay, then who paid for it.
-	 * A reader decides on the room and the programme before logistics, and
-	 * logistics before the sponsor wall. Each of these renders nothing at all
-	 * when its field is empty, so the page stays coherent while it is being
-	 * filled in rather than showing empty headings.
-	 */
-	get_template_part( 'template-parts/agenda' );
-	get_template_part( 'template-parts/hotels' );
-	get_template_part( 'template-parts/sponsors' );
 	get_template_part( 'template-parts/congress/app-band' );
 	?>
 	<?php

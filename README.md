@@ -62,8 +62,8 @@ wp option update woocommerce_store_pages_only 'no'
 cd ../convergx-wp-theme/seeders
 cp -R media/* ../../convergx-wp/wp-content/uploads/
 cd ../../convergx-wp
-for s in cx-seed-tree cx-reseed cx-seed-speakers cx-portraits \
-         cx-seed-team cx-seed-congress cx-add-forms cx-repair cx-exact; do
+for s in cx-seed-tree cx-seed-speakers cx-portraits \
+         cx-seed-team cx-seed-congress cx-exact-rows; do
   wp eval-file ../convergx-wp-theme/seeders/$s.php
 done
 

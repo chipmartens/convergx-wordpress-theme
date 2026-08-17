@@ -76,26 +76,15 @@ while ( have_posts() ) :
 
 	<?php
 	/*
-	 * THE OPENING STATEMENT. ONE .say PER PAGE, and this is it.
-	 *
-	 * Type-and-space rule 6.4. It is the page's single largest non-heading
-	 * line and it stops being emphatic the moment there are two. There is
-	 * deliberately no .say layout in the flexible-content field, so a second
-	 * one cannot be added further down the page by mistake.
+	 * The opening .say section is NOT rendered from fields any more: it
+	 * arrives as the first verbatim row of the section run, exactly as the
+	 * static page sets it (on /industries/military/ the say sits BETWEEN two
+	 * plain paragraphs in a rail-less section, which a field could not
+	 * express). Rendering the old say/say_body fields here printed the same
+	 * line twice.
 	 */
-	if ( $say ) :
-		?>
-		<section>
-			<div class="wrap">
-				<p class="say"><?php echo esc_html( $say ); ?></p>
-				<?php if ( $say_body ) : ?>
-					<?php echo wp_kses_post( wpautop( $say_body ) ); ?>
-				<?php endif; ?>
-			</div>
-		</section>
-	<?php endif; ?>
-
-	<?php convergx_render_sections(); ?>
+	convergx_render_sections();
+	?>
 	<?php
 endwhile;
 

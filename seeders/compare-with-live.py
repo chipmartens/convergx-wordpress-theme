@@ -41,7 +41,7 @@ def headings(h):
 
 def paras(h):
     h=strip(h)
-    out=[txt(m.group(1)) for m in re.finditer(r'<(?:p|li)[^>]*>(.*?)</(?:p|li)>',h,re.S)]
+    out=[txt(m.group(1)) for m in re.finditer(r'<(?:p|li)\b[^>]*>(.*?)</(?:p|li)>',h,re.S)]
     return [x for x in out if len(x)>20]
 
 rows=[]

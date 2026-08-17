@@ -84,6 +84,31 @@ function convergx_render_sections( $post_id = null ) {
 }
 
 /**
+ * Whether the section run already opens with the page's hero.
+ *
+ * Plain heroes are seeded as verbatim rows, because several carry paragraphs
+ * beyond the title and lede that the two-field template hero cannot hold.
+ * When the first row brings its own <h1>, the template must not render a
+ * second one above it.
+ *
+ * @param int|null $post_id Page ID, defaults to the current post.
+ * @return bool
+ */
+function convergx_sections_carry_hero( $post_id = null ) {
+	if ( ! function_exists( 'get_field' ) ) {
+		return false;
+	}
+
+	$rows = get_field( 'sections', $post_id ? $post_id : get_the_ID() );
+
+	if ( empty( $rows[0] ) || 'exact' !== ( $rows[0]['acf_fc_layout'] ?? '' ) ) {
+		return false;
+	}
+
+	return false !== stripos( (string) ( $rows[0]['html'] ?? '' ), '<h1' );
+}
+
+/**
  * Section heading + edge label.
  *
  * Every section that has a heading renders it the same way, so the markup lives

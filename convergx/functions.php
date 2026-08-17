@@ -217,3 +217,16 @@ function convergx_robots_are_not_ours( $robots ) {
 
 	return $robots;
 }
+
+/*
+ * /xpand/streams/ is a redirect stub on the static site: a deleted page whose
+ * old address ConvergX people still hold, meta-refreshed to /xpand/. WordPress
+ * says the same thing properly, with a 301 and no interstitial page.
+ */
+add_action( 'template_redirect', 'convergx_streams_moved' );
+function convergx_streams_moved() {
+	if ( preg_match( '#^/xpand/streams/?$#', (string) wp_parse_url( add_query_arg( array() ), PHP_URL_PATH ) ) ) {
+		wp_safe_redirect( home_url( '/xpand/' ), 301 );
+		exit;
+	}
+}

@@ -100,8 +100,9 @@ function convergx_forms() {
 				),
 			),
 			'sponsor' => array(
-				'subject' => 'Website: sponsorship inquiry',
-				'submit'  => 'Send',
+				'subject'    => 'Website: sponsorship inquiry',
+				'submit'     => 'Send',
+				'form_class' => 'sponsor-form-box',
 				// The sponsorship enquiry goes to a different person from
 				// everything else. Carried from the static form's own action.
 				'to'      => 'adam@convergx.co',
@@ -113,40 +114,47 @@ function convergx_forms() {
 				),
 			),
 			'request' => array(
-				'subject' => 'Website: access request',
-				'intro'   => 'What you send here goes to ConvergX by email, and a person reads it.',
-				'submit'  => 'Request access',
+				'subject'      => 'Website: access request',
+				'intro'        => 'What you send here goes to ConvergX by email, and a person reads it.',
+				'submit'       => 'Send request',
+				'submit_class' => 'btn',
+				'submit_wrap'  => false,
 				'fields'  => array(
 					array( 'name' => 'org', 'label' => 'Organisation', 'type' => 'text', 'required' => true, 'hint' => 'The legal entity making the request, not a division or programme name.', 'autocomplete' => 'organization' ),
 					array( 'name' => 'role', 'label' => 'Your role', 'type' => 'text', 'required' => true, 'hint' => 'What you are accountable for on this requirement.' ),
 					array( 'name' => 'email', 'label' => 'Work email', 'type' => 'email', 'required' => true, 'hint' => 'An address at your organisation\'s own domain.', 'autocomplete' => 'email' ),
-					array( 'name' => 'requirement', 'label' => 'The requirement, in one sentence', 'type' => 'textarea', 'required' => true, 'hint' => 'Do not include controlled, export-restricted or classified technical data. One sentence is enough.' ),
+					array( 'name' => 'requirement', 'label' => 'The requirement, in one sentence', 'type' => 'textarea', 'rows' => 3, 'required' => true, 'hint' => 'Do not include controlled, export-restricted or classified technical data. One sentence is enough.' ),
 					array( 'name' => 'sourcing', 'label' => 'The industries you already source from', 'type' => 'text', 'required' => false, 'hint' => 'Plain sector names. This is how ConvergX works out which industries have not been looked at.' ),
 					array( 'name' => 'programme-date', 'label' => 'Is it tied to a programme date', 'type' => 'select', 'required' => false, 'hint' => 'A date changes how a requirement is routed, though not whether it is read.', 'options' => array( 'Yes', 'No', 'Not yet' ) ),
 				),
 			),
 			'apply' => array(
-				'subject' => 'Website: application to join',
-				'submit'  => 'Apply to join',
+				'subject'      => 'Website: application to join',
+				'submit'       => 'Send application',
+				'submit_class' => 'btn',
+				'submit_wrap'  => false,
 				'fields'  => array(
 					array( 'name' => 'company', 'label' => 'Company', 'type' => 'text', 'required' => true, 'hint' => 'The legal entity applying, not a product or brand name.', 'autocomplete' => 'organization' ),
 					array( 'name' => 'email', 'label' => 'Work email', 'type' => 'email', 'required' => true, 'hint' => 'An address at your company\'s own domain.', 'autocomplete' => 'email' ),
-					array( 'name' => 'built', 'label' => 'What you have built', 'type' => 'textarea', 'required' => true, 'hint' => 'What it does, in the words you would use with an engineer, rather than what it enables.' ),
-					array( 'name' => 'deployed', 'label' => 'Where it is already deployed', 'type' => 'textarea', 'required' => true, 'hint' => 'Sites, programmes or operations running it today. A description works where a name cannot be given.' ),
+					array( 'name' => 'built', 'label' => 'What you have built', 'type' => 'textarea', 'rows' => 3, 'required' => true, 'hint' => 'What it does, in the words you would use with an engineer, rather than what it enables.' ),
+					array( 'name' => 'deployed', 'label' => 'Where it is already deployed', 'type' => 'textarea', 'rows' => 3, 'required' => true, 'hint' => 'Sites, programmes or operations running it today. A description works where a name cannot be given.' ),
 					array( 'name' => 'trl', 'label' => 'Is it commercialised at TRL 8 to 9', 'type' => 'select', 'required' => true, 'hint' => 'Complete and running in its real environment, in service rather than in trial. Answer it honestly. A No does not end the application: ConvergX runs a separate arm for early-stage and research work, and that is where one like it goes.', 'options' => array( 'Yes', 'No', 'Not sure' ) ),
 					array( 'name' => 'sectors', 'label' => 'The industries you already serve', 'type' => 'text', 'required' => false, 'hint' => 'Plain sector names. This is how ConvergX works out which industries have never seen it.' ),
-					array( 'name' => 'certs', 'label' => 'Certifications or accreditations held', 'type' => 'textarea', 'required' => false, 'hint' => 'List them in your own words. They are recorded as you state them, and nothing on this form is validated.' ),
+					array( 'name' => 'certs', 'label' => 'Certifications or accreditations held', 'type' => 'textarea', 'rows' => 2, 'required' => false, 'hint' => 'List them in your own words. They are recorded as you state them, and nothing on this form is validated.' ),
 				),
 			),
 			'requirement' => array(
-				'subject' => 'Website: requirement submitted',
-				'submit'  => 'Submit the requirement',
+				'subject'    => 'Website: requirement submitted',
+				'submit'     => 'Send this to ConvergX',
+				'form_class' => 'req-form',
 				'fields'  => array(
+					array( 'legend' => 'The problem' ),
 					array( 'name' => 'kind', 'label' => 'Is this a problem or an RFP?', 'type' => 'select', 'required' => true, 'hint' => 'An RFP has a process and a clock on it, and a problem does not have one yet.', 'options' => array( 'A problem', 'An RFP', 'Not sure yet' ) ),
-					array( 'name' => 'problem', 'label' => 'What is the problem?', 'type' => 'textarea', 'required' => true, 'hint' => 'What is going wrong, or what you cannot get made. Write it the way you would say it to a colleague. Do not include controlled, export-restricted or classified technical data.' ),
-					array( 'name' => 'fix', 'label' => 'What would fix it?', 'type' => 'textarea', 'required' => true, 'hint' => 'What has to be made or done, and to what standard. Name the specification or the certification if there is one.' ),
+					array( 'name' => 'problem', 'label' => 'What is the problem?', 'type' => 'textarea', 'rows' => 8, 'required' => true, 'hint' => 'What is going wrong, or what you cannot get made. Write it the way you would say it to a colleague. Do not include controlled, export-restricted or classified technical data.' ),
+					array( 'name' => 'fix', 'label' => 'What would fix it?', 'type' => 'textarea', 'rows' => 6, 'required' => true, 'hint' => 'What has to be made or done, and to what standard. Name the specification or the certification if there is one.' ),
 					array( 'name' => 'due', 'label' => 'When does it have to be solved by? (optional)', 'type' => 'date', 'required' => false, 'hint' => 'The programme date or milestone this hangs on. Leave it empty if there is not one yet.' ),
 					array( 'name' => 'context', 'label' => 'What else would help? (optional)', 'type' => 'textarea', 'required' => false, 'hint' => 'Why it matters now, what you have already tried, and what is in the way.' ),
+					array( 'legend' => 'You' ),
 					array( 'name' => 'name', 'label' => 'What is your name?', 'type' => 'text', 'required' => true, 'autocomplete' => 'name' ),
 					array( 'name' => 'role', 'label' => 'What is your role?', 'type' => 'text', 'required' => true, 'hint' => 'What you are accountable for on this.' ),
 					array( 'name' => 'company', 'label' => 'What company do you work for?', 'type' => 'text', 'required' => true, 'hint' => 'The legal entity, not a division or a programme name. This goes to ConvergX and nowhere else.', 'autocomplete' => 'organization' ),
@@ -210,11 +218,19 @@ function convergx_render_form( $key ) {
 	</div>
 
 	<?php if ( ! $sent ) : ?>
-		<?php if ( ! empty( $form['intro'] ) ) : ?>
-			<p class="form-intro"><?php echo esc_html( $form['intro'] ); ?></p>
-		<?php endif; ?>
-
-		<form class="body cx-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+		<?php
+		/*
+		 * No intro line here: every form now renders inside a verbatim
+		 * section that already carries the static page's surrounding prose,
+		 * so emitting one would print the same sentence twice.
+		 *
+		 * The class is the static form's own (.body on the rail forms,
+		 * .sponsor-form-box on the congress one, .req-form on the
+		 * requirement page) because the stylesheet lays the form out by it.
+		 */
+		$form_class = $form['form_class'] ?? 'body';
+		?>
+		<form class="<?php echo esc_attr( $form_class ); ?> cx-form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="convergx_form">
 			<input type="hidden" name="cx_form" value="<?php echo esc_attr( $key ); ?>">
 			<input type="hidden" name="cx_return" value="<?php echo esc_url( home_url( add_query_arg( array() ) ) ); ?>">
@@ -237,19 +253,36 @@ function convergx_render_form( $key ) {
 				<input type="text" id="<?php echo esc_attr( $uid ); ?>-website" name="cx_website" tabindex="-1" autocomplete="off">
 			</div>
 
+			<?php if ( ! empty( $form['intro'] ) ) : ?>
+				<?php // A plain <p> inside the form, before the first field: the static request form sets its intro exactly there. ?>
+				<p><?php echo esc_html( $form['intro'] ); ?></p>
+			<?php endif; ?>
+
+			<?php $fieldset_open = false; ?>
 			<?php foreach ( $form['fields'] as $f ) : ?>
 				<?php
+				// A legend row opens a fieldset, closing the previous one:
+				// the requirement form groups its questions under "The
+				// problem" and "You" exactly as the static page does.
+				if ( isset( $f['legend'] ) ) {
+					if ( $fieldset_open ) {
+						echo '</fieldset>';
+					}
+					echo '<fieldset><legend>' . esc_html( $f['legend'] ) . '</legend>';
+					$fieldset_open = true;
+					continue;
+				}
+
 				$fid  = $uid . '-' . $f['name'];
 				$req  = ! empty( $f['required'] );
 				$auto = isset( $f['autocomplete'] ) ? $f['autocomplete'] : '';
 				?>
-				<p class="field">
-					<label for="<?php echo esc_attr( $fid ); ?>">
-						<?php echo esc_html( $f['label'] ); ?>
-						<?php if ( ! $req ) : ?>
-							<span class="field-opt"><?php esc_html_e( 'optional', 'convergx' ); ?></span>
-						<?php endif; ?>
-					</label>
+				<div class="field">
+					<?php
+					// "(optional)" lives in the label text where the static
+					// labels carry it; no extra marker span is added.
+					?>
+					<label for="<?php echo esc_attr( $fid ); ?>"><?php echo esc_html( $f['label'] ); ?></label>
 
 					<?php
 					/*
@@ -271,11 +304,12 @@ function convergx_render_form( $key ) {
 					$hint_id = $hint ? $fid . '-hint' : '';
 					?>
 					<?php if ( $hint ) : ?>
-						<span class="field-hint" id="<?php echo esc_attr( $hint_id ); ?>"><?php echo esc_html( $hint ); ?></span>
+						<?php // p.helper is the static site's own hint element and class. ?>
+						<p class="helper" id="<?php echo esc_attr( $hint_id ); ?>"><?php echo esc_html( $hint ); ?></p>
 					<?php endif; ?>
 
 					<?php if ( 'textarea' === $f['type'] ) : ?>
-						<textarea id="<?php echo esc_attr( $fid ); ?>" name="<?php echo esc_attr( $f['name'] ); ?>" rows="5" <?php echo $hint_id ? 'aria-describedby="' . esc_attr( $hint_id ) . '"' : ''; ?> <?php echo $req ? 'required' : ''; ?>></textarea>
+						<textarea id="<?php echo esc_attr( $fid ); ?>" name="<?php echo esc_attr( $f['name'] ); ?>" rows="<?php echo esc_attr( $f['rows'] ?? 5 ); ?>" <?php echo $hint_id ? 'aria-describedby="' . esc_attr( $hint_id ) . '"' : ''; ?> <?php echo $req ? 'required' : ''; ?>></textarea>
 
 					<?php elseif ( 'select' === $f['type'] ) : ?>
 						<select id="<?php echo esc_attr( $fid ); ?>" name="<?php echo esc_attr( $f['name'] ); ?>" <?php echo $hint_id ? 'aria-describedby="' . esc_attr( $hint_id ) . '"' : ''; ?> <?php echo $req ? 'required' : ''; ?>>
@@ -294,12 +328,21 @@ function convergx_render_form( $key ) {
 							<?php echo $hint_id ? 'aria-describedby="' . esc_attr( $hint_id ) . '"' : ''; ?>
 							<?php echo $req ? 'required' : ''; ?>>
 					<?php endif; ?>
-				</p>
+				</div>
 			<?php endforeach; ?>
+			<?php if ( $fieldset_open ) : ?></fieldset><?php endif; ?>
 
-			<p class="push-s">
-				<button class="btn btn--solid" type="submit"><?php echo esc_html( $form['submit'] ); ?></button>
-			</p>
+			<?php
+			/*
+			 * Button text, class and wrapper all come from the form's own
+			 * definition, because the static pages differ: the contact,
+			 * sponsor and requirement forms wrap a solid button in a <p>,
+			 * while apply and request set a plain .btn bare before </form>.
+			 */
+			$submit_class = $form['submit_class'] ?? 'btn btn--solid';
+			$submit_wrap  = $form['submit_wrap'] ?? true;
+			?>
+			<?php if ( $submit_wrap ) : ?><p><?php endif; ?><button class="<?php echo esc_attr( $submit_class ); ?>" type="submit"><?php echo esc_html( $form['submit'] ); ?></button><?php if ( $submit_wrap ) : ?></p><?php endif; ?>
 		</form>
 	<?php endif; ?>
 	<?php
