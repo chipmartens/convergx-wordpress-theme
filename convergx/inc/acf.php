@@ -725,6 +725,14 @@ function convergx_register_flexible_fields() {
 									'instructions' => 'Consecutive sections sharing a band render inside one wrapper, so a band spans a run rather than striping per section.',
 								),
 								array(
+									'key'          => 'field_cx_exact_group',
+									'label'        => 'Band group',
+									'name'         => 'band_group',
+									'type'         => 'number',
+									'default_value' => 0,
+									'instructions' => 'Which band DIV this row belongs to. Rows share a wrapper only when both the colour and this number match: two adjacent bands of the same colour are still two wrappers, because the stylesheet keys :last-child rules on the div boundary.',
+								),
+								array(
 									'key'          => 'field_cx_exact_html',
 									'label'        => 'Section HTML',
 									'name'         => 'html',
@@ -748,6 +756,14 @@ function convergx_register_flexible_fields() {
 									'choices'      => array( '' => 'None (page ground)', 'light' => 'Light', 'dark' => 'Dark', 'muted' => 'Muted', 'navy' => 'Navy' ),
 									'return_format' => 'value',
 									'allow_null'   => 1,
+								),
+								array(
+									'key'          => 'field_cx_part_group',
+									'label'        => 'Band group',
+									'name'         => 'band_group',
+									'type'         => 'number',
+									'default_value' => 0,
+									'instructions' => 'Which band DIV this row belongs to. Rows share a wrapper only when both the colour and this number match: two adjacent bands of the same colour are still two wrappers, because the stylesheet keys :last-child rules on the div boundary.',
 								),
 								array(
 									'key'          => 'field_cx_part_which',

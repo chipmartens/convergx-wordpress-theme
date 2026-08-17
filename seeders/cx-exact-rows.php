@@ -42,12 +42,14 @@ foreach ( $data as $path => $secs ) {
 			$out[] = array(
 				'acf_fc_layout' => 'part',
 				'surface'       => (string) ( $s['surface'] ?? '' ),
+				'band_group'    => (int) ( $s['group'] ?? 0 ),
 				'part'          => (string) $s['part'],
 			);
 		} else {
 			$out[] = array(
 				'acf_fc_layout' => 'exact',
 				'surface'       => (string) ( $s['surface'] ?? '' ),
+				'band_group'    => (int) ( $s['group'] ?? 0 ),
 				'html'          => (string) $s['html'],
 			);
 		}

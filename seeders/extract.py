@@ -44,6 +44,47 @@ FORM_KEY = {"about": "contact", "congress": "sponsor", "access/apply": "apply",
 PART_IDS = {"speakers": "speakers", "agenda": "agenda",
             "accommodations": "hotels", "sponsors": "sponsors"}
 
+# ---------------------------------------------------------------------------
+# CLIENT CHANGES the launch site does not carry. Applied AFTER extraction so a
+# re-extract cannot silently revert copy the client has asked for. Each entry
+# is (page, find, replace); a patch that no longer matches is a hard error,
+# because a silent no-op here means shipping copy the client rescinded.
+#
+# 2026-08-17, Lindsay Robertson, "Convergx.co changes":
+#   - Congress "Speed to deal": add the deal-closure objective sentence.
+#   - /xpand/: her TRL-comparison chart after "What is the scale for
+#     commercialization?", rebuilt as a native table (content verbatim from
+#     her attachment; the ® and ™ glyphs are dropped per the site-wide gate).
+# The same email's Congress-hero change is a page FIELD, carried by
+# seeders/cx-2026-08-17-lindsay.php instead.
+# ---------------------------------------------------------------------------
+TRL_TABLE = """
+            <div class="trl-table-wrap">
+              <table class="trl-table">
+                <caption>Key Differences: NASA TRL vs. Xpand TRL (Plain Language)</caption>
+                <thead>
+                  <tr><th scope="col">Focus</th><th scope="col">NASA TRL</th><th scope="col">ConvergX Xpand TRL</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Primary question</th><td>“Does it work?”</td><td>“Will it adopt and scale?”</td></tr>
+                  <tr><th scope="row">Readiness dimension</th><td>technical maturity</td><td>technical + buyer + integration + procurement</td></tr>
+                  <tr><th scope="row">Environment</th><td>lab → relevant → operational → flight</td><td>pilot → procurement → deployment → scaled adoption</td></tr>
+                  <tr><th scope="row">TRL 7 to 9 meaning</th><td>demonstrated/qualified/flight proven</td><td>pilot complete → deployed → scaled &amp; multi-sector</td></tr>
+                  <tr><th scope="row">Used for</th><td>mission/engineering readiness</td><td>commercialization decisions + bridge financing</td></tr>
+                </tbody>
+              </table>
+            </div>"""
+
+PATCHES = [
+    ("congress",
+     "identifying a challenge, and finding the organization capable of solving it.</p>",
+     "identifying a challenge, and finding the organization capable of solving it. "
+     "The objective of the Congress is to move from business opportunity to deal closure in 12-18 months.</p>"),
+    ("xpand",
+     "Operations, System or Integration Readiness Level and so on.</p>",
+     "Operations, System or Integration Readiness Level and so on.</p>" + TRL_TABLE),
+]
+
 VOID = {"img", "br", "hr", "input", "meta", "link", "source", "track", "wbr",
         "area", "base", "col", "embed", "param"}
 TAG = re.compile(r'<(/?)([a-zA-Z0-9-]+)([^>]*)>')
@@ -150,7 +191,7 @@ def extract(page):
     url = f"{BASE}/{page}/" if page else f"{BASE}/"
     h = re.sub(r'<!--.*?-->', '', get(url), flags=re.S)
     m = re.search(r'<main\b[^>]*>(.*)</main>', h, re.S)
-    rows = []
+    rows, group = [], 0
     for tag, attrs, chunk in chunks(m.group(1)):
         band = attrs.get("data-surface", "")
         # The speaker bio overlays carry data-surface="dark" but are dialogs
@@ -158,16 +199,33 @@ def extract(page):
         if "bio-overlay" in attrs.get("class", ""):
             continue
         if tag == "div" and (band or "band--navy" in attrs.get("class", "")):
+            # Each band div is its OWN group. Two adjacent light bands are not
+            # one: :last-child rules key on the div boundary (the homepage flow
+            # band drops to 2xl end padding ONLY as a band's last child), so
+            # merging adjacent same-colour bands moved real pixels.
+            group += 1
             surface = "navy" if "band--navy" in attrs.get("class", "") else band
             for t2, a2, c2 in chunks(inner(chunk)):
                 row = classify(page, t2, a2, c2, surface)
                 if row:
+                    row["group"] = group
                     rows.append(row)
         else:
             row = classify(page, tag, attrs, chunk, "")
             if row:
+                row["group"] = 0
                 rows.append(row)
     return rows
+
+def apply_patches(data):
+    for page, find, replace in PATCHES:
+        hit = False
+        for row in data.get(page, []):
+            if row["layout"] == "exact" and find in row["html"]:
+                row["html"] = row["html"].replace(find, replace)
+                hit = True
+        if not hit:
+            sys.exit(f"PATCH FAILED on /{page}/: anchor not found: {find[:60]}")
 
 data = {}
 for page in PAGES:
@@ -176,5 +234,6 @@ for page in PAGES:
              for r in data[page]]
     print(f"/{page or ''}: {len(data[page])} rows  {kinds}")
 
+apply_patches(data)
 json.dump(data, open(OUT, "w"), indent=1)
-print(f"\nwrote {OUT}")
+print(f"\nwrote {OUT} (with {len(PATCHES)} client patches)")

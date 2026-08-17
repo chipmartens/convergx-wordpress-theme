@@ -44,6 +44,20 @@ def paras(h):
     out=[txt(m.group(1)) for m in re.finditer(r'<(?:p|li)\b[^>]*>(.*?)</(?:p|li)>',h,re.S)]
     return [x for x in out if len(x)>20]
 
+# Live-site paragraphs the WP site DELIBERATELY diverges from, keyed by the
+# paragraph's first 70 chars. Client copy changes land on WordPress first
+# (Lindsay Robertson, 2026-08-17 email), so the launch site is stale here and
+# a "missing" hit on one of these is the divergence working, not a bug.
+DELIBERATE = [
+    # /congress/ hero: portfolio renamed Congresses + invitation-only lines.
+    "The ConvergX Global Congress is the flagship event within the ConvergX",
+    "This is not a traditional conference. It is a curated, decision-maker",
+    # /congress/ Speed to deal: deal-closure objective sentence added.
+    "Business moves faster when the right people are in the room and every",
+    # /requirement/: the static demo note; our form is real and wired.
+    "This is a demo. The form is not wired up yet",
+]
+
 rows=[]
 for rel,wp in PAGES:
     L=get(f"{BASE}/{rel}"); W=get(WP+wp)
@@ -53,7 +67,7 @@ for rel,wp in PAGES:
     miss_h=[x for x in lh if x not in wh]
     extra_h=[x for x in wh if x not in lh]
     wjoin=" || ".join(wp_)
-    miss_p=[x for x in lp if x[:70] not in wjoin]
+    miss_p=[x for x in lp if x[:70] not in wjoin and not any(x.startswith(d) for d in DELIBERATE)]
     rows.append({"page":wp,"h_live":len(lh),"h_wp":len(wh),"miss_h":miss_h,"extra_h":extra_h,
                  "p_live":len(lp),"p_wp":len(wp_),"miss_p":miss_p})
 

@@ -6771,3 +6771,49 @@ main > [data-surface]:not(:has(~ :not(.bio-overlay))) {
    * control a keyboard or switch user is aiming at. */
   .skip { min-height: 44px; display: flex; align-items: center; }
 }
+
+/* ================= 62. THE XPAND TRL TABLE ================= */
+/* Lindsay's NASA-vs-Xpand comparison (email 2026-08-17), rebuilt as a
+ * native table rather than her screenshot: the attachment sat on a stock
+ * photograph and carried its own typography, and a table is content, not
+ * an image. It renders on the navy band, so every colour is a token the
+ * band already resolves. */
+
+.trl-table-wrap { overflow-x: auto; margin-block-start: var(--space-xl); }
+
+.trl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  text-align: start;
+}
+
+.trl-table caption {
+  text-align: start;
+  font-weight: 600;
+  color: var(--fg-hi);
+  margin-block-end: var(--space-s);
+}
+
+.trl-table th,
+.trl-table td {
+  padding: var(--space-s) var(--space-m) var(--space-s) 0;
+  border-block-start: var(--rule-hair) solid var(--rule-ink);
+  vertical-align: top;
+  text-align: start;
+}
+
+.trl-table thead th {
+  font-size: var(--step--2);
+  font-weight: 600;
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--fg-lo);
+  border-block-start: 0;
+}
+
+.trl-table tbody th[scope="row"] {
+  font-weight: 600;
+  color: var(--fg-hi);
+  white-space: nowrap;
+}

@@ -43,6 +43,7 @@ function convergx_render_sections( $post_id = null ) {
 		$rows[] = array(
 			'layout' => get_row_layout(),
 			'band'   => (string) get_sub_field( 'surface' ),
+			'group'  => (int) get_sub_field( 'band_group' ),
 		);
 	}
 
@@ -55,7 +56,16 @@ function convergx_render_sections( $post_id = null ) {
 		$band = isset( $rows[ $i ]['band'] ) ? $rows[ $i ]['band'] : '';
 		$band = in_array( $band, array( 'light', 'dark', 'muted', 'navy' ), true ) ? $band : '';
 
-		if ( $band !== $open ) {
+		/*
+		 * THE WRAPPER BREAKS ON THE GROUP, NOT JUST THE COLOUR. Two adjacent
+		 * light bands are still two divs: the stylesheet keys :last-child
+		 * rules on the div boundary ([data-surface] > .flow-band:last-child
+		 * drops the diagram's end padding), so merging same-colour neighbours
+		 * moved real pixels on the homepage.
+		 */
+		$key = '' === $band ? '' : $band . '|' . ( isset( $rows[ $i ]['group'] ) ? $rows[ $i ]['group'] : 0 );
+
+		if ( $key !== $open ) {
 			if ( '' !== $open ) {
 				echo '</div>';
 			}
@@ -67,7 +77,7 @@ function convergx_render_sections( $post_id = null ) {
 					? '<div class="band--navy">'
 					: '<div data-surface="' . esc_attr( $band ) . '">';
 			}
-			$open = $band;
+			$open = $key;
 		}
 
 		$file = CONVERGX_DIR . '/template-parts/sections/' . sanitize_file_name( get_row_layout() ) . '.php';
