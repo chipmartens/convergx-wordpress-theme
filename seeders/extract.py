@@ -80,9 +80,12 @@ PATCHES = [
      "identifying a challenge, and finding the organization capable of solving it.</p>",
      "identifying a challenge, and finding the organization capable of solving it. "
      "The objective of the Congress is to move from business opportunity to deal closure in 12-18 months.</p>"),
+    # The table sits AFTER the editorial rail closes, as a direct child of the
+    # wrap: inside .body it inherited the rail's right-column measure, and a
+    # five-column comparison needs the full page width.
     ("xpand",
-     "Operations, System or Integration Readiness Level and so on.</p>",
-     "Operations, System or Integration Readiness Level and so on.</p>" + TRL_TABLE),
+     "Operations, System or Integration Readiness Level and so on.</p>\n          </div>\n        </div>",
+     "Operations, System or Integration Readiness Level and so on.</p>\n          </div>\n        </div>" + TRL_TABLE),
 ]
 
 VOID = {"img", "br", "hr", "input", "meta", "link", "source", "track", "wbr",
