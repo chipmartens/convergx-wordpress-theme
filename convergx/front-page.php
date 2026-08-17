@@ -52,8 +52,13 @@ while ( have_posts() ) :
 	 */
 	convergx_render_sections();
 
-	// 5. THE FLOW BAND. The mechanism, once the reader has a reason to care.
-	get_template_part( 'template-parts/home/flow-band' );
+	/*
+	 * The flow band is NOT rendered here. It is a position INSIDE the editorial
+	 * run, between "What ConvergX is" and "Celebrating 10 years", because it
+	 * answers the question the section above it raises. Rendered after the run
+	 * it landed at the foot of the page, which is the wrong place in the
+	 * argument as well as on the screen. See template-parts/sections/flow.php.
+	 */
 
 endwhile;
 

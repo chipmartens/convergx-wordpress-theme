@@ -25,6 +25,7 @@ $convergx_twopath = get_sub_field( 'twopath' );
 $convergx_claims  = get_sub_field( 'claims' );
 $convergx_whatis  = get_sub_field( 'whatis' );
 $convergx_store   = get_sub_field( 'store' );
+$convergx_split   = (bool) get_sub_field( 'split' ) && $convergx_links;
 ?>
 
 <section class="<?php echo esc_attr( $convergx_dense ); ?>">
@@ -40,6 +41,46 @@ $convergx_store   = get_sub_field( 'store' );
 			?>
 			<p class="say"><?php echo esc_html( get_sub_field( 'say' ) ); ?></p>
 		<?php endif; ?>
+
+		<?php if ( $convergx_split ) : ?>
+			<?php
+			/*
+			 * COPY LEFT, LINKS RIGHT.
+			 *
+			 * A different component from .editorial, not a variant of it. The
+			 * rail splits standfirst from body across two columns and would
+			 * drop the link index underneath; this puts the WHOLE argument in
+			 * one column and stands the index beside it, which is what makes
+			 * the links read as a way out of the section rather than a
+			 * footnote to it.
+			 */
+			?>
+			<div class="congress-split">
+				<div class="congress-split-copy">
+					<?php if ( get_sub_field( 'lede' ) ) : ?>
+						<p class="lede-text"><?php echo esc_html( get_sub_field( 'lede' ) ); ?></p>
+					<?php endif; ?>
+					<?php echo wp_kses_post( (string) get_sub_field( 'body' ) ); ?>
+				</div>
+				<div class="congress-split-links">
+					<ul class="link-index">
+						<?php foreach ( $convergx_links as $l ) : ?>
+							<?php if ( empty( $l['label'] ) ) { continue; } ?>
+							<li>
+								<?php if ( ! empty( $l['href'] ) ) : ?>
+									<a href="<?php echo esc_url( convergx_local_url( $l['href'] ) ); ?>"><?php echo esc_html( $l['label'] ); ?></a>
+								<?php else : ?>
+									<span class="label"><?php echo esc_html( $l['label'] ); ?></span>
+								<?php endif; ?>
+								<?php if ( ! empty( $l['note'] ) ) : ?>
+									<span class="descriptor"><?php echo esc_html( $l['note'] ); ?></span>
+								<?php endif; ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		<?php else : ?>
 
 		<div class="editorial">
 			<?php if ( get_sub_field( 'lede' ) ) : ?>
@@ -72,6 +113,7 @@ $convergx_store   = get_sub_field( 'store' );
 				</div>
 			<?php endif; ?>
 		</div>
+		<?php endif; ?>
 
 		<?php if ( $convergx_whatis ) : ?>
 			<?php foreach ( $convergx_whatis as $w ) : ?>
@@ -109,7 +151,8 @@ $convergx_store   = get_sub_field( 'store' );
 			</ul>
 		<?php endif; ?>
 
-		<?php if ( $convergx_links ) : ?>
+		<?php if ( $convergx_links && ! $convergx_split ) : ?>
+			<?php // In split mode the index is rendered above, beside the copy. ?>
 			<ul class="link-index">
 				<?php foreach ( $convergx_links as $l ) : ?>
 					<?php if ( empty( $l['label'] ) ) { continue; } ?>

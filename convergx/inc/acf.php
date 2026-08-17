@@ -517,6 +517,14 @@ function convergx_register_flexible_fields() {
 									),
 								),
 								array(
+									'key'          => 'field_cx_ed_split',
+									'label'        => 'Copy left, links right',
+									'name'         => 'split',
+									'type'         => 'true_false',
+									'ui'           => 1,
+									'instructions' => 'Puts ALL the copy in one column and the link index beside it. Without this the section uses the normal rail, which splits the standfirst from the body across two columns and drops the links underneath, so the copy reads as two disconnected halves.',
+								),
+								array(
 									'key'          => 'field_cx_ed_links',
 									'label'        => 'Link index',
 									'name'         => 'links',
@@ -641,6 +649,21 @@ function convergx_register_flexible_fields() {
 										array( 'key' => 'field_cx_logo_label', 'label' => 'Name', 'name' => 'label', 'type' => 'text' ),
 										array( 'key' => 'field_cx_logo_cleared', 'label' => 'Cleared', 'name' => 'cleared', 'type' => 'true_false', 'ui' => 1 ),
 									),
+								),
+							),
+						),
+						'flow' => array(
+							'key'        => 'layout_convergx_flow',
+							'name'       => 'flow',
+							'label'      => 'Flow diagram',
+							'display'    => 'block',
+							'sub_fields' => array(
+								array(
+									'key'     => 'field_cx_flow_msg',
+									'label'   => '',
+									'name'    => '',
+									'type'    => 'message',
+									'message' => 'Places the animated flow diagram at this point in the page. Nothing to configure: the diagram is generated and driven at runtime. It is hidden below 960px by design, which is a documented decision, not a bug.',
 								),
 							),
 						),

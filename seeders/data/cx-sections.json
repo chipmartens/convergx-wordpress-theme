@@ -27,9 +27,9 @@
    "heading": "Celebrating 10 years of ConvergX",
    "level": 2,
    "eyebrow": "Sep 22 to 24, 2026 / Calgary",
-   "lede": "",
+   "lede": "The Global Congress is where decision-makers come to solve problems, build partnerships, and create opportunity.",
    "say": "",
-   "body": "<p>Bringing together leaders from across various industries, ConvergX enables organizations to learn from others facing similar challenges, uncover proven approaches, and connect directly with the people capable of moving ideas into action.</p> <p>This is not a traditional conference. It is a curated, decision-maker-only environment designed to accelerate the adoption of proven technologies, forge strategic partnerships, and create commercial opportunities across industries.</p> <p>Organizations don't attend simply to exchange ideas. They come to solve problems, identify partners, evaluate technologies, and move opportunities forward.</p>",
+   "body": "<p>Bringing together leaders from across various industries, ConvergX enables organizations to learn from others facing similar challenges, uncover proven approaches, and connect directly with the people capable of moving ideas into action.</p><p>This is not a traditional conference. It is a curated, decision-maker-only environment designed to accelerate the adoption of proven technologies, forge strategic partnerships, and create commercial opportunities across industries.</p><p>Organizations don't attend simply to exchange ideas. They come to solve problems, identify partners, evaluate technologies, and move opportunities forward.</p>",
    "dense": 0,
    "links": [
     {
@@ -56,7 +56,8 @@
    "twopath": [],
    "claims": [],
    "whatis": [],
-   "store": []
+   "store": [],
+   "split": 1
   },
   {
    "heading": "ConvergX Xpand",
@@ -64,7 +65,7 @@
    "eyebrow": "Consulting",
    "lede": "",
    "say": "ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry.",
-   "body": "<p>Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities.</p> <p>Often, organizations spend years developing solutions to challenges that have already been solved in other industries. ConvergX Xpand shortens that path by helping clients discover proven approaches, evaluate their applicability, and accelerate adoption.</p>",
+   "body": "<p>ConvergX Xpand helps organizations identify, adapt, and deploy proven solutions from outside their own industry.</p><p>Working across sectors such as defence, aerospace, energy, mining, manufacturing, agriculture, transportation, and infrastructure, we connect decision-makers with commercially ready technologies, strategic partners, and new market opportunities.</p><p>Often, organizations spend years developing solutions to challenges that have already been solved in other industries. ConvergX Xpand shortens that path by helping clients discover proven approaches, evaluate their applicability, and accelerate adoption.</p>",
    "dense": 0,
    "links": [
     {
@@ -86,7 +87,8 @@
    "twopath": [],
    "claims": [],
    "whatis": [],
-   "store": []
+   "store": [],
+   "split": 1
   }
  ],
  "access": [
@@ -1119,20 +1121,6 @@
   }
  ],
  "about": [
-  {
-   "heading": "",
-   "level": 2,
-   "eyebrow": "",
-   "lede": "",
-   "say": "",
-   "body": "<h3>Kimberley Van Vliet</h3> <p>Founder &amp; CEO<br>ConvergX</p> <p><a href=\"#bio-kimberley-van-vliet\">View full bio</a></p> <h3>Jessilyn Forigo</h3> <p>Executive Director<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-jessilyn-forio\">View full bio</a></p> <h3>Carrie Fanai</h3> <p>Director, Enterprise Development<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-carrie-fanai\">View full bio</a></p> <h3>Katja Boutou</h3> <p>Director, Strategic Growth &amp; Industry Engagement<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-katja-boutou\">View full bio</a></p> <h3>Adam Frost</h3> <p>Chief of Staff<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-adam-frost\">View full bio</a></p> <h3>Lindsay Robertson</h3> <p>Senior Manager, Marketing, Communications and Commercial Readiness<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-lindsay-robertson\">View full bio</a></p> <h3>Chris Van Vliet</h3> <p>SME &amp; Project lead<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-chris-van-vliet\">View full bio</a></p> <h3>Sean Secord</h3> <p>Senior Advisor, Strategic Partnerships &amp; Northern Initiatives<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-sean-secord\">View full bio</a></p> <h3>Sylvain B\u00e9dard</h3> <p>Senior Advisor, Strategic Partnerships &amp; Government Relations<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-sylvain-bedard\">View full bio</a></p> <h3>Frances Doria</h3> <p>Business development and Sponsorship<br>ConvergX Global Solutions Foundation</p> <p><a href=\"#bio-frances-doria\">View full bio</a></p>",
-   "dense": 0,
-   "links": [],
-   "twopath": [],
-   "claims": [],
-   "whatis": [],
-   "store": []
-  },
   {
    "heading": "Get in touch",
    "level": 2,
