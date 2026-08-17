@@ -44,6 +44,9 @@ if ( $convergx_surface ) :
 		<?php
 		$convergx_links   = get_sub_field( 'links' );
 		$convergx_twopath = get_sub_field( 'twopath' );
+		$convergx_claims  = get_sub_field( 'claims' );
+		$convergx_whatis  = get_sub_field( 'whatis' );
+		$convergx_store   = get_sub_field( 'store' );
 		?>
 
 		<div class="editorial">
@@ -54,6 +57,59 @@ if ( $convergx_surface ) :
 				<div class="body"><?php echo wp_kses_post( get_sub_field( 'body' ) ); ?></div>
 			<?php endif; ?>
 		</div>
+		<?php if ( $convergx_whatis ) : ?>
+			<?php foreach ( $convergx_whatis as $w ) : ?>
+				<?php if ( empty( $w['title'] ) ) { continue; } ?>
+				<div class="whatis-row">
+					<h3 class="whatis-title"><?php echo esc_html( $w['title'] ); ?></h3>
+					<div class="whatis-body"><?php echo wp_kses_post( $w['body'] ); ?></div>
+				</div>
+			<?php endforeach; ?>
+		<?php endif; ?>
+
+		<?php if ( $convergx_claims ) : ?>
+			<?php
+			// Each claim opens to what backs it. Closed by default, so the page
+			// reads as a list of statements and the evidence is one tap away
+			// rather than three screens of prose nobody scrolls.
+			?>
+			<div class="claim">
+				<?php foreach ( $convergx_claims as $c ) : ?>
+					<?php if ( empty( $c['title'] ) ) { continue; } ?>
+					<details class="sess">
+						<summary><?php echo esc_html( $c['title'] ); ?></summary>
+						<?php echo wp_kses_post( $c['body'] ); ?>
+					</details>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( $convergx_store ) : ?>
+			<ul class="store">
+				<?php foreach ( $convergx_store as $ev ) : ?>
+					<?php if ( empty( $ev['name'] ) ) { continue; } ?>
+					<li class="store-item">
+						<h3 class="store-name"><?php echo esc_html( $ev['name'] ); ?></h3>
+						<?php if ( ! empty( $ev['meta'] ) ) : ?>
+							<p class="label label--lo"><?php echo esc_html( $ev['meta'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $ev['desc'] ) ) : ?>
+							<p class="store-desc"><?php echo wp_kses_post( $ev['desc'] ); ?></p>
+						<?php endif; ?>
+						<?php if ( ! empty( $ev['url'] ) ) : ?>
+							<p class="store-act">
+								<a class="btn" href="<?php echo esc_url( $ev['url'] ); ?>" rel="noopener"><?php echo esc_html( $ev['cta'] ?: __( 'Visit', 'convergx' ) ); ?></a>
+							</p>
+						<?php endif; ?>
+						<?php if ( ! empty( $ev['away'] ) ) : ?>
+							<?php // Registration for a partner event is the host's, never ConvergX's. ?>
+							<p class="store-away"><?php echo esc_html( $ev['away'] ); ?></p>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+
 		<?php if ( $convergx_links ) : ?>
 			<?php
 			/*
@@ -67,7 +123,17 @@ if ( $convergx_surface ) :
 				<?php foreach ( $convergx_links as $l ) : ?>
 					<?php if ( empty( $l['label'] ) ) { continue; } ?>
 					<li>
-						<a href="<?php echo esc_url( convergx_local_url( $l['href'] ) ); ?>"><?php echo esc_html( $l['label'] ); ?></a>
+						<?php
+						// A row is either a LINK or a plain label-and-descriptor
+						// definition. /congress/the-app/ uses both shapes in one
+						// page, so a renderer that assumes an anchor drops half
+						// of them.
+						?>
+						<?php if ( ! empty( $l['href'] ) ) : ?>
+							<a href="<?php echo esc_url( convergx_local_url( $l['href'] ) ); ?>"><?php echo esc_html( $l['label'] ); ?></a>
+						<?php else : ?>
+							<span class="label"><?php echo esc_html( $l['label'] ); ?></span>
+						<?php endif; ?>
 						<?php if ( ! empty( $l['note'] ) ) : ?>
 							<span class="descriptor"><?php echo esc_html( $l['note'] ); ?></span>
 						<?php endif; ?>
