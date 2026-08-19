@@ -268,3 +268,36 @@ add_filter( 'woocommerce_single_product_image_thumbnail_html', 'convergx_no_plac
 function convergx_no_placeholder_thumb( $html, $attachment_id ) {
 	return $attachment_id ? $html : '';
 }
+
+/**
+ * The 5 percent admin fee, computed here instead of inherited from the old
+ * site. The live convergx.co adds this somewhere we could not inspect
+ * (Guideloom hosts it; likely the Divi child theme's functions.php), so the
+ * new install owns the rule outright rather than depending on code nobody
+ * can see. The register-page cards promise exactly this math:
+ *
+ *   Standard   2,000 -> 2,200  (5% fee + 5% tax, both on the base price)
+ *   Military     400 ->   420  (5% fee, no tax)
+ *   Government 1,000 -> 1,050  (5% fee, no tax)
+ *
+ * The fee itself is NOT taxed: 2,200 is 2,000 + 100 + 100, not 2,000 x 1.05
+ * x 1.05. Tax is Woo's own engine (5% standard rate, seeded by
+ * cx-woo-settings.php; Military and Government carry tax_status "none").
+ */
+function convergx_admin_fee_amount( $subtotal ) {
+	return round( 0.05 * (float) $subtotal, 2 );
+}
+
+add_action( 'woocommerce_cart_calculate_fees', 'convergx_add_admin_fee' );
+function convergx_add_admin_fee( $cart ) {
+	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+		return;
+	}
+
+	$subtotal = (float) $cart->get_subtotal();
+
+	if ( $subtotal > 0 ) {
+		// Third argument false: the fee is never taxed, per the card math.
+		$cart->add_fee( __( 'Admin fee', 'convergx' ), convergx_admin_fee_amount( $subtotal ), false );
+	}
+}

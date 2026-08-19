@@ -93,6 +93,7 @@ function convergx_forms() {
 			'contact' => array(
 				'subject' => 'Website: general inquiry',
 				'submit'  => 'Send',
+				'to'      => 'info@convergx.co',
 				'fields'  => array(
 					array( 'name' => 'name', 'label' => 'Name', 'type' => 'text', 'required' => true, 'autocomplete' => 'name' ),
 					array( 'name' => 'email', 'label' => 'Email', 'type' => 'email', 'required' => true, 'autocomplete' => 'email' ),
@@ -114,6 +115,7 @@ function convergx_forms() {
 				),
 			),
 			'request' => array(
+				'to'           => 'info@convergx.co',
 				'subject'      => 'Website: access request',
 				'intro'        => 'What you send here goes to ConvergX by email, and a person reads it.',
 				'submit'       => 'Send request',
@@ -129,6 +131,7 @@ function convergx_forms() {
 				),
 			),
 			'apply' => array(
+				'to'           => 'info@convergx.co',
 				'subject'      => 'Website: application to join',
 				'submit'       => 'Send application',
 				'submit_class' => 'btn',
@@ -144,6 +147,7 @@ function convergx_forms() {
 				),
 			),
 			'requirement' => array(
+				'to'         => 'info@convergx.co',
 				'subject'    => 'Website: requirement submitted',
 				'submit'     => 'Send this to ConvergX',
 				'form_class' => 'req-form',
@@ -179,7 +183,13 @@ function convergx_forms() {
  */
 function convergx_form_recipient( $key ) {
 	$forms = convergx_forms();
-	$to    = isset( $forms[ $key ]['to'] ) ? $forms[ $key ]['to'] : get_option( 'admin_email' );
+
+	// Each form hard-codes its recipient in its own definition, carried from
+	// the static forms' action addresses (info@convergx.co everywhere except
+	// sponsorship, which goes to Adam). admin_email is only the backstop for
+	// a form someone adds later without one; the filter exists so a staging
+	// clone can point everything at a test inbox without editing the theme.
+	$to = isset( $forms[ $key ]['to'] ) ? $forms[ $key ]['to'] : get_option( 'admin_email' );
 
 	return (string) apply_filters( 'convergx_form_recipient', $to, $key );
 }

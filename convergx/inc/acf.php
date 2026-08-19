@@ -275,6 +275,13 @@ function convergx_register_register_page_fields() {
 					'instructions' => 'ORDER MATCHES CONVERGX\'S OWN SHOP (Standard, Military, Government). It is not price order and is not meant to be. If their shop reorders, follow it. Do not re-sort by price.',
 					'sub_fields'   => array(
 						array(
+							'key'          => 'field_convergx_pass_card_label',
+							'label'        => 'Card name',
+							'name'         => 'card_label',
+							'type'         => 'text',
+							'instructions' => 'What the pass card is headed with on this page ("Standard"). The product\'s own title is the full catalog name ("ConvergX® Global Congress Standard Registration") and is what the shop, cart and checkout show; this short form is only for the card. Empty falls back to the product title.',
+						),
+						array(
 							'key'           => 'field_convergx_pass_product',
 							'label'         => 'WooCommerce product',
 							'name'          => 'product_id',

@@ -87,7 +87,12 @@ while ( have_posts() ) :
 						$cta       = isset( $pass['cta_label'] ) && $pass['cta_label'] ? $pass['cta_label'] : __( 'Register', 'convergx' );
 						?>
 						<li class="store-item">
-							<h3 class="store-name"><?php echo esc_html( $product['name'] ); ?></h3>
+							<?php
+						// The card's short name ("Standard"), not the catalog
+						// title the cart and checkout use. See the field note.
+						$card_label = trim( (string) ( $pass['card_label'] ?? '' ) );
+						?>
+						<h3 class="store-name"><?php echo esc_html( $card_label ? $card_label : $product['name'] ); ?></h3>
 
 							<p class="store-price">
 								<?php echo esc_html( $product['price_fmt'] ); ?>

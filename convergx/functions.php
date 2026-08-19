@@ -44,6 +44,7 @@ require_once CONVERGX_DIR . '/inc/congress.php';
 require_once CONVERGX_DIR . '/inc/woo.php';
 require_once CONVERGX_DIR . '/inc/forms.php';
 require_once CONVERGX_DIR . '/inc/seo.php';
+require_once CONVERGX_DIR . '/inc/redirects.php';
 
 /**
  * Theme supports.

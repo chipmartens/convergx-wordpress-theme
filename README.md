@@ -17,6 +17,7 @@ and not ready to be pointed at convergx.co. Read "Before this goes near convergx
 | `seeders/data/` | The content itself, extracted from the static site as JSON. |
 | `seeders/media/` | Images the seeders import: speakers, team, hotels, sponsor marks, industry heroes. |
 | `convergx.zip` | The theme, pre-zipped for Appearance → Themes → Add New. |
+| [Releases](https://github.com/chipmartens/convergx-wordpress-theme/releases) | `convergx-complete-site.zip` — the ENTIRE working install: core, theme, plugins, uploads and the database. See its DEPLOY.md. Also `convergx-content.xml` (standard WordPress import file). |
 
 **WordPress core and the plugins are deliberately NOT in this repo.** They are downloadable and
 versioned by their own projects; committing them makes the repo enormous and instantly stale.
@@ -67,7 +68,7 @@ cp -R media/* ../../convergx-wp/wp-content/uploads/
 cd ../../convergx-wp
 for s in cx-seed-tree cx-seed-speakers cx-portraits \
          cx-seed-team cx-seed-congress cx-exact-rows \
-         cx-products cx-cart-page; do
+         cx-products cx-woo-settings cx-cart-page; do
   wp eval-file ../convergx-wp-theme/seeders/$s.php
 done
 
