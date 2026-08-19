@@ -141,16 +141,20 @@ would round: a 10.50 fee would silently become 11. There is a check for it:
 wp eval-file wp-content/themes/convergx/tests/price-format-check.php
 ```
 
-### The products in this repo are TEST products
+### The products mirror the live catalog
 
-The seeders create three placeholder products (Standard 2,000 / Military 400 / Government 1,000
-USD) so the registration page has something real to read prices from. **They are not ConvergX's
-products and this is not ConvergX's store.** The registration page reads prices live from
-WooCommerce by product ID; on a real install those IDs have to be repointed to the real products.
+The seeders create the three registration products with the live store's real names and prices
+(verified 2026-08-19 against the live product pages): **ConvergX® Global Congress Standard
+Registration** 2,000 USD, **Military Registration** 400 USD, **Government Registration** 1,000
+USD. The live products carry no descriptions; ours add a short description restating the
+register card's checkout-total sentence. The 5% admin fee is the theme's own code
+(`inc/woo.php`) and the 5% tax (Standard only) is seeded by `cx-woo-settings.php`, so checkout
+totals match the register page's stated 2,200 / 420 / 1,050 without any code from the old site.
 
-ConvergX's live product IDs, verified 2026-08-14: Standard `230`, Military `11306`,
-Government `12764`. Note the Government product sits at a `-2` slug and there are superseded
-duplicates in the catalogue, which is why the theme targets IDs and not slugs.
+ConvergX's live product IDs for reference: Standard `230`, Military `11306`, Government `12764`
+(the Government one sits at a `-2` slug with superseded duplicates in the catalogue). On
+cutover, either these seeded products take over as the store, or the register page's pass
+cards are repointed at the surviving live IDs — one or the other, never both.
 
 ---
 
