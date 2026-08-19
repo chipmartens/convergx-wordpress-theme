@@ -8,10 +8,10 @@ Google results and printed QR codes don't die the day the theme flips.
 Run:  python3 seeders/build-redirects.py            (uses cached /tmp/cx-old-urls.txt
                                                      or refetches the live sitemaps)
 
-Pages deliberately NOT redirected (they must be recreated, not pointed away):
-privacy-policy, cookie-policy, terms-conditions, copyright, trademark,
-security — checkout and law need them. They are listed in the generated file
-as a KEEP comment so nobody mistakes their absence for an oversight.
+The four legal pages (privacy-policy, cookie-policy, terms-conditions,
+trademark) are ported as real pages by cx-legal-pages.php and therefore not
+redirected. /copyright/ (a link hub) and /security/ (an old speaker bio)
+redirect instead.
 """
 import re, subprocess, os, sys
 
@@ -33,8 +33,9 @@ BIO_ALIASES = {
     "lgen-coates": "christopher-coates",
 }
 
-KEEP = ["privacy-policy", "cookie-policy", "terms-conditions", "copyright",
-        "trademark", "security"]
+# Ported as real pages by cx-legal-pages.php, so no redirect ever fires for
+# them (the handler only runs on 404s):
+KEEP = ["privacy-policy", "cookie-policy", "terms-conditions", "trademark"]
 
 EXACT = {
     "2026-congress-speakers": "/congress/#speakers",
@@ -56,6 +57,9 @@ EXACT = {
     "contact-convergx-xchange": "/about/#get-in-touch",
     "x-sectors": "/industries/",
     "chatham-house-rule": "/congress/",
+    # A link hub with 15 words, and an old speaker-bio page respectively.
+    "copyright": "/terms-conditions/",
+    "security": "/congress/#speakers",
     "global-congress-2026": "/congress/",
     "product/standard-registration": "/product/standard-registration/",
     "product/government-registration": "/product/government-registration/",
