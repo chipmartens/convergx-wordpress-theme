@@ -118,9 +118,7 @@ while ( have_posts() ) :
 	 */
 	convergx_render_sections();
 
-	if ( convergx_show_congress_app() ) {
-		get_template_part( 'template-parts/congress/app-band' );
-	}
+	get_template_part( 'template-parts/congress/app-band' );
 	?>
 	<?php
 endwhile;
