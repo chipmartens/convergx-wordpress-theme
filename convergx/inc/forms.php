@@ -258,7 +258,7 @@ function convergx_render_form( $key ) {
 			 * by accident and get silently rejected.
 			 */
 			?>
-			<div class="cx-hp" aria-hidden="true">
+			<div class="cx-hp" aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
 				<label for="<?php echo esc_attr( $uid ); ?>-website"><?php esc_html_e( 'Leave this field empty', 'convergx' ); ?></label>
 				<input type="text" id="<?php echo esc_attr( $uid ); ?>-website" name="cx_website" tabindex="-1" autocomplete="off">
 			</div>

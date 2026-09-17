@@ -13,12 +13,20 @@ if ( ! $convergx_sp['all'] ) {
 	return;
 }
 
+if ( ! empty( $GLOBALS['convergx_speakers_printed'] ) ) {
+	return;
+}
+$GLOBALS['convergx_speakers_printed'] = true;
+
 /**
  * Render one speaker card.
+ *
+ * Guarded: the speakers partial can be included more than once on a page.
  *
  * @param array $s       Speaker row.
  * @param bool  $feature Whether it renders in the feature row.
  */
+if ( ! function_exists( 'convergx_speaker_card' ) ) {
 function convergx_speaker_card( $s, $feature = false ) {
 	$class = 'speaker-card' . ( $feature ? ' speaker-card--feature' : '' );
 	?>
@@ -61,6 +69,7 @@ function convergx_speaker_card( $s, $feature = false ) {
 		<?php endif; ?>
 	</article>
 	<?php
+}
 }
 ?>
 

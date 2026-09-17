@@ -110,9 +110,9 @@ function convergx_congress_page_id() {
  * site hardcoded 2000 / 1000 / 400 into every page, which is correct exactly
  * until the day it is not.
  *
- * Prices here are the base product price, not the checkout total. Admin fees and
- * tax are surfaced to the reader on the register page and are calculated at
- * checkout; schema.org `price` is the advertised price, and inflating it to the
+ * Prices here are the base product price, not the checkout total. Tax is
+ * surfaced to the reader on the register page and calculated at checkout;
+ * schema.org `price` is the advertised price, and inflating it to the
  * all-in figure would misreport the offer.
  *
  * @return array Offer nodes, empty when Woo is absent or no product resolves.

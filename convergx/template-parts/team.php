@@ -21,11 +21,20 @@ if ( ! $convergx_team['all'] ) {
 	return;
 }
 
+if ( ! empty( $GLOBALS['convergx_team_printed'] ) ) {
+	return;
+}
+$GLOBALS['convergx_team_printed'] = true;
+
 /**
  * One team card.
  *
+ * Guarded: this partial can load twice on /about/ (the `team` layout and a
+ * `part` row both include it). PHP fatals on a second function declaration.
+ *
  * @param array $p Person row.
  */
+if ( ! function_exists( 'convergx_team_card' ) ) {
 function convergx_team_card( $p ) {
 	?>
 	<article class="bio-figure team-member" id="card-<?php echo esc_attr( $p['slug'] ); ?>">
@@ -64,6 +73,7 @@ function convergx_team_card( $p ) {
 		</div>
 	</article>
 	<?php
+}
 }
 ?>
 

@@ -101,13 +101,10 @@ remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
  * It returns the BASE price, live from the product object, so the figure on the
  * register page can never drift from the shop. That is the whole point.
  *
- * It does NOT return a checkout total, and no amount of WooCommerce API will
- * give you one from a product. Verified 2026-08-14 via the Store API: the three
- * products are flat 2,000 / 400 / 1,000 USD with no fee, no tax and no price
- * suffix on the object. The 5 percent admin fee and the 5 percent tax that turn
- * 2,000 into 2,200 are applied at CART level by custom code whose source is not
- * identifiable from outside the site (no known fee plugin is installed). A
- * WC_Product cannot tell you a cart fee rate.
+ * It does NOT return a checkout total. The three products are flat
+ * 2,000 / 400 / 1,000 USD on the object. Tax is Woo's own engine (5 percent
+ * standard rate; Military and Government carry tax_status "none") and is not
+ * a product suffix, so a WC_Product cannot tell you the checkout total.
  *
  * So the total line stays an ACF field with an explicit as-of date, and if that
  * field is empty the line does not render at all. An absent total is honest. A
@@ -267,37 +264,4 @@ function convergx_drop_reviews_tab( $tabs ) {
 add_filter( 'woocommerce_single_product_image_thumbnail_html', 'convergx_no_placeholder_thumb', 10, 2 );
 function convergx_no_placeholder_thumb( $html, $attachment_id ) {
 	return $attachment_id ? $html : '';
-}
-
-/**
- * The 5 percent admin fee, computed here instead of inherited from the old
- * site. The live convergx.co adds this somewhere we could not inspect
- * (Guideloom hosts it; likely the Divi child theme's functions.php), so the
- * new install owns the rule outright rather than depending on code nobody
- * can see. The register-page cards promise exactly this math:
- *
- *   Standard   2,000 -> 2,200  (5% fee + 5% tax, both on the base price)
- *   Military     400 ->   420  (5% fee, no tax)
- *   Government 1,000 -> 1,050  (5% fee, no tax)
- *
- * The fee itself is NOT taxed: 2,200 is 2,000 + 100 + 100, not 2,000 x 1.05
- * x 1.05. Tax is Woo's own engine (5% standard rate, seeded by
- * cx-woo-settings.php; Military and Government carry tax_status "none").
- */
-function convergx_admin_fee_amount( $subtotal ) {
-	return round( 0.05 * (float) $subtotal, 2 );
-}
-
-add_action( 'woocommerce_cart_calculate_fees', 'convergx_add_admin_fee' );
-function convergx_add_admin_fee( $cart ) {
-	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
-		return;
-	}
-
-	$subtotal = (float) $cart->get_subtotal();
-
-	if ( $subtotal > 0 ) {
-		// Third argument false: the fee is never taxed, per the card math.
-		$cart->add_fee( __( 'Admin fee', 'convergx' ), convergx_admin_fee_amount( $subtotal ), false );
-	}
 }

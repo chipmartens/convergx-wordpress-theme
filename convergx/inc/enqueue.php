@@ -77,6 +77,21 @@ function convergx_assets() {
 	}
 
 	/*
+	 * Scoped CSS from the launch site's cxapp.css. Used on /platform/ (Exact
+	 * HTML) and on the Congress template (app-band carousel). Without it the
+	 * stacked shots, five-step layout and tab panels collapse to unstyled
+	 * blocks.
+	 */
+	if ( is_page( 'platform' ) || is_page_template( 'templates/page-congress.php' ) ) {
+		wp_enqueue_style(
+			'convergx-cxapp',
+			CONVERGX_URI . '/assets/cxapp.css',
+			array( 'convergx-styles' ),
+			convergx_asset_version( 'assets/cxapp.css' )
+		);
+	}
+
+	/*
 	 * shell.js injects the header, the mega panels, the notice bar and the
 	 * footer. It is ported UNCHANGED from the static site.
 	 *
@@ -133,6 +148,16 @@ function convergx_assets() {
 	if ( is_front_page() || is_page_template( 'templates/page-congress.php' ) ) {
 		wp_enqueue_script( 'convergx-globe', CONVERGX_URI . '/assets/js/globe.js', array(), convergx_asset_version( 'assets/js/globe.js' ), true );
 		wp_enqueue_script( 'convergx-flow', CONVERGX_URI . '/assets/js/flow.js', array(), convergx_asset_version( 'assets/js/flow.js' ), true );
+	}
+
+	if ( is_page_template( 'templates/page-congress.php' ) ) {
+		wp_enqueue_script(
+			'convergx-cxapp',
+			CONVERGX_URI . '/assets/js/cxapp.js',
+			array(),
+			convergx_asset_version( 'assets/js/cxapp.js' ),
+			true
+		);
 	}
 
 	wp_enqueue_script( 'convergx-figures', CONVERGX_URI . '/assets/js/figures.js', array(), convergx_asset_version( 'assets/js/figures.js' ), true );

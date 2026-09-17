@@ -1,0 +1,615 @@
+/* ============ CONGRESS APP SECTION + THE PLATFORM PAGE, START ============
+ *
+ * Append to wp-content/themes/convergx/assets/styles.css and bump the theme
+ * version so the cache clears. Everything here is scoped to .cxapp- and
+ * .cxp- class names and is used on two places only: the app section on
+ * /congress/ and the /platform/ page. No existing rule is touched.
+ *
+ * Every colour, size and space reads a variable already declared in
+ * tokens.css, so a later brand change carries through without editing this
+ * block.
+ * ======================================================================= */
+
+/* ---- the Congress ground, shared by both sections --------------------- */
+
+/* Black to a cool slate with a low spotlight, and a 1px mesh at 6.5% white
+ * over it: brand book p.28, and the same ramp the 2026 app icon is built on
+ * (app-icon-2026/_build/compose.py, ground_stage). Drawn in CSS rather than
+ * shipped as an image, so it stays sharp at any size and costs no request.
+ *
+ * THE TWO COLOURS ARE DECLARED HERE because tokens.css carries neither: the
+ * site's dark ground is --ground (#171717), a neutral, and this ramp runs
+ * from true black to a cool slate. Declared once, read by both sections.
+ * They belong in tokens.css whenever the brand swap reaches it. */
+.cxapp-stage,
+.cxp-stage {
+  --cxapp-stage-top: #000000;
+  --cxapp-stage-base: #262a32;
+  --cxapp-mesh: rgba(255, 255, 255, 0.065);
+  --cxapp-glow: rgba(255, 255, 255, 0.07);
+  --cxapp-edge: rgba(255, 255, 255, 0.16);  /* the capture's own edge. The
+                                               band's --rule-ink-load is dark
+                                               ink for a chrome ground and is
+                                               invisible on this one. */
+  --cxapp-lift: rgba(0, 0, 0, 0.55);
+  --cxapp-cells: 6.25%;                     /* 16 across, the book's 48-cell
+                                               field at this scale */
+  padding: var(--space-l);
+  border: var(--rule-hair) solid var(--rule-ink-load);
+  border-radius: var(--space-m);
+  overflow: hidden;
+  /* mesh, mesh, spotlight, ramp. The bare 65% in the ramp is a colour
+     interpolation hint, not a stop: it pulls the midpoint down to match the
+     book's 1.6 power curve without inventing a third colour. */
+  background-color: var(--cxapp-stage-top);
+  background-image:
+    linear-gradient(to right, var(--cxapp-mesh) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--cxapp-mesh) 1px, transparent 1px),
+    radial-gradient(ellipse 150% 80% at 50% 106%, var(--cxapp-glow), transparent 70%),
+    linear-gradient(to bottom, var(--cxapp-stage-top), 65%, var(--cxapp-stage-base));
+  background-size:
+    var(--cxapp-cells) 100%,
+    100% var(--cxapp-cells),
+    100% 100%,
+    100% 100%;
+}
+
+/* A capture is a near-black screen on a near-black ground, so without an edge
+   and a shadow it bleeds into the stage and stops reading as a device. */
+.cxapp-shot picture,
+.cxp-shot picture {
+  display: block;
+  min-block-size: 0;
+  max-block-size: 100%;
+  border: var(--rule-hair) solid var(--cxapp-edge);
+  border-radius: var(--space-m);
+  overflow: hidden;
+  box-shadow: 0 var(--space-s) var(--space-2xl) var(--cxapp-lift);
+}
+.cxapp-shot img,
+.cxp-shot img {
+  display: block;
+  inline-size: auto;
+  block-size: auto;
+  max-inline-size: 100%;
+  max-block-size: 100%;
+  object-fit: contain;
+}
+
+
+
+/* ---- GOAL 1. The app section on /congress/ ---------------------------- */
+
+/* THE TYPE IN THIS SECTION IS THREE SIZES, NOT FOUR. Chip, 2026-09-14, on the
+   first build: the standfirst was nearly as large as the title and the panel
+   headings were a third size between it and the body, so the column read as a
+   slope with no step in it.
+     title       --step-4, the one large thing
+     standfirst  --step-1, clearly under the title, clearly over the panels
+     panels      --step-0, headings and paragraphs at ONE size
+   A panel heading and its paragraph are the same size on purpose. Weight and
+   ink separate them, which is what lets four panels sit in a column without
+   the column turning into a ladder of sizes. */
+/* The header spans the band. .app-copy's own label and h2 rules in section
+   60c no longer reach these, because they are no longer in that column, so
+   the three elements carry their spacing here. */
+.cxapp-head > .label { display: block; margin-block-end: var(--space-s); }
+.cxapp-title { font-size: var(--step-4); margin-block-end: var(--space-m); }
+.app-band .app-sub {
+  font-size: var(--step-1);
+  max-width: var(--measure);
+  margin-block-end: 0;
+}
+
+/* THE PANEL LIST. Everything down to the .is-live block is the resting,
+   scripts-off state: every paragraph open, nothing dimmed, no progress.
+
+   ONE LINE, AND IT RUNS DOWN THE LEFT. The first build drew a hairline above
+   every panel and a progress track under every heading, which put two rules on
+   each row of a four row list. The rail replaces both: it is the separator
+   when it is grey and the progress when it fills, so the section carries one
+   line instead of nine. */
+.cxapp-tabs {
+  --cxapp-dur: 8s;              /* one panel's turn. The longest paragraph
+                                   here runs past it, which is what hover,
+                                   focus and a click on any heading are for. */
+  list-style: none;
+  margin: var(--space-xl) 0 0;
+  padding: 0;
+  display: grid;
+  row-gap: var(--space-m);
+  max-width: var(--measure);
+}
+.cxapp-tab {
+  position: relative;
+  border-inline-start: 2px solid var(--rule-ink);
+  padding-inline-start: var(--space-m);
+}
+.cxapp-tab-head { margin: 0; }
+/* The heading IS the control. A button inside the h3 keeps the outline rank
+   the content has and still gives a keyboard reader one tab stop per panel,
+   which a click handler on the h3 would not. */
+.cxapp-tab-head button {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: start;
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: var(--lh-heading);
+  letter-spacing: normal;
+  color: inherit;
+  cursor: pointer;
+}
+.cxapp-tab-head button:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+.cxapp-tab-body p {
+  margin: 0;
+  padding-block-start: var(--space-2xs);
+  font-size: var(--step-0);
+  color: var(--fg-hi);
+}
+
+/* The rail's filling half only exists while the script is driving. */
+.cxapp-progress { display: none; }
+
+/* The paragraph that sat here was removed 2026-09-14 (Chip). The button
+   below the panels carries the action on its own. .cxapp-actions is kept:
+   the button's own top margin was coming from that paragraph. */
+.app-copy > .push-s { margin-block-start: var(--space-xl); }
+
+/* THE STAGE. Scripts off, the four captures read in order, each named, so a
+   reader who never sees the carousel still sees every screen. The square is
+   only for the carousel: four captures stacked inside a square would either
+   overflow it or shrink to nothing. */
+.cxapp-stage {
+  display: grid;
+  row-gap: var(--space-xl);
+  justify-items: center;
+  align-content: start;
+}
+/* EVERY CAPTURE IS AS LARGE AS THE SQUARE ALLOWS. They are crops of four
+   different shapes, so "the same size" is the frame, not the picture: the
+   tall Board capture reaches the square's full height and the wide Home
+   capture reaches its full width. Both are at their ceiling. */
+.cxapp-shot {
+  margin: 0;
+  display: grid;
+  row-gap: var(--space-2xs);
+  justify-items: center;
+  max-inline-size: 100%;
+  min-block-size: 0;
+}
+/* The captions read on the stage ground, which is dark whatever surface the
+   band itself is on, so they take the dark-surface ink rather than the
+   band's --fg-lo. */
+.cxapp-shot figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--ink-lo);
+}
+
+/* ---- the live carousel, switched on by the script ---------------------- */
+
+.cxapp-tabs.is-live .cxapp-tab-head button { color: var(--fg-lo); transition: color 200ms ease; }
+.cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-tab-head button,
+.cxapp-tabs.is-live .cxapp-tab-head button:hover { color: var(--fg); }
+
+/* The 0fr to 1fr grid row is the collapse. It animates a real height without
+   a measured pixel value, so a panel whose paragraph rewraps at another width
+   still opens to the right size. */
+.cxapp-tabs.is-live .cxapp-tab-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 260ms ease;
+}
+.cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-tab-body { grid-template-rows: 1fr; }
+.cxapp-tabs.is-live .cxapp-tab-body > * { overflow: hidden; }
+/* THE CLOSED PANEL HAS TO MEASURE ZERO, and padding on the clipped child is
+   what stopped it: overflow:hidden releases the child's content min-size but
+   its padding still contributes, so every closed panel kept a 9px band and
+   the list never sat still. The open state carries the spacing instead. */
+.cxapp-tabs.is-live .cxapp-tab-body p { padding-block-start: 0; }
+.cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-tab-body p { padding-block-start: var(--space-2xs); }
+
+/* The fill sits ON the rail, covering the panel's own left border, so the one
+   line is grey while the panel waits and inked while it runs. */
+.cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-progress {
+  display: block;
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -2px;
+  inline-size: 2px;
+  overflow: hidden;
+}
+.cxapp-tabs.is-live .cxapp-progress > span {
+  display: block;
+  block-size: 100%;
+  background: var(--fg);
+  transform: scaleY(0);
+  transform-origin: center top;
+}
+/* THE CLOCK. The script advances on this animation's animationend, so the
+   panel's turn and the line the reader watches are the same object and
+   cannot drift apart. */
+.cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-progress > span {
+  animation: cxapp-fill var(--cxapp-dur, 8s) linear forwards;
+}
+/* Pausing is CSS, not script. Hover and focus-within are the two states a
+   reader is actually in while reading a panel, and both are expressible here,
+   so the script carries no hover, blur or leave handling at all. .is-held is
+   the one case CSS cannot see: the section scrolled out of view. */
+.cxapp-tabs.is-live:hover .cxapp-tab.is-on .cxapp-progress > span,
+.cxapp-tabs.is-live:focus-within .cxapp-tab.is-on .cxapp-progress > span,
+.cxapp-tabs.is-live.is-held .cxapp-tab.is-on .cxapp-progress > span { animation-play-state: paused; }
+@keyframes cxapp-fill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* One square, four captures in one cell, the open one on top. */
+.cxapp-stage.is-live {
+  row-gap: 0;
+  aspect-ratio: 1;
+  place-content: center;
+  place-items: center;
+}
+.cxapp-stage.is-live .cxapp-shot {
+  grid-area: 1 / 1;
+  max-block-size: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms ease, visibility 0s linear 240ms;
+}
+.cxapp-stage.is-live .cxapp-shot.is-on {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 240ms ease;
+}
+.cxapp-stage.is-live figcaption { display: none; }
+
+@media (min-width: 60rem) {
+  .cxapp-stage.is-live { position: sticky; top: calc(var(--anchor-offset, calc(var(--shell-h) + var(--space-m))) + var(--space-s)); }
+}
+
+/* NO AUTOPLAY ON prefers-reduced-motion, and it costs no branch in the
+   script: with the animation suppressed, animationend never fires and the
+   panels only ever move when a reader asks. The rail keeps its grey so the
+   list still reads, and nothing looks like a stalled progress bar. */
+@media (prefers-reduced-motion: reduce) {
+  .cxapp-tabs.is-live .cxapp-tab-body,
+  .cxapp-tabs.is-live .cxapp-tab-head button,
+  .cxapp-stage.is-live .cxapp-shot { transition: none; }
+  .cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-progress > span { animation: none; }
+  .cxapp-tabs.is-live .cxapp-tab.is-on .cxapp-progress { display: none; }
+}
+
+/* ---- GOAL 2. The Platform page --------------------------------------- */
+
+/* THE SEAM. .section--dense ships padding-block: 3xl 0, so a section has no
+   bottom padding and the interval between two sections is the NEXT one's top
+   padding. That works while both sit on the same ground. At a surface change
+   the interval lands inside the incoming ground and the outgoing section's
+   last line sits on the seam. A band owns both its edges, and the section
+   before a band pays for its own bottom. */
+.cxp-sec[data-surface] { padding-block: var(--space-3xl); }
+.cxp-sec:has(+ .cxp-sec[data-surface]) { padding-block-end: var(--space-3xl); }
+.cxp-sec:last-child { padding-block-end: var(--space-4xl); }
+
+/* HERO: copy left, one crop right.
+ *
+ * THE EDITORIAL STOPS BEING A TWELVE COLUMN GRID IN HERE. .editorial is the
+ * site's 12 column track and its hero children carry spans measured for a
+ * hero that owns the full container: the h1 spans 8 of 12 and the lede spans
+ * 5. At 1108px those are a 740px headline and a 460px lede. Dropped into a
+ * column half that wide the same spans resolve to 320px and 190px, so the
+ * headline broke after a word or two a line. A max-width cannot reach that,
+ * because the span is what is doing it. In here the editorial is plain flow.
+ * Outside .cxp-hero the component is untouched. */
+.cxp-hero { display: grid; row-gap: var(--space-2xl); }
+.cxp-hero > .hero {
+  display: block;
+  min-height: 0;
+  max-width: none;
+  padding-block: 0;
+}
+.cxp-hero .hero-head,
+.cxp-hero .hero-title,
+.cxp-hero .hero-sub,
+.cxp-hero .hero-cta { grid-column: auto; max-width: none; }
+
+/* The hero headline was the same size as every h2 on the page, so the first
+   screen looked like the third. One step up, and the h2s stay where they are. */
+/* THREE LINES, NOT FIVE. Chip, 2026-09-14: the headline breaks as
+   "The introduction / layer for industrial / sourcing". At --step-5 in this
+   column it ran to five and the hero read as squeezed. One step down, and a
+   measure in ch rather than a track fraction, so the break holds wherever
+   the column lands: the longest of the three lines is 20 characters and 22ch
+   is the smallest measure that still fits it without taking a fourth. */
+.cxp-hero .hero-title {
+  font-size: var(--step-4);
+  max-width: 22ch;
+  text-wrap: balance;
+  margin-block: var(--space-m) var(--space-l);
+}
+.cxp-hero .hero-sub { max-width: var(--measure); margin-block-end: var(--space-xl); }
+
+/* A row, not two inline boxes: .link-more's arrow is an ::after and it was
+   wrapping onto its own line under the label in the narrower hero column. */
+.cxp-hero .hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-m);
+  margin-block: 0;
+}
+.cxp-hero .hero-cta .link-more { margin-inline-start: 0; white-space: nowrap; }
+
+/* ---- the app crops -------------------------------------------------- */
+
+/* THE GRADIENT STAGE IS FOR PRODUCT ONLY. It was built to give a phone
+   screenshot a ground. A hairline drawing does not need one, and the mesh
+   sits at the same grey as a 0.3px stroke and competes with it. Screens get
+   the stage; figures get the page.
+
+   NO FORCED SQUARE HERE. The square is what makes four whole phone screens
+   read as one set on /congress/. These are four detail crops of four
+   different shapes, and a square around the 880x170 ones left an 85px strip
+   floating in a 518px box. The frame is what is constant: same width, same
+   padding, same edge, same ground. The crop sets the height. */
+.cxp-stage--shot {
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
+
+/* THE CROP FILLS THE FRAME. Shown whole, an 880x1725 phone inside a square
+   shrank to 206px wide and the post text landed at about four pixels. These
+   are surface crops, and they run to the frame's width and bleed off its
+   bottom edge, which is the treatment the Congress section already uses and
+   the one the client called good. */
+.cxp-shot--crop {
+  margin: 0;
+  inline-size: 100%;
+  min-block-size: 0;
+}
+.cxp-shot--crop picture {
+  display: block;
+  inline-size: 100%;
+  max-block-size: 100%;
+  border: var(--rule-hair) solid var(--cxapp-edge);
+  border-radius: var(--space-m);
+  overflow: hidden;
+  box-shadow: 0 var(--space-s) var(--space-2xl) var(--cxapp-lift);
+}
+.cxp-shot--crop img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  max-block-size: none;
+}
+
+/* THE HERO STACK, ON THE PAGE, NOT ON A STAGE. Chip, 2026-09-14: drop the
+   ground so the captures can be much larger, and space them so each one
+   reads. The gradient and mesh were a frame around two screens that had to
+   shrink to fit inside it; without it the pair runs to the full column and
+   the offsets can open up. The captures keep their own edge and shadow,
+   which is what still separates them from the page and from each other. */
+.cxp-stack {
+  /* Local, for the same reason the stage's two ramp colours are local:
+     tokens.css carries no glow value. One declaration, read once. */
+  --cxp-glow: rgba(255, 255, 255, 0.11);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  padding-block: var(--space-2xl);
+}
+/* A soft light behind the pair, so two near-black screens sit off the
+   near-black page instead of on it. Radial and very low alpha: the ground
+   is the brand's, the glow only has to separate, not decorate. Behind the
+   captures by z-index, not by source order, so the layers keep their
+   stacking. */
+.cxp-stack::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: -1;
+  background: radial-gradient(ellipse 65% 60% at 50% 48%, var(--cxp-glow), transparent 72%);
+  pointer-events: none;
+}
+.cxp-stack .cxp-shot--crop { grid-area: 1 / 1; inline-size: 94%; }
+.cxp-shot--back {
+  transform: translate(-15%, -19%) scale(0.93);
+  opacity: 0.6;
+  filter: saturate(0.8);
+}
+.cxp-shot--front { transform: translate(15%, 19%); }
+.cxp-shot--front picture { box-shadow: 0 var(--space-m) var(--space-4xl) var(--cxapp-lift); }
+
+/* ---- the figures ---------------------------------------------------- */
+
+/* THE FIGURES ARE THE SITE'S OWN, inline <svg> at 1600x700 drawn in
+   currentColor. See inline_figs() in sync_v3.py for why they cannot be
+   <img>. Their width and height attributes are stripped on the way in, so
+   the sizing is here and the viewBox keeps the ratio.
+   SCALE IS THE WHOLE POINT. At 444px these render 1px strokes at 0.28px and
+   22px labels at 6px, which is under the floor for both. Nothing in a
+   drawing can carry weight there. Full width in the wrap puts them at 1108px
+   and 694px, which is 0.69 and 0.43 of the artboard. */
+.cxp-fig { margin: 0; display: grid; row-gap: var(--space-s); }
+
+/* THE DRAWINGS SIT IN A BOX. Chip, 2026-09-14: one stroke, no shadow, and
+   the stroke matches the drawing's own.
+
+   THE BORDER READS THE SAME EXPRESSION THE FIGURE'S SOLID LINE DOES.
+   Section 20 of the sheet sets .fig-solid to calc(var(--rule-hair) * 2),
+   and the box repeats that calc rather than hard-coding 2px, so the frame
+   and the line inside it cannot drift apart if --rule-hair ever moves.
+   The ink is --fg-lo rather than --rule-ink so the frame sits just under
+   the drawing it holds instead of competing with it. */
+.cxp-step .cxp-fig {
+  padding: var(--space-xl) var(--space-l);
+  border: calc(var(--rule-hair) * 2) solid var(--fg-lo);
+  border-radius: var(--space-m);
+}
+.cxp-fig svg { display: block; inline-size: 100%; block-size: auto; }
+/* The strokes are 1px to 2px in artboard units, so at 0.4 scale they land at
+   under half a pixel and the drawing greys out. non-scaling-stroke holds them
+   at their nominal width whatever the figure is scaled to, which is what the
+   property exists for and costs nothing. */
+.cxp-fig svg * { vector-effect: non-scaling-stroke; }
+.cxp-fig figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--fg-lo);
+  border-top: var(--rule-hair) solid var(--rule-ink);
+  padding-block-start: var(--space-s);
+}
+.cxp-fig--wide { margin-block-start: var(--space-2xl); }
+
+/* THE METHOD IS ONE SEQUENCE, NOT THREE ISOLATED DRAWINGS. Three frames of
+   the same story, same width, same alignment, numbered, so a reader follows
+   them rather than meeting each one cold. */
+.cxp-steps {
+  list-style: none;
+  margin: var(--space-2xl) 0 0;
+  padding: 0;
+  display: grid;
+  row-gap: var(--space-3xl);
+}
+/* max-width is released explicitly: the sheet caps a list item at --measure
+   (549px), which is right for prose and wrong for a row that carries a
+   figure. Every step was rendering at half the wrap and its drawing at
+   304px, which is under the legibility floor for a 1600px artboard. */
+.cxp-step {
+  display: grid;
+  row-gap: var(--space-l);
+  align-items: center;
+  max-width: none;
+}
+/* Every capture in the sequence is the same 4:3 crop in the same frame, so
+   the three of them read as one set. build_detail_shots.py cuts them all to
+   one band height for exactly this. */
+.cxp-step .cxp-stage--shot { aspect-ratio: 4 / 3; inline-size: 100%; }
+.cxp-step-copy { display: flex; flex-direction: column; max-width: var(--measure); }
+.cxp-step-copy .label { order: -1; margin-block-end: var(--space-2xs); }
+.cxp-step-copy h3 { margin: 0; line-height: var(--lh-heading); }
+.cxp-step-copy p { margin-block-start: var(--space-s); color: var(--fg-hi); }
+
+/* ---- the product grid ------------------------------------------------ */
+
+.cxp-note { color: var(--fg-hi); margin-block: var(--space-2xl) 0; }
+/* THE CTAs. Measured before touching them: the hero button set its label at
+   13.5px, which is under the body size, and the page's two real doors were
+   18px text links with no ground under them at all, on the one section whose
+   whole job is to be clicked. Bigger, and the doors become buttons rather
+   than sentences with an arrow after them. Scoped to this page's sections so
+   .btn is unchanged everywhere else. */
+.cxp-sec .btn--solid {
+  font-size: var(--step-0);
+  padding: var(--space-s) var(--space-xl);
+}
+
+/* THE DOORS ARE THE ACTION. The locked label is the heading, the paragraph
+   under it says who the door is for, and the button at the foot repeats it
+   as the thing being clicked. Each door is a panel with its own ground so
+   the pair reads as two buttons, not two paragraphs with a rule between. */
+.cxp-doors {
+  display: grid;
+  gap: var(--space-l);
+  margin-block-start: var(--space-2xl);
+}
+.cxp-door {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl);
+  border: var(--rule-hair) solid var(--rule-ink);
+  border-radius: var(--space-m);
+  background: var(--block);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+.cxp-door:hover { border-color: var(--fg); transform: translateY(-2px); }
+.cxp-door:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+.cxp-door .label { color: var(--fg-lo); margin-block-end: var(--space-s); }
+.cxp-door h3 { margin: 0; font-size: var(--step-3); line-height: var(--lh-heading); }
+.cxp-door p { margin-block: var(--space-m) 0; color: var(--fg-hi); max-width: var(--measure); }
+/* A span, not a second link: the whole panel is the anchor, so a nested
+   control would be a second tab stop to the same place. */
+.cxp-door-go {
+  display: inline-flex;
+  align-items: center;
+  align-self: start;
+  gap: var(--space-2xs);
+  margin-block-start: var(--space-xl);
+  padding: var(--space-s) var(--space-xl);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-display);
+  font-size: var(--step-0);
+  font-weight: 700;
+  line-height: 1;
+}
+.cxp-door-go::after { content: "\2192"; }
+@media (prefers-reduced-motion: reduce) {
+  .cxp-door { transition: none; }
+  .cxp-door:hover { transform: none; }
+}
+.cxp-doors a {
+  padding: var(--space-l) var(--space-l) var(--space-m);
+  transition: background-color 160ms ease;
+}
+.cxp-doors a:hover { background-color: var(--block); }
+.cxp-doors .label { font-size: var(--step--1); }
+.cxp-doors .link-more {
+  font-size: var(--step-2);
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--fg);
+  margin-block-start: var(--space-2xs);
+}
+
+@media (min-width: 60rem) {
+  /* THE CAPTURES TAKE THE WIDER TRACK. The headline lost four words when it
+     dropped "XPND is", so the copy needs less room and the pair of screens
+     can have it. The stack has no frame now, so it runs to the track. */
+  /* The copy takes the wider track now that the headline needs room for a
+     20 character line, and the captures come down to suit. */
+  .cxp-hero {
+    grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+    column-gap: var(--space-2xl);
+    align-items: center;
+  }
+  .cxp-hero .cxp-stack { justify-self: end; inline-size: 100%; }
+
+  /* Two doors, side by side. */
+  .cxp-doors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* MEDIA AND COPY ALTERNATE SIDES, and BOTH children are pinned to row 1.
+     That second half is the fix for a real defect: the previous version set
+     grid-column on both and left grid-row to auto placement, so on an even
+     row the cursor had already passed column 1 and the copy landed in an
+     implicit SECOND row. Rows 2 and 4 measured two tracks, the copy sat
+     under its stage, and a dead square sat beside it. Pinning the row is
+     what makes an explicit column swap safe. */
+  /* EQUAL TRACKS. On 6fr/5fr the swap put the media in the narrower column
+     every other step, so the captures came out 545px and 455px and stopped
+     being one set. Same class of error as the row bug below it. */
+  .cxp-step {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--space-3xl);
+  }
+  .cxp-step > .cxp-stage,
+  .cxp-step > .cxp-fig { grid-row: 1; grid-column: 1; }
+  .cxp-step > .cxp-step-copy { grid-row: 1; grid-column: 2; }
+  .cxp-step:nth-child(even) > .cxp-stage,
+  .cxp-step:nth-child(even) > .cxp-fig { grid-column: 2; }
+  .cxp-step:nth-child(even) > .cxp-step-copy { grid-column: 1; }
+}
+
+/* ============ CONGRESS APP SECTION + THE PLATFORM PAGE, END ============ */

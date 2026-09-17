@@ -42,6 +42,7 @@ require_once CONVERGX_DIR . '/inc/nav.php';
 require_once CONVERGX_DIR . '/inc/sections.php';
 require_once CONVERGX_DIR . '/inc/congress.php';
 require_once CONVERGX_DIR . '/inc/woo.php';
+require_once CONVERGX_DIR . '/inc/woo-registration.php';
 require_once CONVERGX_DIR . '/inc/forms.php';
 require_once CONVERGX_DIR . '/inc/seo.php';
 require_once CONVERGX_DIR . '/inc/redirects.php';

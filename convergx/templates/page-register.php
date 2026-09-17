@@ -107,9 +107,8 @@ while ( have_posts() ) :
 							/*
 							 * THE TOTAL LINE RENDERS ONLY WITH ITS AS-OF DATE.
 							 *
-							 * It is our arithmetic on ConvergX's fee structure,
-							 * and ConvergX publishes that rate nowhere except
-							 * the cart, so it goes stale the moment a fee
+							 * It is our arithmetic on the tax that Woo applies
+							 * at checkout, so it goes stale the moment a rate
 							 * changes and nothing announces it. Requiring the
 							 * date means an unverified total cannot render at
 							 * all: whoever clears the date clears the number.

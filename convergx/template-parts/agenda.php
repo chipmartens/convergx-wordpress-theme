@@ -29,18 +29,24 @@ if ( ! $days ) {
 			<?php foreach ( $days as $day ) : ?>
 				<?php
 				$title   = isset( $day['title'] ) ? $day['title'] : '';
-				$caption = ! empty( $day['caption'] ) ? $day['caption'] : $title;
+				$caption = ! empty( $day['caption'] ) ? $day['caption'] : '';
 				$rows    = isset( $day['rows'] ) ? (array) $day['rows'] : array();
 				if ( ! $title || ! $rows ) {
 					continue;
 				}
 				?>
 				<details class="faq">
-					<summary><span class="day-title"><?php echo esc_html( $title ); ?></span></summary>
+					<summary>
+						<span class="day-title"><?php echo esc_html( $title ); ?></span>
+						<?php if ( $caption ) : ?>
+							<span class="day-venue" style="display: block; font-size: 0.85em; font-weight: normal; color: #666; margin-top: 4px; line-height: 1.4;">
+								<?php echo esc_html( $caption ); ?>
+							</span>
+						<?php endif; ?>
+					</summary>
 					<div class="faq-a">
 						<table>
-							<?php // Visually hidden: the day is already stated in the summary above. ?>
-							<caption class="label vh"><?php echo esc_html( $caption ); ?></caption>
+							<caption class="label vh"><?php echo esc_html( $title ); ?></caption>
 							<thead>
 								<tr>
 									<th scope="col"><?php esc_html_e( 'Time', 'convergx' ); ?></th>

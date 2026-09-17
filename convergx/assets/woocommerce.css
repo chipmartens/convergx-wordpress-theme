@@ -646,3 +646,61 @@
 .wc-block-components-order-summary-item__image img[src*="woocommerce-placeholder"] {
   display: none;
 }
+
+/* ---------------------------------------------------------------
+   16. PARTICIPANT FIELDS ON CHECKOUT.
+   One fieldset per pass. Billing remains the payer; this is who
+   actually attends, which is what the review is for.
+   --------------------------------------------------------------- */
+.cx-attendees {
+  margin-block-end: var(--space-xl);
+  padding-block-end: var(--space-l);
+  border-block-end: 1px solid var(--rule-ink-load);
+}
+
+.cx-attendees h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  color: var(--fg-hi);
+  margin: 0 0 var(--space-xs);
+}
+
+.cx-attendees-lede {
+  color: var(--fg-lo);
+  font-size: var(--step--1);
+  margin: 0 0 var(--space-l);
+  max-width: none;
+}
+
+.cx-attendee {
+  border: 1px solid var(--rule-ink-load);
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l) var(--space-s);
+  margin: 0 0 var(--space-m);
+}
+
+.cx-attendee legend {
+  font-family: var(--font-mono);
+  font-size: var(--step--2);
+  letter-spacing: var(--track-label);
+  text-transform: uppercase;
+  color: var(--chrome-text);
+  padding-inline: var(--space-2xs);
+}
+
+.cx-attendee .form-row {
+  margin-block-end: var(--space-s);
+}
+
+.cx-attendee-admin {
+  margin-block: var(--space-m) 0;
+}
+
+.cx-attendee-admin table {
+  width: 100%;
+}
+
+#place_order {
+  min-height: 3.25rem;
+  width: 100%;
+}

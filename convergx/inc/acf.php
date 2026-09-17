@@ -294,7 +294,7 @@ function convergx_register_register_page_fields() {
 							'label'        => 'Price qualifier',
 							'name'         => 'qualifier',
 							'type'         => 'text',
-							'instructions' => "ConvergX's own wording, VERBATIM. Do not paraphrase, do not fix the capitalisation. Standard reads: Price does not include Admin Fees + Tax. Military and Government read: Price does not include Admin Fees. Tax is not applicable to this registration.",
+							'instructions' => 'ConvergX\'s own wording, VERBATIM. Do not paraphrase, do not fix the capitalisation. Standard reads: Price does not include tax. Military and Government read: Tax is not applicable to this registration.',
 						),
 						array(
 							'key'          => 'field_convergx_pass_total',

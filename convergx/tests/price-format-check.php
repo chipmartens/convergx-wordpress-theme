@@ -8,7 +8,7 @@
  *
  * WHAT IT PROTECTS. inc/woo.php reformats every price on the site to
  * "2,000 USD" by trimming trailing zeros. The dangerous way to get that result
- * is to set the decimal count to zero, which ROUNDS: a 10.50 admin fee silently
+ * is to set the decimal count to zero, which ROUNDS: a 10.50 amount silently
  * becomes 11, on the money path, with nothing to notice it. This asserts the
  * displayed amount still equals the input for whole AND fractional values.
  *

@@ -4700,11 +4700,11 @@ html:not(.js) .bio-overlay:target,
   color: var(--fg-lo);
 }
 
-/* The qualifier that travels with the price. ConvergX publishes an admin-fee
- * and tax line on every registration product and it sits HERE, directly under
- * the figure, never in a footnote. A delegate who reaches checkout and meets
- * a higher number than this page showed is the worst failure on the money
- * path. Verbatim, per product, never flattened into one blanket line. */
+/* The qualifier that travels with the price. Tax (when it applies) sits
+ * HERE, directly under the figure, never in a footnote. A delegate who
+ * reaches checkout and meets a higher number than this page showed is the
+ * worst failure on the money path. Verbatim, per product, never flattened
+ * into one blanket line. */
 .store-qual {
   font-size: var(--step--1);
   color: var(--fg-lo);
@@ -6816,4 +6816,26 @@ main > [data-surface]:not(:has(~ :not(.bio-overlay))) {
   font-weight: 600;
   color: var(--fg-hi);
   white-space: nowrap;
+}
+
+/* ================= 63. FORM HONEYPOT ================= */
+/* Hidden from people, left in the DOM for naive bots. Off-canvas rather
+ * than display:none so it still looks like a field to scrapers. */
+.cx-hp {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.cx-hp input {
+  min-height: 0 !important;
 }
