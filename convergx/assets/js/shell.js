@@ -139,7 +139,11 @@
      * consulting or for congresses. The bar answers that question; the
      * brand name Xpand stays on the page, the homepage block and the
      * logo. Path unchanged, so nothing inbound breaks. */
-    { label: "Consulting",     href: "/xpand/",     mega: "xpand",      live: true }
+    { label: "Consulting",     href: "/xpand/",     mega: "xpand",      live: true },
+    /* The Platform is the top-level item the About note below was holding
+     * a seat for. /platform/ shipped, so live flips on and the row lands
+     * in the primary group, before About. No mega: one page, no panel. */
+    { label: "The Platform",   href: "/platform/",                     live: true }
   ];
   /* About is a UTILITY link and it now TAKES A PANEL. Chip, 2026-07-29:
    * "you probably have to add a mega menu for About so those pages are
@@ -148,13 +152,10 @@
    * defect, not a placement decision. Spec 2 says About never takes a
    * panel; Chip's instruction supersedes that line.
    *
-   * IT STAYS A UTILITY LINK RATHER THAN BECOMING A FIFTH PRIMARY ITEM,
-   * and the reason is the item that is coming. NAV is the primary group
-   * and a further top-level item is known to be on its way. Promoting
-   * About would seat it inside that group and it would then have to move
-   * again when the real item arrives. Keeping it after the group costs
-   * nothing a reader can feel now that it has a panel, and it leaves the
-   * primary row's order untouched.
+   * IT STAYS A UTILITY LINK RATHER THAN BECOMING A PRIMARY ITEM. The
+   * Platform now occupies the primary seat this note used to reserve.
+   * Keeping About after the group costs nothing a reader can feel now
+   * that it has a panel, and it leaves the primary row's order untouched.
    *
    * It is STRUCTURALLY a utility link and VISUALLY a primary one: same
    * font, size, weight, ink and hover as the items beside it. The 11px
@@ -165,6 +166,7 @@
   var NAV = (CX_WP && CX_WP.primary && CX_WP.primary.length) ? CX_WP.primary : NAV_DEFAULT;
 
   var UTILITY = { label: "About", href: "/about/", mega: "about" };
+
   /* THE HEADER CTA IS THE CONGRESS, from 2026-08-07, on the client's
    * instruction. For the six weeks to September the site's job is Congress
    * attendance, and "Request access" is the label for a service door rather
@@ -764,8 +766,7 @@
      * device. The old .nav-util hook and its 11px mono micro-label rule
      * are both gone, and as of 2026-07-29 so is the "no panel" half of
      * what used to make it a second class. What keeps it a utility item
-     * now is one thing only: it sits after the primary group, so the
-     * top-level item still to come does not have to displace it. */
+     * now is one thing only: it sits after the primary group. */
     items.push(navItem(UTILITY, current, mobile));
     if (mobile) {
       items.push("<li><a href=\"" + CTA.href + "\">" + CTA.label + "</a></li>");

@@ -66,6 +66,7 @@ wp_head();
 					<li><a href="<?php echo esc_url( home_url( '/congress/' ) ); ?>"><?php esc_html_e( 'Congresses', 'convergx' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/xpand/' ) ); ?>"><?php esc_html_e( 'Consulting', 'convergx' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/about/' ) ); ?>"><?php esc_html_e( 'About', 'convergx' ); ?></a></li>
+					<li><a href="<?php echo esc_url( home_url( '/platform/' ) ); ?>"><?php esc_html_e( 'The Platform', 'convergx' ); ?></a></li>
 					<li><a href="<?php echo esc_url( home_url( '/congress/register/' ) ); ?>"><?php esc_html_e( 'Attend the Congress', 'convergx' ); ?></a></li>
 				</ul>
 			</nav>
