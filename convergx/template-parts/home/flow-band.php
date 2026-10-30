@@ -429,7 +429,7 @@ defined( 'ABSPATH' ) || exit;
                  ConvergX loses, which is the same reason /about/network/ is
                  titled "Who we convene". What ConvergX has is a set of
                  companies it has vetted, and that is what this says. -->
-            <span style="--s:2">ConvergX asks the companies it has vetted</span>
+            <span style="--s:2">ConvergX® asks the companies it has vetted</span>
             <span style="--s:3">Vetted companies answer</span>
             <span style="--s:4">One introduction is brokered</span>
           </p>

@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
            exactly why it is easy to leave stale. It states a count, so it
            goes out of date the moment a door is added or removed. Count the
            <li>s below before trusting it. -->
-      <h2 id="launch-h" class="vh">Two things ConvergX runs</h2>
+      <h2 id="launch-h" class="vh">Two things ConvergX® runs</h2>
       <!-- THE X-NAME LEADS, THE PLAIN WORD BECOMES THE EYEBROW. Chip,
            2026-08-04. The pair was the other way round: "ConvergX Xchange"
            over "Conference". It now reads "The Conference" over "Xchange",
@@ -33,16 +33,16 @@ defined( 'ABSPATH' ) || exit;
           <span class="launcher-logo" aria-hidden="true"></span>
           <p class="label launcher-name">The Congress</p>
           <h3 class="launcher-title"><a href="<?php echo esc_url( home_url( '/congress/' ) ); ?>">Xchange</a></h3>
-          <p class="launcher-desc">Celebrating 10 years of ConvergX, the Global Xchange is where decision-makers come to solve problems, build partnerships, and create opportunity.</p>
+          <p class="launcher-desc">Celebrating 10 years of ConvergX®, the Global Xchange is where decision-makers come to solve problems, build partnerships, and create opportunity.</p>
           <p class="launcher-cta"><a href="<?php echo esc_url( home_url( '/congress/#agenda' ) ); ?>">Agenda <span aria-hidden="true">&#8594;</span></a></p>
         </li>
         <li class="launcher">
           <!-- TODO: ConvergX Xpand mark. Same treatment. -->
           <span class="launcher-logo" aria-hidden="true"></span>
           <p class="label launcher-name">Consulting</p>
-          <h3 class="launcher-title"><a href="<?php echo esc_url( home_url( '/xpand/' ) ); ?>">Xpand</a></h3>
-          <p class="launcher-desc">ConvergX Xpand consulting services work with decision makers to define problems, identify solutions across new industries, and pair the two.</p>
-          <p class="launcher-cta"><a href="<?php echo esc_url( home_url( '/xpand/#what-xpand-does' ) ); ?>">What Xpand does <span aria-hidden="true">&#8594;</span></a></p>
+          <h3 class="launcher-title"><a href="<?php echo esc_url( home_url( '/xpand/' ) ); ?>">Xpand™</a></h3>
+          <p class="launcher-desc">ConvergX® Xpand™ consulting services work with decision makers to define problems, identify solutions across new industries, and pair the two.</p>
+          <p class="launcher-cta"><a href="<?php echo esc_url( home_url( '/xpand/#what-xpand-does' ) ); ?>">What Xpand™ does <span aria-hidden="true">&#8594;</span></a></p>
         </li>
       </ul>
     </div>

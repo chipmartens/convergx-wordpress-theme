@@ -1567,6 +1567,68 @@
       var pageQuotes = document.querySelector("main .quotes.footer-quotes");
       if (pageQuotes) wireQuotes(pageQuotes);
     }
+
+    /* Brand marks: ConvergX® / Xpand™ on every visible string after the shell
+     * has painted. Idempotent with the PHP filters on the_content / ACF. */
+    applyBrandMarks(document.body);
+  }
+
+  /**
+   * Append ® to ConvergX and ™ to Xpand in plain text. Skips names already
+   * marked, and names glued into paths (/xpand/, #xpand-prep).
+   */
+  function brandMarks(text) {
+    if (!text || (text.indexOf("ConvergX") === -1 && text.indexOf("Xpand") === -1)) {
+      return text;
+    }
+    return text
+      .replace(/(^|[^\w\/.#-])ConvergX(?![®\u00AE])/g, "$1ConvergX®")
+      .replace(/(^|[^\w\/.#-])Xpand(?![™\u2122])/g, "$1Xpand™");
+  }
+
+  function applyBrandMarks(root) {
+    if (!root || !root.querySelectorAll) return;
+
+    var skipSel = "script,style,code,pre,textarea,kbd,samp";
+    var attrs = ["aria-label", "title", "alt", "placeholder"];
+    var i;
+    var el;
+    var attr;
+    var val;
+
+    for (i = 0; i < attrs.length; i++) {
+      attr = attrs[i];
+      var labeled = root.querySelectorAll("[" + attr + "]");
+      var j;
+      for (j = 0; j < labeled.length; j++) {
+        el = labeled[j];
+        if (el.closest && el.closest(skipSel)) continue;
+        val = el.getAttribute(attr);
+        if (!val) continue;
+        var next = brandMarks(val);
+        if (next !== val) el.setAttribute(attr, next);
+      }
+    }
+
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        var p = node.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (p.closest && p.closest(skipSel + ",[data-logo-slot]")) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (!node.nodeValue || (node.nodeValue.indexOf("ConvergX") === -1 && node.nodeValue.indexOf("Xpand") === -1)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    var nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    for (i = 0; i < nodes.length; i++) {
+      nodes[i].nodeValue = brandMarks(nodes[i].nodeValue);
+    }
   }
 
   if (document.readyState === "loading") {

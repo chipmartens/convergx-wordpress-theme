@@ -16,11 +16,11 @@ defined( 'ABSPATH' ) || exit;
       </div>
       <div class="editorial push-end-l">
         <div class="lede">
-          <p>A ConvergX brings together senior industry leaders to seek shared solutions to common problems. We accomplish that by holding a 2.5 day Congress, Summit or Executive Roundtable.</p>
+          <p>A ConvergX® brings together senior industry leaders to seek shared solutions to common problems. We accomplish that by holding a 2.5 day Congress, Summit or Executive Roundtable.</p>
         </div>
         <div class="body">
-          <p>Each invitation-only ConvergX has specific requirements.</p>
-          <p>All attendees are individually vetted, VP level or higher decision makers. Proof of ability to directly influence business direction and lead partnerships and investment is required to be considered to join ConvergX.</p>
+          <p>Each invitation-only ConvergX® has specific requirements.</p>
+          <p>All attendees are individually vetted, VP level or higher decision makers. Proof of ability to directly influence business direction and lead partnerships and investment is required to be considered to join ConvergX®.</p>
         </div>
       </div>
 

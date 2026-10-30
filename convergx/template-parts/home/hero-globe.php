@@ -338,7 +338,7 @@ defined( 'ABSPATH' ) || exit;
            defensive insurance copy where a first-time reader needs orientation. The new
            first sentence is ConvergX's own approved line (global-congress-2026 capture);
            the second states the mechanism plainly; the tenth year stays as grounding. -->
-      <p class="hero-sub lede-text">The next breakthrough in your industry may already exist in another. ConvergX convenes the industries that rarely meet so proven solutions can cross between them.</p>
+      <p class="hero-sub lede-text">The next breakthrough in your industry may already exist in another. ConvergX® convenes the industries that rarely meet so proven solutions can cross between them.</p>
       <!-- THE HERO PAIR IS THE CONGRESS AND THE INBOX, from 2026-08-07, on the
            client's instruction. For the six weeks to September the homepage's
            job is Congress attendance, so the primary button asks for that in

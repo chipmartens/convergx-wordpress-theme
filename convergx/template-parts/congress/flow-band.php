@@ -32,7 +32,7 @@ defined( 'ABSPATH' ) || exit;
              at it. The id does not change, only the words. -->
         <h2 id="flow-title">Who is in the room</h2>
         <div class="flow-intro-body">
-          <p class="flow-intro-desc">ConvergX convenes leaders from aerospace, defence, security and space; agriculture and food systems; mining and critical minerals; construction and infrastructure; advanced manufacturing; energy; health and life sciences; financial services; supply chain, logistics and trade; and digital infrastructure and cybersecurity.</p>
+          <p class="flow-intro-desc">ConvergX® convenes leaders from aerospace, defence, security and space; agriculture and food systems; mining and critical minerals; construction and infrastructure; advanced manufacturing; energy; health and life sciences; financial services; supply chain, logistics and trade; and digital infrastructure and cybersecurity.</p>
           <!-- THE ADMISSION STANDARD, added 2026-08-04 on Chip's instruction:
              "add a bit more of the original text from their current Who
              attends section... we need a bit of the VP level / decision maker
@@ -47,8 +47,8 @@ defined( 'ABSPATH' ) || exit;
              became a storefront, and with it went the only place this page
              said who is allowed in. A band headed "Who attends the Congress"
              is exactly where it belongs.
-             The registered glyph ConvergX prints after its own name is NOT
-             carried. No such symbol appears anywhere on this site.
+             Brand marks (ConvergX® / Xpand™) are applied site-wide via
+             inc/brand-marks.php and shell.js; keep bare names in source comments.
              The second instance on the site, the first being the panel that
              opens /congress/register/. Two is deliberate: the storefront needs
              it before a price, and this page needs it under that heading. -->
@@ -77,11 +77,11 @@ defined( 'ABSPATH' ) || exit;
         <div class="flow-heads">
           <div class="flow-head">
             <p class="label">Find capability</p>
-            <p>Companies bring ConvergX a problem, or an RFP their own supply base cannot answer.</p>
+            <p>Companies bring ConvergX® a problem, or an RFP their own supply base cannot answer.</p>
           </div>
           <div class="flow-head flow-head--right">
             <p class="label">Get discovered</p>
-            <p>ConvergX goes out to companies it has already vetted, in whatever industry and wherever they are.</p>
+            <p>ConvergX® goes out to companies it has already vetted, in whatever industry and wherever they are.</p>
           </div>
         </div>
 
@@ -492,7 +492,7 @@ defined( 'ABSPATH' ) || exit;
                  ConvergX loses, which is the same reason /about/network/ is
                  titled "Who we convene". What ConvergX has is a set of
                  companies it has vetted, and that is what this says. -->
-            <span style="--s:2">ConvergX asks the companies it has vetted</span>
+            <span style="--s:2">ConvergX® asks the companies it has vetted</span>
             <span style="--s:3">Vetted companies answer</span>
             <span style="--s:4">One introduction is brokered</span>
           </p>

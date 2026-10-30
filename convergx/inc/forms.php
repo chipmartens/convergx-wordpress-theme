@@ -265,7 +265,7 @@ function convergx_render_form( $key ) {
 
 			<?php if ( ! empty( $form['intro'] ) ) : ?>
 				<?php // A plain <p> inside the form, before the first field: the static request form sets its intro exactly there. ?>
-				<p><?php echo esc_html( $form['intro'] ); ?></p>
+				<p><?php echo esc_html( convergx_brand_marks( $form['intro'] ) ); ?></p>
 			<?php endif; ?>
 
 			<?php $fieldset_open = false; ?>
@@ -278,7 +278,7 @@ function convergx_render_form( $key ) {
 					if ( $fieldset_open ) {
 						echo '</fieldset>';
 					}
-					echo '<fieldset><legend>' . esc_html( $f['legend'] ) . '</legend>';
+					echo '<fieldset><legend>' . esc_html( convergx_brand_marks( $f['legend'] ) ) . '</legend>';
 					$fieldset_open = true;
 					continue;
 				}
@@ -292,7 +292,7 @@ function convergx_render_form( $key ) {
 					// "(optional)" lives in the label text where the static
 					// labels carry it; no extra marker span is added.
 					?>
-					<label for="<?php echo esc_attr( $fid ); ?>"><?php echo esc_html( $f['label'] ); ?></label>
+					<label for="<?php echo esc_attr( $fid ); ?>"><?php echo esc_html( convergx_brand_marks( $f['label'] ) ); ?></label>
 
 					<?php
 					/*
@@ -315,7 +315,7 @@ function convergx_render_form( $key ) {
 					?>
 					<?php if ( $hint ) : ?>
 						<?php // p.helper is the static site's own hint element and class. ?>
-						<p class="helper" id="<?php echo esc_attr( $hint_id ); ?>"><?php echo esc_html( $hint ); ?></p>
+						<p class="helper" id="<?php echo esc_attr( $hint_id ); ?>"><?php echo esc_html( convergx_brand_marks( $hint ) ); ?></p>
 					<?php endif; ?>
 
 					<?php if ( 'textarea' === $f['type'] ) : ?>
@@ -352,7 +352,7 @@ function convergx_render_form( $key ) {
 			$submit_class = $form['submit_class'] ?? 'btn btn--solid';
 			$submit_wrap  = $form['submit_wrap'] ?? true;
 			?>
-			<?php if ( $submit_wrap ) : ?><p><?php endif; ?><button class="<?php echo esc_attr( $submit_class ); ?>" type="submit"><?php echo esc_html( $form['submit'] ); ?></button><?php if ( $submit_wrap ) : ?></p><?php endif; ?>
+			<?php if ( $submit_wrap ) : ?><p><?php endif; ?><button class="<?php echo esc_attr( $submit_class ); ?>" type="submit"><?php echo esc_html( convergx_brand_marks( $form['submit'] ) ); ?></button><?php if ( $submit_wrap ) : ?></p><?php endif; ?>
 		</form>
 	<?php endif; ?>
 	<?php

@@ -48,7 +48,7 @@ $convergx_app = CONVERGX_URI . '/assets/img/app';
 						</h3>
 						<span class="cxapp-progress" aria-hidden="true"><span></span></span>
 						<div class="cxapp-tab-body" id="cxapp-panel-agenda" role="region" aria-labelledby="cxapp-tab-agenda">
-							<p>Every session, speaker, track and room for the three days, with a My agenda view of the ones you have chosen. When the organisers move a session the agenda updates itself, and the meetings ConvergX arranges for you sit alongside it.</p>
+							<p>Every session, speaker, track and room for the three days, with a My agenda view of the ones you have chosen. When the organisers move a session the agenda updates itself, and the meetings ConvergX® arranges for you sit alongside it.</p>
 						</div>
 					</li>
 
@@ -60,7 +60,7 @@ $convergx_app = CONVERGX_URI . '/assets/img/app';
 						</h3>
 						<span class="cxapp-progress" aria-hidden="true"><span></span></span>
 						<div class="cxapp-tab-body" id="cxapp-panel-board" role="region" aria-labelledby="cxapp-tab-board">
-							<p>Post a problem, a project or a need without putting your name on it. Posts are anonymous to other delegates, and ConvergX alone holds the name behind one. Another delegate answers with Participate, Feedback or Partnership, and ConvergX brokers the introduction from there.</p>
+							<p>Post a problem, a project or a need without putting your name on it. Posts are anonymous to other delegates, and ConvergX® alone holds the name behind one. Another delegate answers with Participate, Feedback or Partnership, and ConvergX® brokers the introduction from there.</p>
 						</div>
 					</li>
 

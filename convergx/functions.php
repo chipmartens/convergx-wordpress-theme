@@ -46,6 +46,7 @@ require_once CONVERGX_DIR . '/inc/woo-registration.php';
 require_once CONVERGX_DIR . '/inc/forms.php';
 require_once CONVERGX_DIR . '/inc/seo.php';
 require_once CONVERGX_DIR . '/inc/redirects.php';
+require_once CONVERGX_DIR . '/inc/brand-marks.php';
 
 /**
  * Theme supports.
